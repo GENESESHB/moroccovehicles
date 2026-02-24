@@ -86,7 +86,7 @@ export default function PartnerPage() {
       });
 
       await axios.post(
-        'https://formspree.io/f/xqaagbjk',
+        'https://formspree.io/f/xqaagbjk ',
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
@@ -379,7 +379,7 @@ export default function PartnerPage() {
             type="submit"
             disabled={isSubmitting}
             style={{
-              width: '100%',
+              width: '95%',
               marginTop: '24px',
               padding: '16px',
               fontSize: '16px',
@@ -418,7 +418,7 @@ export default function PartnerPage() {
           <button
             onClick={handleLogin}
             style={{
-              width: '100%',
+              width: '95%',
               padding: '12px 16px',
               border: '2px solid #36c275',
               borderRadius: '12px',
@@ -446,7 +446,7 @@ export default function PartnerPage() {
   );
 }
 
-// Styles réutilisables
+// Styles réutilisables - CHANGED TO 95%
 const labelStyle = {
   display: 'block',
   fontSize: '14px',
@@ -456,7 +456,7 @@ const labelStyle = {
 };
 
 const inputStyle = {
-  width: '100%',
+  width: '95%',        // ← CHANGED FROM 100% TO 95%
   padding: '12px 16px',
   border: '1px solid #e2e8f0',
   borderRadius: '12px',
