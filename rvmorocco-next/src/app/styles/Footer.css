@@ -1,0 +1,27 @@
+/* src/app/styles/Footer.css */
+.footer {
+  background-color: #ffffff; /* white background */
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #e7e7e7;
+  color: #000000; /* black text */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-text {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 14px;
+  color: #000000;
+}
