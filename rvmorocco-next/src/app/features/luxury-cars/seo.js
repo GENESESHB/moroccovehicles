@@ -1,5 +1,3 @@
-import { faqs } from './faqs';
-
 export const metadata = {
     title: "Location Voiture de Luxe Maroc : Ferrari, Porsche, Urus | Smart Car Location",
     description: "Réservez votre véhicule de prestige au Maroc. Ferrari, Lamborghini, Range Rover avec service conciergerie personnalisé et livraison VIP.",
@@ -29,7 +27,7 @@ export const metadata = {
         siteName: "Smart Car Location",
         images: [
             {
-                url: "/images/og-luxury-cars.jpg",
+                url: "https://moroccovehicles.com/images/og-luxury-cars.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Gamme de voitures de luxe Smart Car Location",
@@ -42,7 +40,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Location de Voitures de Prestige & Supercars",
         description: "L'expérience premium par excellence. Louez les plus belles voitures de la flotte Smart Car Location.",
-        images: ["/images/twitter-luxury.jpg"],
+        images: ["https://moroccovehicles.com/images/twitter-luxury.jpg"],
     },
     robots: {
         index: true,
@@ -59,43 +57,28 @@ export const metadata = {
 
 export const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "CollectionPage",
-            "name": "Collection Prestige de Voitures - Smart Car Location",
-            "description": "Flotte de véhicules haut de gamme (Supercars, SUV luxe, Berlines CEO) pour la location au Maroc.",
-            "url": "https://moroccovehicles.com/features/luxury-cars",
-            "mainEntity": {
-                "@type": "ItemList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Supercars (Ferrari, Lamborghini, Porsche)"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "SUV de Luxe (Urus, Range Rover, G-Class)"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Berlines Prestige (Rolls-Royce, Bentley)"
-                    }
-                ]
+    "@type": "CollectionPage",
+    "name": "Collection Prestige de Voitures - Smart Car Location",
+    "description": "Flotte de véhicules haut de gamme (Supercars, SUV luxe, Berlines CEO) pour la location au Maroc.",
+    "url": "https://moroccovehicles.com/features/luxury-cars",
+    "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Supercars (Ferrari, Lamborghini, Porsche)"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "SUV de Luxe (Urus, Range Rover, G-Class)"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Berlines Prestige (Rolls-Royce, Bentley)"
             }
-        },
-        {
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((faq) => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.answer
-                }
-            }))
-        }
-    ]
+        ]
+    }
 };

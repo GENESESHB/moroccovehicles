@@ -1,5 +1,3 @@
-import { faqs } from './faqs';
-
 export const metadata = {
     title: "Liste Noire Clients Location Voiture & Sécurité Flotte | Smart Car Location",
     description: "Protégez votre agence contre la fraude, les impayés et les accidents grâce au module de Liste Noire. Blocage automatique et alertes en temps réel.",
@@ -28,7 +26,7 @@ export const metadata = {
         siteName: "Smart Car Location",
         images: [
             {
-                url: "/images/og-blacklist.jpg",
+                url: "https://moroccovehicles.com/images/og-blacklist.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Interface module liste noire et sécurité Smart Car Location",
@@ -41,7 +39,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Liste Noire et Sécurité pour Agences Auto",
         description: "Bloquez automatiquement les clients problématiques et surveillez vos contentieux.",
-        images: ["/images/twitter-blacklist.jpg"],
+        images: ["https://moroccovehicles.com/images/twitter-blacklist.jpg"],
     },
     robots: {
         index: true,
@@ -58,36 +56,22 @@ export const metadata = {
 
 export const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "SoftwareApplication",
-            "name": "Smart Car Location - Module Liste Noire",
-            "operatingSystem": "Web",
-            "applicationCategory": "BusinessApplication",
-            "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "MAD"
-            },
-            "featureList": [
-                "Base de données interne des clients à risque",
-                "Blocage automatique lors de la réservation en ligne",
-                "Alerte de sécurité TPE/Agence",
-                "Traçabilité des motifs (Impayés, Excès de vitesse, Dégradations)",
-                "Réconciliation des statuts résolus"
-            ]
-        },
-        {
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((faq) => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.answer
-                }
-            }))
-        }
+    "@type": "SoftwareApplication",
+    "name": "Smart Car Location - Module Liste Noire",
+    "operatingSystem": "Web",
+    "applicationCategory": "BusinessApplication",
+    "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MAD",
+        "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+        "Base de données interne des clients à risque",
+        "Blocage automatique lors de la réservation en ligne",
+        "Alerte de sécurité TPE/Agence",
+        "Traçabilité des motifs (Impayés, Excès de vitesse, Dégradations)",
+        "Réconciliation des statuts résolus"
     ]
 };

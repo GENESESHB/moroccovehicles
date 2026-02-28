@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Smart Car Location",
     images: [
       {
-        url: "/images/og-maintenance-flotte.jpg",
+        url: "https://moroccovehicles.com/images/og-maintenance-flotte.jpg",
         width: 1200,
         height: 630,
         alt: "Tableau de bord de gestion de maintenance automobile Smart Car Location",
@@ -48,7 +48,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Logiciel Entretien Flotte Auto 2026 | Smart Car Location",
     description: "Gérez l'entretien de vos véhicules facilement : révisions prioritaires, rappels automatiques, suivi budgétaire 100% cloud.",
-    images: ["/images/twitter-maintenance.jpg"],
+    images: ["https://moroccovehicles.com/images/twitter-maintenance.jpg"],
   },
   robots: {
     index: true,
@@ -78,6 +78,7 @@ export const jsonLd = {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
     "description": "Essai gratuit de 14 jours"
   },
   "aggregateRating": {

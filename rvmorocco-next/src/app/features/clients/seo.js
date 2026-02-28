@@ -1,5 +1,3 @@
-import { faqs } from './faqs';
-
 export const metadata = {
     title: "CRM Location Voiture Maroc | Fiches Clients & Fidélité | Smart Car Location",
     description: "Fidélisez votre clientèle grâce à notre CRM dédié aux agences de location au Maroc. Historique, stockage des CIN/Permis, segmentation et suivi du CA par client.",
@@ -29,7 +27,7 @@ export const metadata = {
         siteName: "Smart Car Location",
         images: [
             {
-                url: "/images/og-clients.jpg",
+                url: "https://moroccovehicles.com/images/og-clients.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Interface du CRM Smart Car Location",
@@ -42,7 +40,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "CRM Location Voiture Maroc | Fiches Clients",
         description: "Gérez l'historique de vos locataires et accélérez les créations de contrats.",
-        images: ["/images/twitter-clients.jpg"],
+        images: ["https://moroccovehicles.com/images/twitter-clients.jpg"],
     },
     robots: {
         index: true,
@@ -59,36 +57,22 @@ export const metadata = {
 
 export const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "SoftwareApplication",
-            "name": "Smart Car Location - Module CRM Clients",
-            "operatingSystem": "Web, iOS, Android",
-            "applicationCategory": "BusinessApplication",
-            "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "MAD"
-            },
-            "featureList": [
-                "Fiches clients détaillées avec historique des locations",
-                "Stockage sécurisé des CIN, passeports et permis de conduire",
-                "Segmentation avancée (Particuliers, B2B, VIP)",
-                "Suivi du chiffre d'affaires et de la rentabilité par client",
-                "Alertes péremption des documents d'identité"
-            ]
-        },
-        {
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((faq) => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.answer
-                }
-            }))
-        }
+    "@type": "SoftwareApplication",
+    "name": "Smart Car Location - Module CRM Clients",
+    "operatingSystem": "Web, iOS, Android",
+    "applicationCategory": "BusinessApplication",
+    "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MAD",
+        "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+        "Fiches clients détaillées avec historique des locations",
+        "Stockage sécurisé des CIN, passeports et permis de conduire",
+        "Segmentation avancée (Particuliers, B2B, VIP)",
+        "Suivi du chiffre d'affaires et de la rentabilité par client",
+        "Alertes péremption des documents d'identité"
     ]
 };

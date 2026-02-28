@@ -1,5 +1,3 @@
-import { faqs } from './faqs';
-
 export const metadata = {
     title: "Contrats de Location VIP & Prestations Luxe Maroc | Smart Car Location",
     description: "Bénéficiez de nos contrats de location sur-mesure pour véhicules de prestige : Conciergerie, Assurance Premium, discrétion absolue et flexibilité totale.",
@@ -28,7 +26,7 @@ export const metadata = {
         siteName: "Smart Car Location",
         images: [
             {
-                url: "/images/og-luxury-contracts.jpg",
+                url: "https://moroccovehicles.com/images/og-luxury-contracts.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Signature de contrat de location VIP Smart Car Location",
@@ -41,7 +39,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Gestion des Contrats de Location de Prestige",
         description: "La perfection dans les moindres détails, de la réservation à l'état des lieux VIP.",
-        images: ["/images/twitter-luxury-contracts.jpg"],
+        images: ["https://moroccovehicles.com/images/twitter-luxury-contracts.jpg"],
     },
     robots: {
         index: true,
@@ -58,36 +56,22 @@ export const metadata = {
 
 export const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "SoftwareApplication",
-            "name": "Smart Car Location - Module Contrats VIP",
-            "operatingSystem": "Web",
-            "applicationCategory": "BusinessApplication",
-            "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "MAD"
-            },
-            "featureList": [
-                "Rédaction de contrats de prestige sur-mesure",
-                "État des lieux digital Très Haute Résolution",
-                "Gestion des cautions Premium",
-                "Options Chauffeur et Sécurité Rapprochée intégrables",
-                "Archivage ultra-sécurisé et confidentiel"
-            ]
-        },
-        {
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((faq) => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.answer
-                }
-            }))
-        }
+    "@type": "SoftwareApplication",
+    "name": "Smart Car Location - Module Contrats VIP",
+    "operatingSystem": "Web",
+    "applicationCategory": "BusinessApplication",
+    "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MAD",
+        "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+        "Rédaction de contrats de prestige sur-mesure",
+        "État des lieux digital Très Haute Résolution",
+        "Gestion des cautions Premium",
+        "Options Chauffeur et Sécurité Rapprochée intégrables",
+        "Archivage ultra-sécurisé et confidentiel"
     ]
 };
