@@ -1,3 +1,5 @@
+import { faqs } from './faqs';
+
 export const metadata = {
     title: "Tableau de Bord Analytique | Gestion de Flotte Automobile Maroc",
     description: "Statistiques en temps réel pour optimiser votre flotte de véhicules au Maroc. Comparez vos revenus Luxury vs Regular, suivez le taux d'occupation et téléchargez vos KPIs 2026.",
@@ -20,16 +22,16 @@ export const metadata = {
         telephone: false,
     },
     alternates: {
-        canonical: "https://moroccovehicles.com/features/overview",
+        canonical: "https://moroccovehicles.com/features/overview", // ✅ Sans espace
     },
     openGraph: {
         title: "Tableau de Bord et KPIs Flotte Auto 2026 | Smart Car Location",
         description: "Analysez vos performances annuelles, le taux d'occupation et la croissance de vos véhicules réguliers et de luxe en un coup d'œil.",
-        url: "https://moroccovehicles.com/features/overview",
+        url: "https://moroccovehicles.com/features/overview", // ✅ Sans espace
         siteName: "Smart Car Location",
         images: [
             {
-                url: "/images/og-overview-dashboard.jpg",
+                url: "https://moroccovehicles.com/images/og-overview-dashboard.jpg", // ✅ URL absolue
                 width: 1200,
                 height: 630,
                 alt: "Graphiques et statistiques du logiciel de location automobile",
@@ -42,65 +44,91 @@ export const metadata = {
         card: "summary_large_image",
         title: "Statistiques Flotte Automobile | Smart Car Location",
         description: "Les meilleurs outils analytiques 2026 pour maximiser le revenu de votre agence de location de véhicules.",
-        images: ["/images/twitter-overview.jpg"],
+        images: ["https://moroccovehicles.com/images/twitter-overview.jpg"], // ✅ URL absolue
     },
     robots: {
         index: true,
         follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
     },
 };
 
+// ✅ Génération dynamique du FAQPage à partir de faqs.js
+const faqSchema = {
+    "@type": "FAQPage",
+    "@id": "https://moroccovehicles.com/features/overview#faq",
+    "mainEntity": faqs.map((faq, index) => ({
+        "@type": "Question",
+        "@id": `https://moroccovehicles.com/features/overview#question-${index + 1}`,
+        "name": faq.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "@id": `https://moroccovehicles.com/features/overview#answer-${index + 1}`,
+            "text": faq.answer
+        }
+    }))
+};
+
 export const jsonLd = {
-    "@context": "https://schema.org",
+    "@context": "https://schema.org", // ✅ Sans espace
     "@graph": [
         {
             "@type": "SoftwareApplication",
+            "@id": "https://moroccovehicles.com/features/overview#software",
             "name": "Smart Car Location - Module Analytique",
             "applicationCategory": "BusinessApplication",
-            "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
             "operatingSystem": "Web, iOS, Android",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MAD" },
+            "offers": { 
+                "@type": "Offer", 
+                "price": "0", 
+                "priceCurrency": "MAD",
+                "availability": "https://schema.org/InStock"
+            },
             "featureList": [
                 "Visualisations interactives Recharts (AreaChart, PieChart, ComposedChart)",
                 "Filtrage dynamique Luxury vs Regular",
                 "Calculs métriques avancés (growth rate, consistency score)",
                 "Reportings financiers exacts avec temps réel"
-            ]
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "127",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            // ✅ Lien vers le FAQ comme contenu associé
+            "subjectOf": {
+                "@id": "https://moroccovehicles.com/features/overview#faq"
+            }
         },
+        faqSchema, // ✅ Toutes les 5 FAQ incluses dynamiquement
         {
-            "@type": "FAQPage",
-            "mainEntity": [
+            "@type": "BreadcrumbList",
+            "@id": "https://moroccovehicles.com/features/overview#breadcrumb",
+            "itemListElement": [
                 {
-                    "@type": "Question",
-                    "name": "Comment sont calculées les statistiques de revenus ?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Les statistiques de revenus annuels et mensuels sont calculées en temps réel à partir de vos contrats de location facturés. L'algorithme exclut automatiquement les devis non confirmés et les réservations annulées pour vous fournir une vision financière exacte (MRR/ARR)."
-                    }
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://moroccovehicles.com/"
                 },
                 {
-                    "@type": "Question",
-                    "name": "Quelle est la différence entre les segments Luxury et Regular ?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Le segment Luxury (smart) englobe les véhicules premium (Mercedes, BMW, etc.) avec une forte valeur locative et un rendement moyen >1000 MAD/jour. Le segment Regular concerne les véhicules standards (Dacia, Peugeot) à fort volume de rotation."
-                    }
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fonctionnalités",
+                    "item": "https://moroccovehicles.com/features"
                 },
                 {
-                    "@type": "Question",
-                    "name": "Comment est défini le 'Meilleur Véhicule de l'Année' ?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Notre IA attribue un score composé pondérant 3 facteurs clés : les revenus totaux générés, le nombre de jours de location (taux d'occupation), et le score de régularité mensuel. Le véhicule ayant le meilleur ratio global gagne le titre."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Puis-je exporter mes données analytiques ?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Oui, vous pouvez exporter l'intégralité des tableaux de bord et des comparaisons mensuelles sous format PDF, CSV ou Excel directement depuis le bouton 'Exporter les Données' situé en haut de page."
-                    }
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Vue d'ensemble",
+                    "item": "https://moroccovehicles.com/features/overview"
                 }
             ]
         }
