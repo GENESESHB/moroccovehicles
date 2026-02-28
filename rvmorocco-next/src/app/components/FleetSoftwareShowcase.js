@@ -1,12 +1,13 @@
-// src/app/page.js
+// src/app/components/FleetSoftwareShowcase.jsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, 
   LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadarChart, PolarGrid, 
-  PolarAngleAxis, PolarRadiusAxis, Radar, ComposedChart, ScatterChart, Scatter, ZAxis,
-  Legend
+  PolarAngleAxis, PolarRadiusAxis, Radar, ComposedChart, Legend
 } from 'recharts';
 import { 
   Car, Users, FileText, Crown, Calendar, Shield, Wrench, AlertTriangle, 
@@ -307,9 +308,11 @@ const BlacklistChart = () => (
 );
 
 // --- MODULES CONFIGURATION ---
+// Added href property for internal links - SEO 2026 Optimized
 const modules = [
   { 
     name: 'Vue d\'ensemble', 
+    href: '/features/overview',
     description: 'Tableau de bord centralisé affichant les indicateurs clés de votre activité : nombre de contrats actifs, taux d\'occupation des véhicules, chiffre d\'affaires mensuel, et alertes importantes. Visualisez en un coup d\'œil la santé de votre entreprise.',
     gradient: 'linear-gradient(135deg, #36c275, #2a9e5c)',
     chart: OverviewChart,
@@ -322,6 +325,7 @@ const modules = [
   },
   { 
     name: 'Véhicules', 
+    href: '/features/vehicles',
     description: 'Gérez l\'intégralité de votre flotte : ajout, modification, suivi des entretiens, disponibilité, et historique des locations. Chaque véhicule dispose d\'une fiche détaillée avec photos, caractéristiques et documents associés.',
     gradient: 'linear-gradient(135deg, #10b981, #34d399)',
     chart: VehiclesChart,
@@ -334,6 +338,7 @@ const modules = [
   },
   { 
     name: 'Contrats', 
+    href: '/features/contracts',
     description: 'Créez, modifiez et suivez tous vos contrats de location en quelques clics. Gérez les signatures électroniques, les dépôts de garantie, les états des lieux, et la facturation automatique. Un historique complet est conservé pour chaque contrat.',
     gradient: 'linear-gradient(135deg, #f59e0b, #fbbf24)',
     chart: ContractsChart,
@@ -346,6 +351,7 @@ const modules = [
   },
   { 
     name: 'Luxury Voitures', 
+    href: '/features/luxury-cars',
     description: 'Une section dédiée aux véhicules de prestige : Ferrari, Lamborghini, Rolls-Royce, etc. Bénéficiez d\'une gestion spécifique avec des options de personnalisation avancées, des photos haute résolution et des conditions de location particulières.',
     gradient: 'linear-gradient(135deg, #8b5cf6, #a78bfa)',
     chart: LuxuryCarsChart,
@@ -358,6 +364,7 @@ const modules = [
   },
   { 
     name: 'Luxury Contracts', 
+    href: '/features/luxury-contracts',
     description: 'Contrats haut de gamme pour les locations de véhicules de luxe. Incluent des clauses spécifiques, des assurances renforcées, et un service de conciergerie. Tous les documents sont sécurisés et accessibles depuis un tableau de bord exclusif.',
     gradient: 'linear-gradient(135deg, #ec4899, #f472b6)',
     chart: LuxuryContractsChart,
@@ -370,6 +377,7 @@ const modules = [
   },
   { 
     name: 'Calendrier', 
+    href: '/features/calendrier',
     description: 'Visualisez en temps réel les réservations et la disponibilité de vos véhicules. Le calendrier interactif vous permet de planifier les locations, d\'éviter les chevauchements et de gérer les périodes de maintenance.',
     gradient: 'linear-gradient(135deg, #06b6d4, #22d3ee)',
     chart: CalendarChart,
@@ -382,6 +390,7 @@ const modules = [
   },
   { 
     name: 'Clients', 
+    href: '/features/clients',
     description: 'Base de données clients complète avec historique des locations, préférences, documents d\'identité, et contrat type. Segmentez votre clientèle pour des offres personnalisées et fidélisez grâce à un suivi détaillé.',
     gradient: 'linear-gradient(135deg, #f97316, #fb923c)',
     chart: ClientsChart,
@@ -394,6 +403,7 @@ const modules = [
   },
   { 
     name: 'Assurance', 
+    href: '/features/assurance',
     description: 'Gérez les polices d\'assurance liées à chaque véhicule et à chaque contrat. Suivez les sinistres, les franchises, et les remboursements. Une interface claire vous aide à rester conforme et à protéger votre activité.',
     gradient: 'linear-gradient(135deg, #ef4444, #f87171)',
     chart: InsuranceChart,
@@ -406,6 +416,7 @@ const modules = [
   },
   { 
     name: 'Maintenance', 
+    href: '/features/maintenance',
     description: 'Planifiez et suivez les opérations d\'entretien de votre flotte : révisions, contrôles techniques, réparations. Recevez des rappels automatiques et conservez un historique complet pour chaque véhicule.',
     gradient: 'linear-gradient(135deg, #6366f1, #818cf8)',
     chart: MaintenanceChart,
@@ -418,6 +429,7 @@ const modules = [
   },
   { 
     name: 'Liste Noire', 
+    href: '/features/black-list',
     description: 'Identifiez et gérez les clients indésirables ou à risque. Centralisez les motifs d\'inscription (impayés, litiges, comportements inappropriés) et protégez votre entreprise en bloquant automatiquement certaines réservations.',
     gradient: 'linear-gradient(135deg, #dc2626, #ef4444)',
     chart: BlacklistChart,
@@ -430,6 +442,35 @@ const modules = [
   }
 ];
 
+// --- STRUCTURED DATA JSON-LD ---
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MoroccoVehicles",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "MAD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "500"
+  },
+  "description": "Logiciel de gestion de flotte automobile au Maroc pour agences de location",
+  "url": "https://moroccovehicles.com",
+  "provider": {
+    "@type": "Organization",
+    "name": "MoroccoVehicles",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "MA"
+    }
+  }
+};
+
 // --- MAIN COMPONENT ---
 export default function FleetSoftwareShowcase() {
   const [isVisible, setIsVisible] = useState(false);
@@ -439,250 +480,268 @@ export default function FleetSoftwareShowcase() {
   }, []);
 
   return (
-    <div className="landing-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay">
-          <div className="container">
-            <div className="container-content">
-              <div className="hero-content">
-                <span className="badge">
-                  <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                  Logiciel innovant
-                </span>
-                <h1>MoroccoVehicles</h1>
-                <p className="hero-subtitle">
-                  La solution complète pour la gestion de votre flotte automobile au Maroc. 
-                  Optimisez vos locations, suivez vos véhicules en temps réel et maximisez votre rentabilité.
-                </p>
-                <div className="hero-cta">
-                  <button className="btn btn-primary">
-                    Découvrir la Solution
-                    <ArrowRight size={18} style={{ marginLeft: '8px' }} />
-                  </button>
-                  <button className="btn btn-outline">
-                    <Play size={18} style={{ marginRight: '8px' }} />
-                    Demander une Démo
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats / Trust Indicators */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="container-content">
-            <div className="stats-grid">
-              <div className="stat-item">
-                <h3>500+</h3>
-                <p>Agences partenaires</p>
-              </div>
-              <div className="stat-item">
-                <h3>15k+</h3>
-                <p>Véhicules gérés</p>
-              </div>
-              <div className="stat-item">
-                <h3>98%</h3>
-                <p>Taux de satisfaction</p>
-              </div>
-              <div className="stat-item">
-                <h3>24/7</h3>
-                <p>Support technique</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section">
-        <div className="container">
-          <div className="container-content">
-            <div className="section-header">
-              <h2>Fonctionnalités clés</h2>
-              <p>Tout ce dont vous avez besoin pour gérer votre agence de location automobile</p>
-            </div>
-
-            <div className="features-grid">
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#e0e7ff' }}>
-                  <BarChart3 size={24} color="#6366f1" />
-                </div>
-                <h3>Analytics temps réel</h3>
-                <p>Tableaux de bord interactifs avec KPIs essentiels pour piloter votre activité au quotidien.</p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#dbeafe' }}>
-                  <Car size={24} color="#36c275" />
-                </div>
-                <h3>Gestion complète du parc</h3>
-                <p>Suivi détaillé de chaque véhicule : disponibilité, entretien, historique et documents.</p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#fef3c7' }}>
-                  <FileText size={24} color="#f59e0b" />
-                </div>
-                <h3>Contrats digitalisés</h3>
-                <p>Création, signature électronique et archivage automatique de tous vos contrats.</p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#fce7f3' }}>
-                  <Crown size={24} color="#ec4899" />
-                </div>
-                <h3>Segment Premium</h3>
-                <p>Gestion spécifique des véhicules de luxe avec service conciergerie intégré.</p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#d1fae5' }}>
-                  <ShieldCheck size={24} color="#10b981" />
-                </div>
-                <h3>Sécurité & Conformité</h3>
-                <p>Protection des données, gestion des assurances et conformité légale garanties.</p>
-              </div>
-
-              <div className="feature-card">
-                <div className="feature-icon" style={{ background: '#cffafe' }}>
-                  <Zap size={24} color="#06b6d4" />
-                </div>
-                <h3>Automatisation intelligente</h3>
-                <p>Alertes automatiques, relances clients et planification des entretiens sans effort.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Module Sections with Charts */}
-      {modules.map((module, index) => {
-        const IconComponent = module.icon;
-        const ChartComponent = module.chart;
-        const isEven = index % 2 === 0;
-        
-        return (
-          <section 
-            key={module.name} 
-            className={`module-section ${isEven ? 'bg-light' : 'bg-white'}`}
-          >
+    <>
+      {/* JSON-LD Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
+      <div className="landing-page">
+        {/* Hero Section - Semantic HTML5 */}
+        <header className="hero-section" role="banner">
+          <div className="hero-overlay">
             <div className="container">
               <div className="container-content">
-                <div className={`module-grid ${isEven ? '' : 'module-grid-reverse'}`}>
-                  <div className="module-content">
-                    <div className="module-header">
-                      <div className="module-icon" style={{ background: module.gradient }}>
-                        <IconComponent size={28} color="white" />
-                      </div>
-                      <h2>{module.name}</h2>
-                    </div>
-                    <p>{module.description}</p>
-                    
-                    <div className="module-stats">
-                      {module.stats.map((stat, idx) => (
-                        <div key={idx} className="module-stat">
-                          <span className="stat-value">{stat.value}</span>
-                          <span className="stat-label">{stat.label}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div className="hero-content">
+                  <span className="badge">
+                    <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} aria-hidden="true" />
+                    Logiciel innovant
+                  </span>
+                  <h1>MoroccoVehicles - Logiciel de Gestion de Flotte Automobile au Maroc</h1>
+                  <p className="hero-subtitle">
+                    La solution complète pour la gestion de votre flotte automobile au Maroc. 
+                    Optimisez vos locations, suivez vos véhicules en temps réel et maximisez votre rentabilité.
+                  </p>
+                  <div className="hero-cta">
+                    <Link href="/demo" className="btn btn-primary" aria-label="Découvrir la solution MoroccoVehicles">
+                      Découvrir la Solution
+                      <ArrowRight size={18} style={{ marginLeft: '8px' }} aria-hidden="true" />
+                    </Link>
+                    <Link href="/contact" className="btn btn-outline" aria-label="Demander une démonstration">
+                      <Play size={18} style={{ marginRight: '8px' }} aria-hidden="true" />
+                      Demander une Démo
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
 
-                    <button className="btn btn-primary" style={{ marginTop: '24px' }}>
-                      En savoir plus
-                      <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                    </button>
-                  </div>
-                  
-                  <div className="module-chart-container">
-                    <div className="chart-wrapper">
-                      <ChartComponent />
-                    </div>
-                  </div>
+        <main id="main-content">
+          {/* Stats / Trust Indicators */}
+          <section className="stats-section" aria-label="Statistiques clés">
+            <div className="container">
+              <div className="container-content">
+                <div className="stats-grid">
+                  <article className="stat-item">
+                    <h3>500+</h3>
+                    <p>Agences partenaires</p>
+                  </article>
+                  <article className="stat-item">
+                    <h3>15k+</h3>
+                    <p>Véhicules gérés</p>
+                  </article>
+                  <article className="stat-item">
+                    <h3>98%</h3>
+                    <p>Taux de satisfaction</p>
+                  </article>
+                  <article className="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support technique</p>
+                  </article>
                 </div>
               </div>
             </div>
           </section>
-        );
-      })}
 
-      {/* Why Choose Us */}
-      <section className="why-section">
-        <div className="container">
-          <div className="container-content">
-            <div className="why-grid">
-              <div className="why-content">
-                <h2>Pourquoi choisir MoroccoVehicles ?</h2>
-                <p>
-                  MoroccoVehicles a été conçu spécifiquement pour les agences de location automobile au Maroc. 
-                  Nous comprenons les défis du marché local et offrons une solution robuste, 
-                  évolutive et parfaitement adaptée à vos besoins.
-                </p>
-                <ul className="why-list">
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Interface en français et arabe
-                  </li>
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Conforme à la législation marocaine
-                  </li>
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Paiement en MAD et gestion multi-devises
-                  </li>
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Support technique local 24/7
-                  </li>
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Hébergement sécurisé au Maroc
-                  </li>
-                  <li>
-                    <CheckCircle size={20} color="#10b981" />
-                    Intégration avec les assureurs locaux
-                  </li>
-                </ul>
-              </div>
-              <div className="why-image">
-                <div className="image-placeholder" style={{ 
-                  background: 'linear-gradient(135deg, #36c275 0%, #2a9e5c 50%, #1e7b45 100%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  padding: '40px'
-                }}>
-                  <BarChart3 size={64} style={{ marginBottom: '20px', opacity: 0.9 }} />
-                  <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px' }}>Tableau de bord unifié</h3>
-                  <p style={{ opacity: 0.8, textAlign: 'center' }}>Toutes vos données en un seul endroit</p>
+          {/* Features Section */}
+          <section className="features-section" aria-labelledby="features-heading">
+            <div className="container">
+              <div className="container-content">
+                <header className="section-header">
+                  <h2 id="features-heading">Fonctionnalités clés de notre logiciel de gestion de flotte</h2>
+                  <p>Tout ce dont vous avez besoin pour gérer votre agence de location automobile au Maroc</p>
+                </header>
+
+                <div className="features-grid">
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#e0e7ff' }}>
+                      <BarChart3 size={24} color="#6366f1" aria-hidden="true" />
+                    </div>
+                    <h3>Analytics temps réel</h3>
+                    <p>Tableaux de bord interactifs avec KPIs essentiels pour piloter votre activité au quotidien.</p>
+                  </article>
+
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#dbeafe' }}>
+                      <Car size={24} color="#36c275" aria-hidden="true" />
+                    </div>
+                    <h3>Gestion complète du parc automobile</h3>
+                    <p>Suivi détaillé de chaque véhicule : disponibilité, entretien, historique et documents.</p>
+                  </article>
+
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#fef3c7' }}>
+                      <FileText size={24} color="#f59e0b" aria-hidden="true" />
+                    </div>
+                    <h3>Contrats de location digitalisés</h3>
+                    <p>Création, signature électronique et archivage automatique de tous vos contrats.</p>
+                  </article>
+
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#fce7f3' }}>
+                      <Crown size={24} color="#ec4899" aria-hidden="true" />
+                    </div>
+                    <h3>Segment Premium et Luxe</h3>
+                    <p>Gestion spécifique des véhicules de luxe avec service conciergerie intégré.</p>
+                  </article>
+
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#d1fae5' }}>
+                      <ShieldCheck size={24} color="#10b981" aria-hidden="true" />
+                    </div>
+                    <h3>Sécurité et Conformité légale</h3>
+                    <p>Protection des données, gestion des assurances et conformité légale garanties.</p>
+                  </article>
+
+                  <article className="feature-card">
+                    <div className="feature-icon" style={{ background: '#cffafe' }}>
+                      <Zap size={24} color="#06b6d4" aria-hidden="true" />
+                    </div>
+                    <h3>Automatisation intelligente</h3>
+                    <p>Alertes automatiques, relances clients et planification des entretiens sans effort.</p>
+                  </article>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
-          <div className="container-content">
-            <div className="cta-box">
-              <h2>Prêt à transformer votre gestion ?</h2>
-              <p>Rejoignez plus de 500 agences de location au Maroc qui utilisent déjà MoroccoVehicles.</p>
-              <button className="btn btn-white">
-                Commencer maintenant
-                <ArrowRight size={18} style={{ marginLeft: '8px' }} />
-              </button>
+          {/* Module Sections with Charts - SEO Optimized with Internal Links */}
+          {modules.map((module, index) => {
+            const IconComponent = module.icon;
+            const ChartComponent = module.chart;
+            const isEven = index % 2 === 0;
+            
+            return (
+              <section 
+                key={module.name} 
+                className={`module-section ${isEven ? 'bg-light' : 'bg-white'}`}
+                aria-labelledby={`module-heading-${index}`}
+              >
+                <div className="container">
+                  <div className="container-content">
+                    <div className={`module-grid ${isEven ? '' : 'module-grid-reverse'}`}>
+                      <div className="module-content">
+                        <header className="module-header">
+                          <div className="module-icon" style={{ background: module.gradient }} aria-hidden="true">
+                            <IconComponent size={28} color="white" />
+                          </div>
+                          <h2 id={`module-heading-${index}`}>{module.name}</h2>
+                        </header>
+                        <p>{module.description}</p>
+                        
+                        <div className="module-stats">
+                          {module.stats.map((stat, idx) => (
+                            <div key={idx} className="module-stat">
+                              <span className="stat-value">{stat.value}</span>
+                              <span className="stat-label">{stat.label}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* SEO 2026: Internal Link with descriptive anchor text */}
+                        <Link 
+                          href={module.href} 
+                          className="btn btn-primary module-cta"
+                          style={{ marginTop: '24px' }}
+                          aria-label={`En savoir plus sur ${module.name}`}
+                        >
+                          En savoir plus sur {module.name}
+                          <ArrowRight size={16} style={{ marginLeft: '8px' }} aria-hidden="true" />
+                        </Link>
+                      </div>
+                      
+                      <div className="module-chart-container" aria-hidden="true">
+                        <div className="chart-wrapper">
+                          <ChartComponent />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            );
+          })}
+
+          {/* Why Choose Us - Semantic HTML */}
+          <section className="why-section" aria-labelledby="why-heading">
+            <div className="container">
+              <div className="container-content">
+                <div className="why-grid">
+                  <div className="why-content">
+                    <h2 id="why-heading">Pourquoi choisir MoroccoVehicles pour votre agence de location ?</h2>
+                    <p>
+                      MoroccoVehicles est le logiciel de gestion de flotte automobile leader au Maroc, 
+                      conçu spécifiquement pour les agences de location. Nous comprenons les défis du marché 
+                      marocain et offrons une solution robuste, évolutive et parfaitement adaptée à vos besoins.
+                    </p>
+                    <ul className="why-list">
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Interface en français et arabe pour le marché marocain</span>
+                      </li>
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Conforme à la législation marocaine des véhicules</span>
+                      </li>
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Paiement en MAD Dirhams et gestion multi-devises</span>
+                      </li>
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Support technique local disponible 24h/24 et 7j/7</span>
+                      </li>
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Hébergement sécurisé au Maroc avec protection des données</span>
+                      </li>
+                      <li>
+                        <CheckCircle size={20} color="#10b981" aria-hidden="true" />
+                        <span>Intégration avec les principaux assureurs locaux</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <aside className="why-image">
+                    <div className="image-placeholder" style={{ 
+                      background: 'linear-gradient(135deg, #36c275 0%, #2a9e5c 50%, #1e7b45 100%)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white',
+                      padding: '40px',
+                      borderRadius: '12px'
+                    }}>
+                      <BarChart3 size={64} style={{ marginBottom: '20px', opacity: 0.9 }} aria-hidden="true" />
+                      <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '12px' }}>Tableau de bord unifié</h3>
+                      <p style={{ opacity: 0.8, textAlign: 'center' }}>Toutes vos données de gestion de flotte en un seul endroit</p>
+                    </div>
+                  </aside>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="cta-section" aria-label="Appel à l'action">
+            <div className="container">
+              <div className="container-content">
+                <div className="cta-box">
+                  <h2>Prêt à transformer la gestion de votre flotte automobile ?</h2>
+                  <p>Rejoignez plus de 500 agences de location au Maroc qui utilisent déjà MoroccoVehicles pour optimiser leur rentabilité.</p>
+                  <Link href="/signup" className="btn btn-white" aria-label="Commencer maintenant avec MoroccoVehicles">
+                    Commencer maintenant
+                    <ArrowRight size={18} style={{ marginLeft: '8px' }} aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
 }

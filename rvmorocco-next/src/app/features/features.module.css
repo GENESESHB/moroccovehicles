@@ -1,0 +1,271 @@
+.featuresPage {
+    min-height: 100vh;
+    background-color: var(--background);
+    font-family: var(--font-primary, system-ui, -apple-system, sans-serif);
+}
+
+.heroSection {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.containerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heroContent h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* Grid Layout */
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: -60px auto 0;
+    position: relative;
+    z-index: 10;
+}
+
+/* Feature Cards */
+.featureCard {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    color: black;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.featureCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-accent, #333);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.featureCard:hover::after {
+    transform: scaleX(1);
+}
+
+.iconWrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+}
+
+.featureCard:hover .iconWrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.featureCard h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.featureCard p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 15px;
+    flex-grow: 1;
+    margin-bottom: 24px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.linkArrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: auto;
+    transition: gap 0.3s ease;
+}
+
+.featureCard:hover .linkArrow {
+    gap: 12px;
+}
+
+.linkText {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.3s ease;
+}
+
+.featureCard:hover .linkText {
+    text-decoration-color: currentColor;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.featuresList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+.featureLine {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.featureLine span {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Search Bar */
+.searchSection {
+    background: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 16px 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.searchBox:focus-within {
+    background: white;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.searchBox input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #1e293b;
+}
+
+.searchBox input::placeholder {
+    color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+    .heroContent h1 {
+        font-size: 32px;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        padding: 40px 16px;
+        margin-top: -40px;
+    }
+}

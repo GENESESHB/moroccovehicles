@@ -1,0 +1,57 @@
+# MoroccoVehicles
+
+&gt; Logiciel de gestion de flotte automobile au Maroc. Solution SaaS complète pour la digitalisation des contrats de location, le suivi GPS en temps réel et la maintenance préventive des véhicules.
+
+## Vue d'ensemble
+
+MoroccoVehicles est une plateforme digitale spécialisée dans la gestion de parc automobile pour le marché marocain. Notre solution permet aux entreprises de location de voitures, aux flottes d'entreprise et aux agences automobile de digitaliser l'ensemble de leurs processus.
+
+## Fonctionnalités principales
+
+- [Gestion de contrats de location](https://moroccovehicles.com/features/contracts) : Digitalisation complète des contrats de location courte et longue durée
+- [Suivi GPS temps réel](https://moroccovehicles.com/features/tracking) : Localisation et suivi de tous vos véhicules en temps réel sur carte interactive
+- [Maintenance préventive](https://moroccovehicles.com/features/maintenance) : Gestion des entretiens, révisions et alertes automatiques
+- [Gestion des assurances](https://moroccovehicles.com/features/insurance) : Suivi des assurances et rappels d'échéances
+- [Tableau de bord analytics](https://moroccovehicles.com/features/analytics) : Statistiques et rapports détaillés sur l'utilisation de la flotte
+- [Multi-utilisateurs](https://moroccovehicles.com/features/users) : Gestion des accès et permissions pour votre équipe
+
+## Ressources importantes
+
+### Produits et Services
+- [Fonctionnalités complètes](https://moroccovehicles.com/features) : Découvrez toutes les fonctionnalités de notre logiciel
+- [Tarification](https://moroccovehicles.com/pricing) : Plans et tarifs adaptés à tous les besoins
+- [Démonstration](https://moroccovehicles.com/demo) : Réservez une démo personnalisée de notre solution
+
+### Informations entreprise
+- [À propos de nous](https://moroccovehicles.com/about) : Notre histoire et notre mission
+- [Contact](https://moroccovehicles.com/contact) : Coordonnées et formulaire de contact
+- [Blog](https://moroccovehicles.com/blog) : Actualités et conseils sur la gestion de flotte
+
+### Support et documentation
+- [Centre d'aide](https://moroccovehicles.com/help) : Documentation et guides d'utilisation
+- [FAQ](https://moroccovehicles.com/faq) : Questions fréquemment posées
+- [API Documentation](https://moroccovehicles.com/api-docs) : Documentation technique pour développeurs
+
+## Informations locales
+
+- **Siège social** : Casablanca, Maroc
+- **Zone de service** : Royaume du Maroc entier
+- **Langues supportées** : Français, Arabe, Anglais
+- **Devise** : Dirham marocain (MAD)
+- **Horaires** : Lundi-Vendredi, 9h00-18h00 (GMT+1)
+
+## Contact
+
+- **Email** : contact@moroccovehicles.com
+- **Téléphone** : +212-622283559
+- **Site web** : https://moroccovehicles.com
+
+## Mentions légales
+
+- [Politique de confidentialité](https://moroccovehicles.com/privacy)
+- [Conditions d'utilisation](https://moroccovehicles.com/terms)
+- [Politique de cookies](https://moroccovehicles.com/cookies)
+
+---
+
+*Dernière mise à jour : 25 Février 2026*
