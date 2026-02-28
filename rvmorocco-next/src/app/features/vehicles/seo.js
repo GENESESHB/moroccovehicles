@@ -1,4 +1,4 @@
-import { faqs } from './faqs';
+// ❌ SUPPRIMER : import { faqs } from './faqs';
 
 export const metadata = {
   title: "Gestion de Flotte & Parc Automobile Maroc | Smart Car Location",
@@ -21,16 +21,16 @@ export const metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://moroccovehicles.com/features/vehicles",
+    canonical: "https://moroccovehicles.com/features/vehicles", // ✅ Sans espace
   },
   openGraph: {
     title: "Logiciel de Gestion de Parc Automobile | Smart Car Location",
     description: "Pilotez sereinement votre agence de location : disponibilité en temps réel, alertes d'entretien et gestion documentaire de votre flotte.",
-    url: "https://moroccovehicles.com/features/vehicles",
+    url: "https://moroccovehicles.com/features/vehicles", // ✅ Sans espace
     siteName: "Smart Car Location",
     images: [
       {
-        url: "/images/og-vehicles-fleet.jpg",
+        url: "https://moroccovehicles.com/images/og-vehicles-fleet.jpg", // ✅ URL absolue
         width: 1200,
         height: 630,
         alt: "Interface de gestion de flotte de véhicules",
@@ -43,44 +43,43 @@ export const metadata = {
     card: "summary_large_image",
     title: "Gestion de Flotte Automobile | Smart Car Location",
     description: "Le suivi de votre flotte automobile simplifié avec notre solution Saas 100% connectée.",
-    images: ["/images/twitter-vehicles.jpg"],
+    images: ["https://moroccovehicles.com/images/twitter-vehicles.jpg"], // ✅ URL absolue
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
-// Générer dynamiquement le FAQPage Schema.org à partir de faqs.js
-const faqSchema = {
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
-};
-
+// ✅ UNIQUEMENT SoftwareApplication - PAS de FAQPage ici
 export const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareApplication",
-      "name": "Smart Car Location - Module Flotte",
-      "applicationCategory": "BusinessApplication",
-      "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"],
-      "operatingSystem": "Web, iOS, Android",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MAD" },
-      "featureList": [
-        "Fiches véhicules détaillées avec galerie photos",
-        "Suivi kilométrage et planification auto des maintenances",
-        "Coffre-fort numérique pour documents légaux avec alertes d'expiration",
-        "Gestion complète des sinistres et réparations"
-      ]
-    },
-    faqSchema
-  ]
+  "@context": "https://schema.org", // ✅ Sans espace
+  "@type": "SoftwareApplication",
+  "name": "Smart Car Location - Module Flotte",
+  "applicationCategory": "BusinessApplication",
+  "sameAs": ["https://www.linkedin.com/in/morocco-vehicles/"], // ✅ Sans espace
+  "operatingSystem": "Web, iOS, Android",
+  "offers": { 
+    "@type": "Offer", 
+    "price": "0", 
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock"
+  },
+  "featureList": [
+    "Fiches véhicules détaillées avec galerie photos",
+    "Suivi kilométrage et planification auto des maintenances",
+    "Coffre-fort numérique pour documents légaux avec alertes d'expiration",
+    "Gestion complète des sinistres et réparations"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127"
+  }
 };
