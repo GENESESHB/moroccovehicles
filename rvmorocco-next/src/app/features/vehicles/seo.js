@@ -18,9 +18,8 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://moroccovehicles.com'),
   alternates: {
-    canonical: "/features/vehicles",
+    canonical: "https://moroccovehicles.com/features/vehicles",
   },
   openGraph: {
     title: "Logiciel de Gestion de Parc Automobile | Smart Car Location",
