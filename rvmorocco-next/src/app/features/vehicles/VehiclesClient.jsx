@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
-  AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, 
+  AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, Cell, PieChart, Pie,
   LineChart, Line, ComposedChart
 } from 'recharts';
 import styles from './vehicles.module.css';
-import { 
-  VEHICLE_STATS, VEHICLES_LIST, COLORS, Icons 
+import {
+  VEHICLE_STATS, VEHICLES_LIST, COLORS, Icons
 } from './constants';
 import { faqs } from './faqs';
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
@@ -163,13 +163,13 @@ const VehicleCard = ({ vehicle, onEdit, onView, onDelete }) => {
           </button>
         </div>
       </div>
-      
+
       <div className={styles.vehicleContent}>
         <div className={styles.vehicleHeader}>
           <h4>{vehicle.brand} {vehicle.model}</h4>
           <span className={styles.vehicleYear}>{vehicle.year}</span>
         </div>
-        
+
         <div className={styles.vehicleMeta}>
           <span className={styles.vehicleType}>{vehicle.type}</span>
           <span className={styles.vehiclePlate}>{vehicle.licensePlate}</span>
@@ -212,10 +212,6 @@ const VehicleCard = ({ vehicle, onEdit, onView, onDelete }) => {
   );
 };
 
-// ==========================================
-// FEATURE EXPLANATION COMPONENTS
-// ==========================================
-
 const AddVehicleFeature = () => (
   <div className={styles.featureExplanation}>
     <div className={styles.featureHeader}>
@@ -227,7 +223,7 @@ const AddVehicleFeature = () => (
         <p>Processus complet d'intégration dans le système</p>
       </div>
     </div>
-    
+
     <div className={styles.featureSteps}>
       <div className={styles.step}>
         <div className={styles.stepNumber}>1</div>
@@ -236,7 +232,7 @@ const AddVehicleFeature = () => (
           <p>Saisie des données essentielles : marque, modèle, année, immatriculation, catégorie (Standard/Luxury), type (Citadine, Berline, SUV, Van) et tarification journalière.</p>
         </div>
       </div>
-      
+
       <div className={styles.step}>
         <div className={styles.stepNumber}>2</div>
         <div className={styles.stepContent}>
@@ -244,7 +240,7 @@ const AddVehicleFeature = () => (
           <p>Enregistrement du kilométrage, type de carburant (Essence, Diesel, Hybride, Électrique), transmission (Manuelle/Automatique), nombre de places et couleur.</p>
         </div>
       </div>
-      
+
       <div className={styles.step}>
         <div className={styles.stepNumber}>3</div>
         <div className={styles.stepContent}>
@@ -252,7 +248,7 @@ const AddVehicleFeature = () => (
           <p>Système de glisser-déposer pour ajouter jusqu'à 10 photos par véhicule (PNG, JPG jusqu'à 10MB) avec prévisualisation et redimensionnement automatique.</p>
         </div>
       </div>
-      
+
       <div className={styles.step}>
         <div className={styles.stepNumber}>4</div>
         <div className={styles.stepContent}>
@@ -301,23 +297,23 @@ const EditVehicleFeature = () => (
         <p>Gestion du cycle de vie complet du véhicule</p>
       </div>
     </div>
-    
+
     <div className={styles.updateTypes}>
       <div className={styles.updateCard}>
         <h6><Icons.Gauge /> Mise à jour Kilométrage</h6>
         <p>Suivi en temps réel du kilométrage à chaque retour de location. Calcul automatique de la prochaine révision basé sur les intervalles définis (tous les 10,000 km ou 6 mois).</p>
       </div>
-      
+
       <div className={styles.updateCard}>
         <h6><Icons.DollarSign /> Ajustement Tarifaire</h6>
         <p>Modification dynamique des tarifs journaliers selon la saisonnalité, la demande et l'état du véhicule. Historique complet des changements de prix.</p>
       </div>
-      
+
       <div className={styles.updateCard}>
         <h6><Icons.Activity /> Changement de Statut</h6>
         <p>Gestion des transitions de statut : Disponible → En Location → Maintenance → Disponible. Workflow validé avec vérification des prérequis (documents valides, entretien à jour).</p>
       </div>
-      
+
       <div className={styles.updateCard}>
         <h6><Icons.FileText /> Renouvellement Documents</h6>
         <p>Alertes automatiques 30 jours avant expiration des documents. Upload des nouvelles versions avec conservation de l'historique pour traçabilité légale.</p>
@@ -367,7 +363,7 @@ const DamageManagementFeature = () => (
         <p>Suivi complet des incidents et réparations</p>
       </div>
     </div>
-    
+
     <div className={styles.damageWorkflow}>
       <div className={styles.damagePhase}>
         <h6><Icons.Camera /> 1. Constat Initial</h6>
@@ -378,7 +374,7 @@ const DamageManagementFeature = () => (
           <li>Identification du responsable (client/interne)</li>
         </ul>
       </div>
-      
+
       <div className={styles.damagePhase}>
         <h6><Icons.Tool /> 2. Évaluation</h6>
         <ul>
@@ -388,7 +384,7 @@ const DamageManagementFeature = () => (
           <li>Décision : réparation immédiate ou différée</li>
         </ul>
       </div>
-      
+
       <div className={styles.damagePhase}>
         <h6><Icons.Wrench /> 3. Réparation</h6>
         <ul>
@@ -398,7 +394,7 @@ const DamageManagementFeature = () => (
           <li>Validation qualité post-réparation</li>
         </ul>
       </div>
-      
+
       <div className={styles.damagePhase}>
         <h6><Icons.Check /> 4. Clôture</h6>
         <ul>
@@ -438,7 +434,7 @@ const MaintenanceFeature = () => (
         <p>Entretiens préventifs et correctifs optimisés</p>
       </div>
     </div>
-    
+
     <div className={styles.maintenanceTypes}>
       <div className={styles.maintenanceType}>
         <h6><Icons.Shield /> Maintenance Préventive</h6>
@@ -452,7 +448,7 @@ const MaintenanceFeature = () => (
           <Icons.Info /> Prochaine révision automatiquement calculée et ajoutée au calendrier
         </div>
       </div>
-      
+
       <div className={styles.maintenanceType}>
         <h6><Icons.Alert /> Maintenance Corrective</h6>
         <p>Gestion des pannes imprévues :</p>
@@ -489,7 +485,7 @@ const DocumentManagementFeature = () => (
         <p>Centralisation et conformité légale</p>
       </div>
     </div>
-    
+
     <div className={styles.documentsGrid}>
       <div className={styles.documentType}>
         <div className={styles.docIconLarge}><Icons.Shield /></div>
@@ -501,7 +497,7 @@ const DocumentManagementFeature = () => (
           <li>Historique des sinistres liés</li>
         </ul>
       </div>
-      
+
       <div className={styles.documentType}>
         <div className={styles.docIconLarge}><Icons.Activity /></div>
         <h6>Contrôle Technique</h6>
@@ -512,7 +508,7 @@ const DocumentManagementFeature = () => (
           <li>Recommandations réparations</li>
         </ul>
       </div>
-      
+
       <div className={styles.documentType}>
         <div className={styles.docIconLarge}><Icons.File /></div>
         <h6>Carte Grise</h6>
@@ -529,7 +525,7 @@ const DocumentManagementFeature = () => (
       <Icons.Alert />
       <div>
         <strong>Conformité Légale</strong>
-        <p>Tous les documents sont stockés de manière sécurisée avec chiffrement AES-256. 
+        <p>Tous les documents sont stockés de manière sécurisée avec chiffrement AES-256.
         Conservation légale de 5 ans minimum avec traçabilité complète des accès.</p>
       </div>
     </div>
@@ -547,7 +543,7 @@ const ApiArchitectureFeature = () => (
         <p>Structure logicielle et APIs du module Véhicules</p>
       </div>
     </div>
-    
+
     <div className={styles.architectureLayers}>
       <div className={styles.archLayer}>
         <h6><Icons.Globe /> Frontend Layer</h6>
@@ -559,7 +555,7 @@ const ApiArchitectureFeature = () => (
           <li>Responsive design avec CSS Modules</li>
         </ul>
       </div>
-      
+
       <div className={styles.archLayer}>
         <h6><Icons.Server /> API Layer</h6>
         <p>Endpoints RESTful principaux :</p>
@@ -571,7 +567,7 @@ const ApiArchitectureFeature = () => (
           <li><code>DELETE /api/vehicles/:id</code> - Suppression logique</li>
         </ul>
       </div>
-      
+
       <div className={styles.archLayer}>
         <h6><Icons.Database /> Data Layer</h6>
         <p>Modèle de données relationnel :</p>
@@ -609,7 +605,7 @@ const updateVehicleStatus = async (id, newStatus) => {
   if (!isDocumentsValid(vehicle.documents)) {
     throw new Error('Documents expirés');
   }
-  
+
   // Update avec log d'audit
   return await api.patch(\`/vehicles/\${id}/status\`, {
     status: newStatus,
@@ -622,10 +618,6 @@ const updateVehicleStatus = async (id, newStatus) => {
   </div>
 );
 
-// ==========================================
-// MAIN PAGE COMPONENT
-// ==========================================
-
 export default function VehiclesClient() {
   const [vehicles, setVehicles] = useState(VEHICLES_LIST);
   const [viewMode, setViewMode] = useState('grid');
@@ -634,10 +626,16 @@ export default function VehiclesClient() {
   const [filterCategory, setFilterCategory] = useState('all');
   const [activeFeature, setActiveFeature] = useState('add');
   const [openFaq, setOpenFaq] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // ✅ Gestion du montage pour éviter les erreurs d'hydratation
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const filteredVehicles = useMemo(() => {
     return vehicles.filter(vehicle => {
-      const matchesSearch = 
+      const matchesSearch =
         vehicle.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
         vehicle.model.toLowerCase().includes(searchQuery.toLowerCase()) ||
         vehicle.licensePlate.toLowerCase().includes(searchQuery.toLowerCase());
@@ -665,9 +663,26 @@ export default function VehiclesClient() {
     }
   };
 
+  // ✅ Placeholder pendant le chargement pour éviter le layout shift
+  if (!isMounted) {
+    return (
+      <div className={styles.vehiclesPage} style={{ minHeight: '100vh' }}>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '100vh',
+          background: '#f8fafc'
+        }}>
+          <div>Chargement...</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.vehiclesPage}>
-      
+    <div className={styles.vehiclesPage} suppressHydrationWarning>
+
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}>
@@ -678,9 +693,9 @@ export default function VehiclesClient() {
               </span>
               <h1>Gérez Votre Parc Automobile</h1>
               <p className={styles.heroSubtitle}>
-                Système complet de gestion de flotte permettant l'ajout, la modification, 
-                le suivi des entretiens, la gestion des disponibilités et l'historique 
-                complet des locations. Chaque véhicule dispose d'une fiche détaillée 
+                Système complet de gestion de flotte permettant l'ajout, la modification,
+                le suivi des entretiens, la gestion des disponibilités et l'historique
+                complet des locations. Chaque véhicule dispose d'une fiche détaillée
                 avec photos, caractéristiques techniques et documents associés.
               </p>
               <div className={styles.heroCta}>
@@ -700,7 +715,7 @@ export default function VehiclesClient() {
       <section className={styles.statsSection}>
         <div className={styles.containerContent}>
           <div className={styles.statsGrid}>
-            <StatCard 
+            <StatCard
               icon={Icons.Car}
               label="Total Véhicules"
               value={VEHICLE_STATS.total}
@@ -708,7 +723,7 @@ export default function VehiclesClient() {
               color="#36c275"
               trend={12.5}
             />
-            <StatCard 
+            <StatCard
               icon={Icons.Check}
               label="Disponibles"
               value={VEHICLE_STATS.available}
@@ -716,7 +731,7 @@ export default function VehiclesClient() {
               color="#22c55e"
               trend={5.2}
             />
-            <StatCard 
+            <StatCard
               icon={Icons.Clock}
               label="En Location"
               value={VEHICLE_STATS.rented}
@@ -724,7 +739,7 @@ export default function VehiclesClient() {
               color="#3b82f6"
               trend={8.1}
             />
-            <StatCard 
+            <StatCard
               icon={Icons.Wrench}
               label="Maintenance"
               value={VEHICLE_STATS.maintenance}
@@ -742,8 +757,8 @@ export default function VehiclesClient() {
           <div className={styles.sectionHeader}>
             <h2><Icons.BarChart /> Analyse de la Flotte</h2>
             <p>
-              Visualisez la répartition de vos véhicules par catégorie, 
-              suivez l'évolution de votre parc et analysez les coûts de maintenance 
+              Visualisez la répartition de vos véhicules par catégorie,
+              suivez l'évolution de votre parc et analysez les coûts de maintenance
               pour optimiser vos investissements.
             </p>
           </div>
@@ -752,7 +767,7 @@ export default function VehiclesClient() {
             <CategoryDistribution />
             <FleetEvolutionChart />
             <MaintenanceChart />
-            
+
             <div className={styles.insightCard}>
               <h5><Icons.Zap /> Insights Clés</h5>
               <ul className={styles.insightList}>
@@ -778,7 +793,7 @@ export default function VehiclesClient() {
         </div>
       </section>
 
-      {/* Vehicle List Section - Visualisation des données */}
+      {/* Vehicle List Section */}
       <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
         <div className={styles.containerContent}>
           <div className={styles.listHeader}>
@@ -786,12 +801,12 @@ export default function VehiclesClient() {
               <h2><Icons.List /> Liste des Véhicules</h2>
               <span className={styles.countBadge}>{filteredVehicles.length} véhicules affichés</span>
             </div>
-            
+
             <div className={styles.listControls}>
               <div className={styles.searchBox}>
                 <Icons.Search />
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="Rechercher par marque, modèle ou immatriculation..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -799,8 +814,8 @@ export default function VehiclesClient() {
               </div>
 
               <div className={styles.filterGroup}>
-                <select 
-                  value={filterStatus} 
+                <select
+                  value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
                   className={styles.filterSelect}
                 >
@@ -810,8 +825,8 @@ export default function VehiclesClient() {
                   <option value="maintenance">Maintenance</option>
                 </select>
 
-                <select 
-                  value={filterCategory} 
+                <select
+                  value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
                   className={styles.filterSelect}
                 >
@@ -822,13 +837,13 @@ export default function VehiclesClient() {
               </div>
 
               <div className={styles.viewToggle}>
-                <button 
+                <button
                   className={`${styles.viewBtn} ${viewMode === 'grid' ? styles.active : ''}`}
                   onClick={() => setViewMode('grid')}
                 >
                   <Icons.Grid />
                 </button>
-                <button 
+                <button
                   className={`${styles.viewBtn} ${viewMode === 'list' ? styles.active : ''}`}
                   onClick={() => setViewMode('list')}
                 >
@@ -847,7 +862,7 @@ export default function VehiclesClient() {
               </div>
             ) : (
               filteredVehicles.map(vehicle => (
-                <VehicleCard 
+                <VehicleCard
                   key={vehicle.id}
                   vehicle={vehicle}
                   onEdit={() => {}}
@@ -876,50 +891,50 @@ export default function VehiclesClient() {
         </div>
       </section>
 
-      {/* Feature Explorer Section - Remplace les modals */}
+      {/* Feature Explorer Section */}
       <section className={`${styles.moduleSection} ${styles.bgLight}`}>
         <div className={styles.containerContent}>
           <div className={styles.sectionHeader}>
             <h2><Icons.Settings /> Fonctionnalités du Système</h2>
             <p>
-              Explorez les capacités complètes du module de gestion des véhicules, 
+              Explorez les capacités complètes du module de gestion des véhicules,
               de l'ajout initial au suivi avancé des opérations.
             </p>
           </div>
 
           <div className={styles.featureExplorer}>
             <div className={styles.featureNav}>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'add' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('add')}
               >
                 <Icons.Plus /> Ajout Véhicule
               </button>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'edit' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('edit')}
               >
                 <Icons.Edit /> Modification
               </button>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'damage' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('damage')}
               >
                 <Icons.Alert /> Gestion Dommages
               </button>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'maintenance' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('maintenance')}
               >
                 <Icons.Wrench /> Maintenance
               </button>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'documents' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('documents')}
               >
                 <Icons.FileText /> Documents
               </button>
-              <button 
+              <button
                 className={`${styles.featureNavBtn} ${activeFeature === 'api' ? styles.active : ''}`}
                 onClick={() => setActiveFeature('api')}
               >
@@ -934,19 +949,18 @@ export default function VehiclesClient() {
         </div>
       </section>
 
-
-      {/* FAQ Section (SEO Optimized) */}
+      {/* FAQ Section */}
       <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
         <div className={styles.containerContent}>
           <div className={styles.sectionHeader}>
             <h2><MessageCircleQuestion size={28} color="#36c275"/> Questions Fréquentes</h2>
             <p>Tout savoir sur la gestion de votre flotte automobile au Maroc</p>
           </div>
-          
+
           <div className="faqContainer" style={{maxWidth: '800px', margin: '0 auto'}}>
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`faqItem ${openFaq === index ? 'active' : ''}`}
                 style={{
                   marginBottom: '16px',
@@ -957,7 +971,7 @@ export default function VehiclesClient() {
                   transition: 'all 0.3s'
                 }}
               >
-                <button 
+                <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   style={{
                     width: '100%',
@@ -975,16 +989,16 @@ export default function VehiclesClient() {
                   }}
                 >
                   {faq.question}
-                  <ChevronDown 
-                    size={20} 
+                  <ChevronDown
+                    size={20}
                     style={{
                       transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0)',
                       transition: 'transform 0.3s',
                       color: openFaq === index ? '#36c275' : '#64748b'
-                    }} 
+                    }}
                   />
                 </button>
-                <div 
+                <div
                   style={{
                     maxHeight: openFaq === index ? '500px' : '0',
                     opacity: openFaq === index ? 1 : 0,
@@ -1002,14 +1016,15 @@ export default function VehiclesClient() {
           </div>
         </div>
       </section>
+      
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <div className={styles.containerContent}>
           <div className={styles.ctaBox}>
             <h2>Optimisez la Gestion de Votre Flotte</h2>
             <p>
-              Gérez efficacement vos 156 véhicules avec notre solution complète 
-              de suivi, maintenance et analyse des performances. Intégration API 
+              Gérez efficacement vos 156 véhicules avec notre solution complète
+              de suivi, maintenance et analyse des performances. Intégration API
               disponible pour connecter vos systèmes existants.
             </p>
             <div className={styles.ctaStats}>
