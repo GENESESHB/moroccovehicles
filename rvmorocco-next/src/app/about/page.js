@@ -106,7 +106,7 @@ export const metadata = {
   },
 };
 
-// ✅ 2026: Complete JSON-LD Structured Data for About Page
+// ✅ 2026: Complete JSON-LD Structured Data for About Page (FAQ retiré)
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -364,41 +364,7 @@ const structuredData = {
     },
 
     // ============================================
-    // 6. FAQ PAGE (From content)
-    // ============================================
-    {
-      '@type': 'FAQPage',
-      '@id': 'https://moroccovehicles.com/about/#faq',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Pourquoi choisir MoroccoVehicles ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'MoroccoVehicles est développée spécifiquement pour le marché marocain avec conformité fiscale locale, gestion des documents administratifs spécifiques (carte grise marocaine, vignette), interface bilingue FR/AR, hébergement sécurisé au Maroc et support technique local réactif basé à Casablanca.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Quels modules propose MoroccoVehicles ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'MoroccoVehicles propose 10 modules principaux : Vue d\'ensemble (dashboard), Gestion des Véhicules, Contrats Digitalisés, Luxury Voitures, Luxury Contracts, Calendrier, Clients (CRM), Assurance, Maintenance, et Liste Noire (sécurité).',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'MoroccoVehicles est-il conforme à la législation marocaine ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Oui, MoroccoVehicles assure une conformité légale marocaine à 100% avec intégration des documents administratifs locaux, conformité fiscale, et hébergement des données au Maroc conforme à la loi 09-08 sur la protection des données personnelles.',
-          },
-        },
-      ],
-    },
-
-    // ============================================
-    // 7. HOW TO (Getting started)
+    // 6. HOW TO (Getting started)
     // ============================================
     {
       '@type': 'HowTo',
@@ -430,7 +396,7 @@ const structuredData = {
     },
 
     // ============================================
-    // 8. VIDEO OBJECT (If you add video later)
+    // 7. VIDEO OBJECT (If you add video later)
     // ============================================
     {
       '@type': 'VideoObject',
