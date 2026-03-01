@@ -1,5 +1,5 @@
 export { metadata } from './seo';
-import { jsonLd, faqSchema } from './seo';
+import { jsonLd } from './seo';
 import MaintenanceClient from './MaintenanceClient';
 
 export default function MaintenancePage() {
