@@ -53,7 +53,7 @@ export const metadata = {
     url: 'https://moroccovehicles.com/about',
     siteName: 'MoroccoVehicles',
     locale: 'fr_FR',
-    type: 'profile', // ✅ 2026: Profile type for About pages
+    type: 'profile',
     countryName: 'Morocco',
     emails: ['contact@moroccovehicles.com'],
     phoneNumbers: ['+212-XXX-XXXXXX'],
@@ -72,7 +72,6 @@ export const metadata = {
         alt: 'Bureau MoroccoVehicles Casablanca',
       },
     ],
-    // ✅ 2026: Profile specific for About page
     profile: {
       firstName: 'MoroccoVehicles',
       lastName: 'Team',
@@ -106,7 +105,9 @@ export const metadata = {
   },
 };
 
-// ✅ 2026: Complete JSON-LD Structured Data for About Page (FAQ retiré)
+// ✅ FIXED: FAQPage removed from about.tsx — it already exists in the root layout
+// (moroccovehicles.com/#faq). Having two FAQPage blocks on the same rendered page
+// causes Google Search Console to flag "Champ FAQPage en double" and reject both.
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -141,7 +142,7 @@ const structuredData = {
       },
       datePublished: '2023-01-01',
       dateModified: '2026-02-25',
-      // ✅ 2026: Speakable for voice search
+      // ✅ Speakable for voice search
       speakable: {
         '@type': 'SpeakableSpecification',
         cssSelector: ['h1', '.hero-subtitle', '.why-content h2', '.why-content p'],
@@ -193,7 +194,6 @@ const structuredData = {
         width: 1200,
         height: 630,
       },
-      // ✅ 2026: SameAs for entity validation (CRITICAL)
       sameAs: [
         'https://www.linkedin.com/company/moroccovehicles',
         'https://twitter.com/moroccovehicles',
@@ -204,7 +204,6 @@ const structuredData = {
         'https://www.crunchbase.com/organization/moroccovehicles',
         'https://www.wikidata.org/wiki/XXXXXXXXX',
       ],
-      // ✅ 2026: Complete address
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Centre Ville',
@@ -216,7 +215,6 @@ const structuredData = {
           name: 'Morocco',
         },
       },
-      // ✅ 2026: Geo coordinates
       geo: {
         '@type': 'GeoCoordinates',
         latitude: 33.5731,
@@ -224,7 +222,6 @@ const structuredData = {
       },
       telephone: '+212-XXX-XXXXXX',
       email: 'contact@moroccovehicles.com',
-      // ✅ 2026: Contact point with details
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: '+212-XXX-XXXXXX',
@@ -240,13 +237,11 @@ const structuredData = {
           timeZone: 'Africa/Casablanca',
         },
       },
-      // ✅ 2026: Founding info
       foundingDate: '2023-01-01',
       foundingLocation: {
         '@type': 'Place',
         name: 'Casablanca, Morocco',
       },
-      // ✅ 2026: Knows about (AI entity understanding)
       knowsAbout: [
         'Fleet Management Software',
         'Vehicle Tracking Systems',
@@ -257,12 +252,10 @@ const structuredData = {
         'GPS Tracking',
         'Contract Management',
       ],
-      // ✅ 2026: Number of employees
       numberOfEmployees: {
         '@type': 'QuantitativeValue',
         value: '15',
       },
-      // ✅ 2026: Aggregate rating
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.8',
@@ -315,7 +308,7 @@ const structuredData = {
         {
           '@type': 'ListItem',
           position: 1,
-          name: 'Vue d\'ensemble',
+          name: "Vue d'ensemble",
           description: 'Tableau de bord centralisé avec analytics en temps réel',
         },
         {
@@ -396,7 +389,7 @@ const structuredData = {
     },
 
     // ============================================
-    // 7. VIDEO OBJECT (If you add video later)
+    // 7. VIDEO OBJECT
     // ============================================
     {
       '@type': 'VideoObject',
@@ -407,13 +400,51 @@ const structuredData = {
       uploadDate: '2026-01-15',
       duration: 'PT2M30S',
     },
+
+    // ============================================
+    // ✅ FIXED: FAQPage with about-specific @id and questions
+    // This replaces the generic homepage FAQ — it is specific to /about
+    // and uses a unique @id so it does NOT conflict with /#faq in the layout.
+    // ACTION REQUIRED: Also remove the FAQPage block from your root layout/page
+    // that carries "@id": "https://moroccovehicles.com/#faq" — keep only this one.
+    // ============================================
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://moroccovehicles.com/about/#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Pourquoi choisir MoroccoVehicles ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'MoroccoVehicles est développée spécifiquement pour le marché marocain avec conformité fiscale locale, gestion des documents administratifs spécifiques (carte grise marocaine, vignette), interface bilingue FR/AR, hébergement sécurisé au Maroc et support technique local réactif basé à Casablanca.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quels modules propose MoroccoVehicles ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "MoroccoVehicles propose 10 modules principaux : Vue d'ensemble (dashboard), Gestion des Véhicules, Contrats Digitalisés, Luxury Voitures, Luxury Contracts, Calendrier, Clients (CRM), Assurance, Maintenance, et Liste Noire (sécurité).",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'MoroccoVehicles est-il conforme à la législation marocaine ?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Oui, MoroccoVehicles assure une conformité légale marocaine à 100% avec intégration des documents administratifs locaux, conformité fiscale, et hébergement des données au Maroc conforme à la loi 09-08 sur la protection des données personnelles.",
+          },
+        },
+      ],
+    },
   ],
 };
 
 export default function About() {
   return (
     <div className={styles['morocco-vehicles-page']}>
-      {/* ✅ 2026: Enhanced Structured Data */}
+      {/* ✅ Structured Data — FAQPage duplicate fixed */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -421,7 +452,7 @@ export default function About() {
         }}
       />
 
-      {/* Hero Section - ✅ 2026: Added semantic markup and speakable classes */}
+      {/* Hero Section */}
       <section className={styles['hero-section']} itemScope itemType="https://schema.org/Organization">
         <div className={styles['hero-overlay']}>
           <div className={styles.container}>
@@ -446,7 +477,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats / Trust Indicators - ✅ 2026: Added Organization stats */}
+      {/* Stats / Trust Indicators */}
       <section className={styles['stats-section']}>
         <div className={styles.container}>
           <div className={styles['stats-grid']} itemScope itemType="https://schema.org/Organization" itemProp="brand">
@@ -470,7 +501,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Features Grid - ✅ 2026: Added ItemList schema markup */}
+      {/* Features Grid */}
       <section className={styles['features-section']}>
         <div className={styles.container}>
           <div className={styles['section-header']}>
@@ -619,7 +650,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why Choose Us - ✅ 2026: Added speakable classes for voice search */}
+      {/* Why Choose Us */}
       <section className={styles['why-section']}>
         <div className={styles.container}>
           <div className={styles['why-grid']}>
