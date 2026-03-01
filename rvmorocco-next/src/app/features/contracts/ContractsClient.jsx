@@ -5,22 +5,16 @@ import {
     FileText, PenTool, Shield, Calendar, TrendingUp, CheckCircle, Clock, DollarSign,
     Search, Plus, MoreVertical, Download, Eye, Edit3, ChevronRight, BarChart3, PieChart,
     Activity, Zap, Lock, Smartphone, Users, FileSignature, Wallet, Camera, Receipt,
-    ArrowUpRight, ArrowDownRight, ChevronDown, MessageCircleQuestion
+    ArrowUpRight, ArrowDownRight
 } from 'lucide-react';
 import styles from './contracts.module.css';
 import { STATS, CONTRACTS, FEATURES, getStatusColor, getStatusLabel } from './constants';
-import { faqs } from './faqs';
 
 export default function ContractsClient() {
     const [viewMode, setViewMode] = useState('grid');
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
     const [activeFeature, setActiveFeature] = useState('creation');
-    const [openFaq, setOpenFaq] = useState(null);
-
-    const toggleFaq = (index) => {
-        setOpenFaq(openFaq === index ? null : index);
-    };
 
     const filteredContracts = CONTRACTS.filter(c =>
         (statusFilter === 'all' || c.status === statusFilter) &&
@@ -567,76 +561,6 @@ export default function ContractsClient() {
                             Suivant
                             <ChevronRight size={16} />
                         </button>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
-                <div className={styles.containerContent}>
-                    <div className={styles.sectionHeader} style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 48px' }}>
-                        <h2><MessageCircleQuestion size={28} color="#3b82f6" /> Questions Fréquentes (Contrats)</h2>
-                        <p>Informations réglementaires et processus de location</p>
-                    </div>
-
-                    <div className={styles.faqContainer} style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className={`${styles.faqItem} ${openFaq === index ? styles.active : ''}`}
-                                style={{
-                                    background: 'white',
-                                    borderRadius: '12px',
-                                    border: '1px solid #e2e8f0',
-                                    overflow: 'hidden',
-                                    transition: 'all 0.3s ease'
-                                }}
-                            >
-                                <button
-                                    className={styles.faqQuestion}
-                                    onClick={() => toggleFaq(index)}
-                                    style={{
-                                        width: '100%',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                        padding: '24px',
-                                        background: 'none',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        fontSize: '16px',
-                                        fontWeight: '600',
-                                        color: '#1e293b',
-                                        textAlign: 'left'
-                                    }}
-                                >
-                                    <span style={{ paddingRight: '24px' }}>{faq.question}</span>
-                                    <ChevronDown
-                                        size={20}
-                                        style={{
-                                            color: '#3b82f6',
-                                            transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0)',
-                                            transition: 'transform 0.3s ease',
-                                            flexShrink: 0
-                                        }}
-                                    />
-                                </button>
-                                <div
-                                    className={styles.faqAnswer}
-                                    style={{
-                                        height: openFaq === index ? 'auto' : '0',
-                                        opacity: openFaq === index ? 1 : 0,
-                                        padding: openFaq === index ? '0 24px 24px' : '0 24px',
-                                        color: '#64748b',
-                                        lineHeight: '1.6',
-                                        overflow: 'hidden',
-                                        transition: 'all 0.3s ease'
-                                    }}
-                                >
-                                    <p style={{ margin: 0 }}>{faq.answer}</p>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </section>

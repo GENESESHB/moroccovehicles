@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import {
@@ -36,12 +36,9 @@ import {
   Brush,
   Shield,
   Gem,
-  Sparkles,
-  ChevronDown,
-  MessageCircleQuestion
+  Sparkles
 } from 'lucide-react';
 import { stats, maintenanceTasks, features } from './constants';
-import { faqs } from './faqs';
 import './maintenance.css';
 
 export default function MaintenanceClient() {
@@ -49,7 +46,6 @@ export default function MaintenanceClient() {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [activeFeature, setActiveFeature] = useState('planification');
-  const [openFaq, setOpenFaq] = useState(null);
 
   const getStatusColor = (statut) => {
     switch (statut) {
@@ -108,7 +104,7 @@ export default function MaintenanceClient() {
             </div>
             <div className="updateTypes">
               <div className="updateCard">
-                <h6><Wrench size={16} color="#3b82f6" /> Types d’intervention</h6>
+                <h6><Wrench size={16} color="#3b82f6" /> Types d'intervention</h6>
                 <p>Vidange, freins, pneus, batterie, carrosserie, climatisation, etc.</p>
               </div>
               <div className="updateCard">
@@ -138,7 +134,7 @@ export default function MaintenanceClient() {
                 <span className="calendarFeature"><CheckCircle size={14} /> La veille</span>
                 <span className="calendarFeature"><CheckCircle size={14} /> Le jour J</span>
               </div>
-              <p style={{ marginTop: '24px' }}>Rappels par email, SMS et dans l’application. Possibilité d’envoyer une notification au client si nécessaire.</p>
+              <p style={{ marginTop: '24px' }}>Rappels par email, SMS et dans l'application. Possibilité d'envoyer une notification au client si nécessaire.</p>
             </div>
           </div>
         );
@@ -151,7 +147,7 @@ export default function MaintenanceClient() {
               </div>
               <div>
                 <h3>Historique complet</h3>
-                <p>Carnet d’entretien numérique pour chaque véhicule</p>
+                <p>Carnet d'entretien numérique pour chaque véhicule</p>
               </div>
             </div>
             <div className="insightCard">
@@ -159,8 +155,8 @@ export default function MaintenanceClient() {
               <ul className="insightList">
                 <li><span className="insightValue">Date</span><span className="insightLabel">Intervention</span></li>
                 <li><span className="insightValue">Type</span><span className="insightLabel">Préventif / Curatif</span></li>
-                <li><span className="insightValue">Kilométrage</span><span className="insightLabel">Au moment de l’intervention</span></li>
-                <li><span className="insightValue">Coût</span><span className="insightLabel">Main-d’œuvre + pièces</span></li>
+                <li><span className="insightValue">Kilométrage</span><span className="insightLabel">Au moment de l'intervention</span></li>
+                <li><span className="insightValue">Coût</span><span className="insightLabel">Main-d'œuvre + pièces</span></li>
                 <li><span className="insightValue">Garage</span><span className="insightLabel">Prestataire</span></li>
               </ul>
             </div>
@@ -239,7 +235,7 @@ export default function MaintenanceClient() {
               <Camera size={24} />
               <div>
                 <strong>Archives centralisées</strong>
-                <p>Photos des réparations, factures scannées, bons d’intervention. Accessible depuis la fiche véhicule.</p>
+                <p>Photos des réparations, factures scannées, bons d'intervention. Accessible depuis la fiche véhicule.</p>
               </div>
             </div>
           </div>
@@ -314,7 +310,7 @@ export default function MaintenanceClient() {
             </div>
             <div className="analyticsGrid">
               <div className="chartCard">
-                <h5><PieChart size={16} /> Types d’intervention</h5>
+                <h5><PieChart size={16} /> Types d'intervention</h5>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '20px' }}>
                   <div style={{ position: 'relative', width: '120px', height: '120px' }}>
                     <svg viewBox="0 0 36 36" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
@@ -550,7 +546,7 @@ export default function MaintenanceClient() {
                   <Calendar size={32} />
                 </div>
                 <h6 style={{ fontSize: '18px', marginBottom: '12px', color: '#1e293b' }}>Zéro oubli</h6>
-                <p>Rappels automatiques pour chaque échéance d’entretien.</p>
+                <p>Rappels automatiques pour chaque échéance d'entretien.</p>
               </div>
               <div className="updateCard" style={{ textAlign: 'center', padding: '32px' }}>
                 <div style={{ width: '64px', height: '64px', background: '#dbeafe', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', color: '#3b82f6' }}>
@@ -585,76 +581,8 @@ export default function MaintenanceClient() {
                   <TrendingUp size={32} />
                 </div>
                 <h6 style={{ fontSize: '18px', marginBottom: '12px', color: '#1e293b' }}>Valeur revente</h6>
-                <p>Un historique d’entretien complet augmente la valeur de revente.</p>
+                <p>Un historique d'entretien complet augmente la valeur de revente.</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section (SEO Optimized) */}
-        <section className="moduleSection bgWhite">
-          <div className="containerContent">
-            <div className="sectionHeader">
-              <h2><MessageCircleQuestion size={28} color="#36c275" /> Questions Fréquentes</h2>
-              <p>Tout ce que vous devez savoir sur la gestion de maintenance de flotte auto en 2026</p>
-            </div>
-
-            <div className="faqContainer" style={{ maxWidth: '800px', margin: '0 auto' }}>
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className={`faqItem ${openFaq === index ? 'active' : ''}`}
-                  style={{
-                    marginBottom: '16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    background: openFaq === index ? '#f8fafc' : 'white',
-                    transition: 'all 0.3s'
-                  }}
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    style={{
-                      width: '100%',
-                      padding: '20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'transparent',
-                      border: 'none',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      fontWeight: '600',
-                      fontSize: '16px',
-                      color: openFaq === index ? '#36c275' : '#1e293b'
-                    }}
-                  >
-                    {faq.question}
-                    <ChevronDown
-                      size={20}
-                      style={{
-                        transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.3s',
-                        color: openFaq === index ? '#36c275' : '#64748b'
-                      }}
-                    />
-                  </button>
-                  <div
-                    style={{
-                      maxHeight: openFaq === index ? '500px' : '0',
-                      opacity: openFaq === index ? 1 : 0,
-                      overflow: 'hidden',
-                      transition: 'all 0.3s ease-in-out',
-                      padding: openFaq === index ? '0 20px 20px 20px' : '0 20px',
-                      color: '#64748b',
-                      lineHeight: '1.6'
-                    }}
-                  >
-                    {faq.answer}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -664,7 +592,7 @@ export default function MaintenanceClient() {
           <div className="containerContent">
             <div className="ctaBox" style={{ background: 'linear-gradient(135deg, #36c275 0%, #2a9e5c 100%)' }}>
               <h2>Prêt à simplifier votre maintenance ?</h2>
-              <p>Planifiez, suivez et maîtrisez vos coûts d’entretien. Essayez gratuitement pendant 14 jours.</p>
+              <p>Planifiez, suivez et maîtrisez vos coûts d'entretien. Essayez gratuitement pendant 14 jours.</p>
               <div className="ctaStats">
                 <span><CheckCircle size={14} /> Rappels automatiques</span>
                 <span><CheckCircle size={14} /> Carnet numérique</span>
