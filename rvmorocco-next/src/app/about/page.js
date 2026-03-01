@@ -1,15 +1,9 @@
 import React from 'react';
 import styles from './about.module.css';
 
-// ✅ 2026: Enhanced metadata with AI search optimization
 export const metadata = {
-  // ✅ 2026: Optimized title with geo-targeting and keywords
   title: 'À propos – MoroccoVehicles | Logiciel de gestion de flotte au Maroc',
-  
-  // ✅ 2026: Enhanced description with AI-extractable entities
   description: 'Découvrez MoroccoVehicles, la solution digitale pensée pour les professionnels de la location automobile au Maroc. Interface bilingue FR/AR, hébergement local conforme, support technique Casablanca. SaaS de gestion de flotte leader au Maroc depuis 2023.',
-  
-  // ✅ 2026: Keywords for AI context extraction
   keywords: [
     'MoroccoVehicles',
     'logiciel gestion flotte Maroc',
@@ -18,10 +12,8 @@ export const metadata = {
     'software fleet management Morocco',
     'solution bilingue arabe français',
     'hébergement local Maroc',
-    'conformité fiscale marocaine'
+    'conformité fiscale marocaine',
   ],
-  
-  // ✅ 2026: Canonical and alternates
   alternates: {
     canonical: 'https://moroccovehicles.com/about',
     languages: {
@@ -31,8 +23,6 @@ export const metadata = {
       'en-US': 'https://moroccovehicles.com/en/about',
     },
   },
-  
-  // ✅ 2026: Robots directives for AI crawlers
   robots: {
     index: true,
     follow: true,
@@ -45,8 +35,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  
-  // ✅ 2026: OpenGraph optimized for LinkedIn/Facebook AI
   openGraph: {
     title: 'À propos de MoroccoVehicles – Leader de la gestion de flotte au Maroc',
     description: 'Logiciel de gestion de flotte automobile leader au Maroc. Découvrez notre histoire, notre équipe et notre mission pour digitaliser le secteur automobile marocain.',
@@ -79,8 +67,6 @@ export const metadata = {
       gender: 'business',
     },
   },
-  
-  // ✅ 2026: Twitter/X Cards
   twitter: {
     card: 'summary_large_image',
     site: '@moroccovehicles',
@@ -89,8 +75,6 @@ export const metadata = {
     description: 'La solution digitale pensée pour les professionnels de la location automobile au Maroc. Interface bilingue, hébergement local, conformité légale.',
     images: ['https://moroccovehicles.com/images/about-moroccovehicles.jpeg'],
   },
-  
-  // ✅ 2026: Additional metadata for AI extraction
   other: {
     'og:type': 'profile',
     'profile:first_name': 'MoroccoVehicles',
@@ -105,15 +89,10 @@ export const metadata = {
   },
 };
 
-// ✅ FIXED: FAQPage removed from about.tsx — it already exists in the root layout
-// (moroccovehicles.com/#faq). Having two FAQPage blocks on the same rendered page
-// causes Google Search Console to flag "Champ FAQPage en double" and reject both.
+// ✅ NO FAQPage anywhere in this file
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
-    // ============================================
-    // 1. ABOUT PAGE (WebPage)
-    // ============================================
     {
       '@type': 'AboutPage',
       '@id': 'https://moroccovehicles.com/about/#webpage',
@@ -122,58 +101,30 @@ const structuredData = {
       headline: 'À propos de MoroccoVehicles',
       description: 'Découvrez MoroccoVehicles, la solution digitale pensée pour les professionnels de la location automobile au Maroc.',
       inLanguage: 'fr',
-      isPartOf: {
-        '@type': 'WebSite',
-        '@id': 'https://moroccovehicles.com/#website',
-      },
-      about: {
-        '@type': 'Organization',
-        '@id': 'https://moroccovehicles.com/#organization',
-      },
+      isPartOf: { '@type': 'WebSite', '@id': 'https://moroccovehicles.com/#website' },
+      about: { '@type': 'Organization', '@id': 'https://moroccovehicles.com/#organization' },
       primaryImageOfPage: {
         '@type': 'ImageObject',
         url: 'https://moroccovehicles.com/images/about-moroccovehicles.jpeg',
         width: 1200,
         height: 630,
       },
-      breadcrumb: {
-        '@type': 'BreadcrumbList',
-        '@id': 'https://moroccovehicles.com/about/#breadcrumb',
-      },
+      breadcrumb: { '@type': 'BreadcrumbList', '@id': 'https://moroccovehicles.com/about/#breadcrumb' },
       datePublished: '2023-01-01',
       dateModified: '2026-02-25',
-      // ✅ Speakable for voice search
       speakable: {
         '@type': 'SpeakableSpecification',
         cssSelector: ['h1', '.hero-subtitle', '.why-content h2', '.why-content p'],
       },
     },
-
-    // ============================================
-    // 2. BREADCRUMB LIST
-    // ============================================
     {
       '@type': 'BreadcrumbList',
       '@id': 'https://moroccovehicles.com/about/#breadcrumb',
       itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Accueil',
-          item: 'https://moroccovehicles.com',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'À propos',
-          item: 'https://moroccovehicles.com/about',
-        },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://moroccovehicles.com' },
+        { '@type': 'ListItem', position: 2, name: 'À propos', item: 'https://moroccovehicles.com/about' },
       ],
     },
-
-    // ============================================
-    // 3. ORGANIZATION (Detailed)
-    // ============================================
     {
       '@type': ['Organization', 'LocalBusiness'],
       '@id': 'https://moroccovehicles.com/#organization',
@@ -202,7 +153,6 @@ const structuredData = {
         'https://www.youtube.com/@moroccovehicles',
         'https://github.com/moroccovehicles',
         'https://www.crunchbase.com/organization/moroccovehicles',
-        'https://www.wikidata.org/wiki/XXXXXXXXX',
       ],
       address: {
         '@type': 'PostalAddress',
@@ -210,16 +160,9 @@ const structuredData = {
         addressLocality: 'Casablanca',
         addressRegion: 'Casablanca-Settat',
         postalCode: '20000',
-        addressCountry: {
-          '@type': 'Country',
-          name: 'Morocco',
-        },
+        addressCountry: { '@type': 'Country', name: 'Morocco' },
       },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 33.5731,
-        longitude: -7.5898,
-      },
+      geo: { '@type': 'GeoCoordinates', latitude: 33.5731, longitude: -7.5898 },
       telephone: '+212-XXX-XXXXXX',
       email: 'contact@moroccovehicles.com',
       contactPoint: {
@@ -238,10 +181,7 @@ const structuredData = {
         },
       },
       foundingDate: '2023-01-01',
-      foundingLocation: {
-        '@type': 'Place',
-        name: 'Casablanca, Morocco',
-      },
+      foundingLocation: { '@type': 'Place', name: 'Casablanca, Morocco' },
       knowsAbout: [
         'Fleet Management Software',
         'Vehicle Tracking Systems',
@@ -252,10 +192,7 @@ const structuredData = {
         'GPS Tracking',
         'Contract Management',
       ],
-      numberOfEmployees: {
-        '@type': 'QuantitativeValue',
-        value: '15',
-      },
+      numberOfEmployees: { '@type': 'QuantitativeValue', value: '15' },
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.8',
@@ -263,10 +200,6 @@ const structuredData = {
         bestRating: '5',
       },
     },
-
-    // ============================================
-    // 4. SOFTWARE APPLICATION (Product details)
-    // ============================================
     {
       '@type': 'SoftwareApplication',
       '@id': 'https://moroccovehicles.com/about/#software',
@@ -296,69 +229,21 @@ const structuredData = {
         'Multi-utilisateurs',
       ],
     },
-
-    // ============================================
-    // 5. ITEM LIST (Features/Services)
-    // ============================================
     {
       '@type': 'ItemList',
       '@id': 'https://moroccovehicles.com/about/#features',
       name: 'Modules Principaux MoroccoVehicles',
       itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: "Vue d'ensemble",
-          description: 'Tableau de bord centralisé avec analytics en temps réel',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Gestion des Véhicules',
-          description: 'Gestion complète du parc automobile',
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Contrats Digitalisés',
-          description: 'Digitalisation des contrats de location et leasing',
-        },
-        {
-          '@type': 'ListItem',
-          position: 4,
-          name: 'Suivi GPS',
-          description: 'Localisation et suivi en temps réel',
-        },
-        {
-          '@type': 'ListItem',
-          position: 5,
-          name: 'Maintenance',
-          description: 'Planification préventive et curative',
-        },
-        {
-          '@type': 'ListItem',
-          position: 6,
-          name: 'Assurance',
-          description: 'Suivi des polices et sinistres',
-        },
-        {
-          '@type': 'ListItem',
-          position: 7,
-          name: 'Clients CRM',
-          description: 'Gestion des relations clients',
-        },
-        {
-          '@type': 'ListItem',
-          position: 8,
-          name: 'Calendrier',
-          description: 'Planification des réservations',
-        },
+        { '@type': 'ListItem', position: 1, name: "Vue d'ensemble", description: 'Tableau de bord centralisé avec analytics en temps réel' },
+        { '@type': 'ListItem', position: 2, name: 'Gestion des Véhicules', description: 'Gestion complète du parc automobile' },
+        { '@type': 'ListItem', position: 3, name: 'Contrats Digitalisés', description: 'Digitalisation des contrats de location et leasing' },
+        { '@type': 'ListItem', position: 4, name: 'Suivi GPS', description: 'Localisation et suivi en temps réel' },
+        { '@type': 'ListItem', position: 5, name: 'Maintenance', description: 'Planification préventive et curative' },
+        { '@type': 'ListItem', position: 6, name: 'Assurance', description: 'Suivi des polices et sinistres' },
+        { '@type': 'ListItem', position: 7, name: 'Clients CRM', description: 'Gestion des relations clients' },
+        { '@type': 'ListItem', position: 8, name: 'Calendrier', description: 'Planification des réservations' },
       ],
     },
-
-    // ============================================
-    // 6. HOW TO (Getting started)
-    // ============================================
     {
       '@type': 'HowTo',
       '@id': 'https://moroccovehicles.com/about/#howto',
@@ -366,31 +251,11 @@ const structuredData = {
       description: 'Guide simple pour commencer à utiliser MoroccoVehicles',
       totalTime: 'PT15M',
       step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Créer un compte',
-          text: 'Inscrivez-vous gratuitement sur moroccovehicles.com',
-          url: 'https://moroccovehicles.com/signup',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Configurer votre flotte',
-          text: 'Ajoutez vos véhicules et configurez les paramètres',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Digitaliser vos processus',
-          text: 'Commencez à créer des contrats et suivre vos véhicules',
-        },
+        { '@type': 'HowToStep', position: 1, name: 'Créer un compte', text: 'Inscrivez-vous gratuitement sur moroccovehicles.com', url: 'https://moroccovehicles.com/signup' },
+        { '@type': 'HowToStep', position: 2, name: 'Configurer votre flotte', text: 'Ajoutez vos véhicules et configurez les paramètres' },
+        { '@type': 'HowToStep', position: 3, name: 'Digitaliser vos processus', text: 'Commencez à créer des contrats et suivre vos véhicules' },
       ],
     },
-
-    // ============================================
-    // 7. VIDEO OBJECT
-    // ============================================
     {
       '@type': 'VideoObject',
       '@id': 'https://moroccovehicles.com/about/#video',
@@ -400,56 +265,15 @@ const structuredData = {
       uploadDate: '2026-01-15',
       duration: 'PT2M30S',
     },
-
-    // ============================================
-    // ✅ FIXED: FAQPage with about-specific @id and questions
-    // This replaces the generic homepage FAQ — it is specific to /about
-    // and uses a unique @id so it does NOT conflict with /#faq in the layout.
-    // ACTION REQUIRED: Also remove the FAQPage block from your root layout/page
-    // that carries "@id": "https://moroccovehicles.com/#faq" — keep only this one.
-    // ============================================
-    {
-      '@type': 'FAQPage',
-      '@id': 'https://moroccovehicles.com/about/#faq',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Pourquoi choisir MoroccoVehicles ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'MoroccoVehicles est développée spécifiquement pour le marché marocain avec conformité fiscale locale, gestion des documents administratifs spécifiques (carte grise marocaine, vignette), interface bilingue FR/AR, hébergement sécurisé au Maroc et support technique local réactif basé à Casablanca.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Quels modules propose MoroccoVehicles ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "MoroccoVehicles propose 10 modules principaux : Vue d'ensemble (dashboard), Gestion des Véhicules, Contrats Digitalisés, Luxury Voitures, Luxury Contracts, Calendrier, Clients (CRM), Assurance, Maintenance, et Liste Noire (sécurité).",
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'MoroccoVehicles est-il conforme à la législation marocaine ?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: "Oui, MoroccoVehicles assure une conformité légale marocaine à 100% avec intégration des documents administratifs locaux, conformité fiscale, et hébergement des données au Maroc conforme à la loi 09-08 sur la protection des données personnelles.",
-          },
-        },
-      ],
-    },
   ],
 };
 
 export default function About() {
   return (
     <div className={styles['morocco-vehicles-page']}>
-      {/* ✅ Structured Data — FAQPage duplicate fixed */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       {/* Hero Section */}
@@ -477,12 +301,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats / Trust Indicators */}
+      {/* Stats */}
       <section className={styles['stats-section']}>
         <div className={styles.container}>
           <div className={styles['stats-grid']} itemScope itemType="https://schema.org/Organization" itemProp="brand">
             <div className={styles['stat-item']}>
-              <h3 itemProp="numberOfEmployees">500+</h3>
+              <h3>500+</h3>
               <p>Véhicules Gérés</p>
             </div>
             <div className={styles['stat-item']}>
@@ -508,10 +332,9 @@ export default function About() {
             <h2 className="speakable-title">Nos Modules Principaux</h2>
             <p>Une suite complète d'outils pour maîtriser chaque aspect de votre flotte</p>
           </div>
-          
           <div className={styles['features-grid']} itemScope itemType="https://schema.org/ItemList">
-            {/* Vue d'ensemble */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="1" />
               <div className={styles['feature-icon']} style={{ background: '#e3f2fd' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1976d2" strokeWidth="2">
@@ -524,8 +347,7 @@ export default function About() {
               <p itemProp="description">Tableau de bord centralisé avec analytics en temps réel, KPIs de performance et reporting automatisé pour une vision 360° de votre activité.</p>
             </div>
 
-            {/* Véhicules */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="2" />
               <div className={styles['feature-icon']} style={{ background: '#e8f5e9' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#388e3c" strokeWidth="2">
@@ -538,8 +360,7 @@ export default function About() {
               <p itemProp="description">Gestion complète du parc : immatriculation, documents administratifs, suivi kilométrique, état des lieux digitalisé et historique complet.</p>
             </div>
 
-            {/* Contrats */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="3" />
               <div className={styles['feature-icon']} style={{ background: '#fff3e0' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f57c00" strokeWidth="2">
@@ -554,7 +375,6 @@ export default function About() {
               <p itemProp="description">Digitalisation des contrats de location, leasing et services. Gestion des échéances, renouvellements automatiques et signatures électroniques.</p>
             </div>
 
-            {/* Luxury Voitures */}
             <div className={`${styles['feature-card']} ${styles.luxury}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="4" />
               <div className={styles['feature-icon']} style={{ background: '#f3e5f5' }}>
@@ -566,7 +386,6 @@ export default function About() {
               <p itemProp="description">Module dédié aux véhicules premium et haut de gamme. Suivi spécifique, maintenance conciergerie et gestion des services VIP pour clients exigeants.</p>
             </div>
 
-            {/* Luxury Contracts */}
             <div className={`${styles['feature-card']} ${styles.luxury}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="5" />
               <div className={styles['feature-icon']} style={{ background: '#fce4ec' }}>
@@ -579,8 +398,7 @@ export default function About() {
               <p itemProp="description">Contrats sur mesure pour le segment luxe. Conditions personnalisées, clauses spécifiques et gestion des services additionnels (chauffeur, etc.).</p>
             </div>
 
-            {/* Calendrier */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="6" />
               <div className={styles['feature-icon']} style={{ background: '#e0f2f1' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00796b" strokeWidth="2">
@@ -594,8 +412,7 @@ export default function About() {
               <p itemProp="description">Planification intelligente des réservations, maintenance et retours. Synchronisation multi-agences et gestion des disponibilités en temps réel.</p>
             </div>
 
-            {/* Clients */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="7" />
               <div className={styles['feature-icon']} style={{ background: '#e8eaf6' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#303f9f" strokeWidth="2">
@@ -609,8 +426,7 @@ export default function About() {
               <p itemProp="description">CRM intégré avec fiches clients détaillées, historique de locations, scoring de fidélité et gestion des entreprises partenaires.</p>
             </div>
 
-            {/* Assurance */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="8" />
               <div className={styles['feature-icon']} style={{ background: '#fff8e1' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffa000" strokeWidth="2">
@@ -621,8 +437,7 @@ export default function About() {
               <p itemProp="description">Suivi complet des polices d'assurance, rappels d'échéances, gestion des sinistres et snapshots d'état des véhicules assurés.</p>
             </div>
 
-            {/* Maintenance */}
-            <div className={`${styles['feature-card']}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <div className={styles['feature-card']} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="9" />
               <div className={styles['feature-icon']} style={{ background: '#efebe9' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d4037" strokeWidth="2">
@@ -633,7 +448,6 @@ export default function About() {
               <p itemProp="description">Planification préventive et curative, suivi des révisions, gestion des fournisseurs et historique complet des interventions techniques.</p>
             </div>
 
-            {/* Liste Noire */}
             <div className={`${styles['feature-card']} ${styles.warning}`} itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <meta itemProp="position" content="10" />
               <div className={styles['feature-icon']} style={{ background: '#ffebee' }}>
@@ -646,6 +460,7 @@ export default function About() {
               <h3 itemProp="name">Liste Noire</h3>
               <p itemProp="description">Système de vigilance et sécurité pour identifier les clients à risque, historique des incidents et protection contre les impayés récurrents.</p>
             </div>
+
           </div>
         </div>
       </section>
