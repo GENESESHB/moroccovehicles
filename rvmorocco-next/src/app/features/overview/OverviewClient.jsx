@@ -11,8 +11,8 @@ import {
   EXAMPLE_STATS, BREAKDOWN_DATA, MONTHLY_COMPARISON_DATA, 
   VEHICLE_VARIATION_DATA, COLORS, Icons 
 } from './constants';
-import { faqs } from './faqs';
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
+
 const FinanceCards = ({ stats }) => (
   <div className={styles.financeCardsGrid}>
     <div className={`${styles.financeCard} ${styles.blue}`}>
@@ -234,7 +234,7 @@ const GlobalTrendChart = ({ data }) => (
 );
 
 const structuredData = {
-  '@context': 'https://schema.org',
+  '@context': 'https://schema.org ',
   '@graph': [
     {
       '@type': 'SoftwareApplication',
@@ -264,7 +264,6 @@ const structuredData = {
 export default function OverviewClient() {
   const [selectedVehicleId, setSelectedVehicleId] = useState(VEHICLE_VARIATION_DATA[0].vehicleId);
   const [selectedVehicleType, setSelectedVehicleType] = useState('all');
-  const [openFaq, setOpenFaq] = useState(null);
   
   const selectedVehicle = useMemo(() => 
     VEHICLE_VARIATION_DATA.find(v => v.vehicleId === selectedVehicleId),
@@ -847,74 +846,6 @@ export default function OverviewClient() {
           </div>
         </section>
 
-
-        {/* FAQ Section (SEO Optimized) */}
-        <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
-          <div className={styles.containerContent}>
-            <div className={styles.sectionHeader}>
-              <h2><MessageCircleQuestion size={28} color="#36c275"/> Questions Fréquentes</h2>
-              <p>Comprendre vos statistiques et la vue d'ensemble de votre flotte en 2026</p>
-            </div>
-            
-            <div className="faqContainer" style={{maxWidth: '800px', margin: '0 auto'}}>
-              {faqs.map((faq, index) => (
-                <div 
-                  key={index} 
-                  className={`faqItem ${openFaq === index ? 'active' : ''}`}
-                  style={{
-                    marginBottom: '16px',
-                    border: '1px solid var(--border)',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    background: openFaq === index ? '#f8fafc' : 'white',
-                    transition: 'all 0.3s'
-                  }}
-                >
-                  <button 
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    style={{
-                      width: '100%',
-                      padding: '20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'transparent',
-                      border: 'none',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      fontWeight: '600',
-                      fontSize: '16px',
-                      color: openFaq === index ? '#36c275' : '#1e293b'
-                    }}
-                  >
-                    {faq.question}
-                    <ChevronDown 
-                      size={20} 
-                      style={{
-                        transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.3s',
-                        color: openFaq === index ? '#36c275' : '#64748b'
-                      }} 
-                    />
-                  </button>
-                  <div 
-                    style={{
-                      maxHeight: openFaq === index ? '500px' : '0',
-                      opacity: openFaq === index ? 1 : 0,
-                      overflow: 'hidden',
-                      transition: 'all 0.3s ease-in-out',
-                      padding: openFaq === index ? '0 20px 20px 20px' : '0 20px',
-                      color: '#64748b',
-                      lineHeight: '1.6'
-                    }}
-                  >
-                    {faq.answer}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
         <section className={styles.ctaSection}>
           <div className={styles.containerContent}>
             <div className={styles.ctaBox}>
