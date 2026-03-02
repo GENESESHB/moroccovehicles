@@ -814,6 +814,9 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
+        {/* Bing Webmaster Tools Verification */}
+        <meta name="msvalidate.01" content="05929C82B7B6F67A67C496093C274739" />
+        
         <meta name="format-detection" content="telephone=yes, date=yes, address=yes, email=yes, url=yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
