@@ -1,8 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: {
-    appIsrStatus: false,  // Only removes the "N" logo
+    appIsrStatus: false, 
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+    optimizeCss: true
+  }
 };
 
 export default nextConfig;

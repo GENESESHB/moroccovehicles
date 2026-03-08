@@ -1,0 +1,486 @@
+⚠ `eslint` configuration in next.config.mjs is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
+⚠ Invalid next.config.mjs options detected: 
+⚠     Unrecognized key(s) in object: 'eslint'
+⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+▲ Next.js 16.1.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 16 errors:
+./src/app/Dashboard/components/AnalyticsDashboard.jsx:2:1
+Module not found: Can't resolve '../contexts/AuthContext'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect[33m,[39m useMemo } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mGrid[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/AnalyticsDashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/AnalyticsDashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/MaintenanceManagement.jsx:2:1
+Module not found: Can't resolve '../contexts/AuthContext'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mBox[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/Overview.jsx:2:1
+Module not found: Can't resolve '../contexts/AuthContext'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mAreaChart[39m[33m,[39m [33mArea[39m[33m,[39m [33mBarChart[39m[33m,[39m [33mBar[39m[33m,[39m [33mXAxis[39m[33m,[39m [33mYAxis[39m[33m,[39m [33mCartesianGrid[39m[33m,[39m [0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/Overview.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/Overview.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/AnalyticsDashboard.jsx:3:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect[33m,[39m useMemo } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mGrid[39m[33m,[39m
+ [90m 6 |[39m   [33mPaper[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/AnalyticsDashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/AnalyticsDashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/BlacklistManagement.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { 
+ [90m 4 |[39m   [33mFaSearch[39m[33m,[39m 
+ [90m 5 |[39m   [33mFaIdCard[39m[33m,[39m [0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/BlacklistManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/BlacklistManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/ClientsManagement.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useRef } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m { 
+ [90m 4 |[39m   [33mFaUser[39m[33m,[39m 
+ [90m 5 |[39m   [33mFaPhone[39m[33m,[39m [0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/ClientsManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/ClientsManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/ContractsManagement.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mContractFormPopup[39m [36mfrom[39m [32m'./forms/ContractFormPopup'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mContractsList[39m [36mfrom[39m [32m'./lists/ContractsList'[39m[33m;[39m
+ [90m 5 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/ContractsManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/ContractsManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/InsuranceManagement.jsx:4:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 2 |[39m [36mimport[39m [33mInsuranceVehicleList[39m [36mfrom[39m [32m'./asuR/InsuranceVehicleList'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m [33mInsuranceFormModal[39m [36mfrom[39m [32m'./asuR/InsuranceFormModal'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { insuranceAPI } [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mconst[39m [33mInsuranceManagement[39m [33m=[39m ({
+ [90m 7 |[39m   user[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/InsuranceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/InsuranceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/MaintenanceManagement.jsx:3:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mBox[39m[33m,[39m
+ [90m 6 |[39m   [33mPaper[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/Overview.jsx:3:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 2 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m'../contexts/AuthContext'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m {
+ [90m 5 |[39m   [33mAreaChart[39m[33m,[39m [33mArea[39m[33m,[39m [33mBarChart[39m[33m,[39m [33mBar[39m[33m,[39m [33mXAxis[39m[33m,[39m [33mYAxis[39m[33m,[39m [33mCartesianGrid[39m[33m,[39m 
+ [90m 6 |[39m   [33mTooltip[39m[33m,[39m [33mLegend[39m[33m,[39m [33mResponsiveContainer[39m[33m,[39m [33mCell[39m[33m,[39m [33mLineChart[39m[33m,[39m [33mLine[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/Overview.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/Overview.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/SmartCarsControllers.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useRef[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m {
+ [90m 4 |[39m   [33mFaCar[39m[33m,[39m
+ [90m 5 |[39m   [33mFaEdit[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/SmartCarsControllers.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/SmartCarsControllers.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/SmartContra.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mSmartContraForm[39m [36mfrom[39m [32m'./smartC/SmartContraForm'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mSmartContraList[39m [36mfrom[39m [32m'./smartC/SmartContraList'[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m {[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/SmartContra.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/SmartContra.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/VehiclesManagement.jsx:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m [33mVehicleFormPopup[39m [36mfrom[39m [32m'./forms/VehicleFormPopup'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mVehiclesList[39m [36mfrom[39m [32m'./lists/VehiclesList'[39m[33m;[39m
+ [90m 5 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/VehiclesManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/VehiclesManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/mnt/FacturesTab.js:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m {
+ [90m 4 |[39m   [33mBox[39m[33m,[39m
+ [90m 5 |[39m   [33mGrid[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/mnt/FacturesTab.js [Client Component Browser]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/mnt/FacturesTab.js [Client Component SSR]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/mnt/MaintenanceFormDialog.js:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useEffect } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m {
+ [90m 4 |[39m   [33mDialog[39m[33m,[39m
+ [90m 5 |[39m   [33mDialogTitle[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/mnt/MaintenanceFormDialog.js [Client Component Browser]
+    ./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js [Client Component Browser]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/mnt/MaintenanceFormDialog.js [Client Component SSR]
+    ./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js [Client Component SSR]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js:2:1
+Module not found: Can't resolve '../utils/api'
+[0m [90m 1 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState[33m,[39m useMemo } [36mfrom[39m [32m'react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m api [36mfrom[39m [32m'../utils/api'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 3 |[39m [36mimport[39m {
+ [90m 4 |[39m   [33mGrid[39m[33m,[39m
+ [90m 5 |[39m   [33mPaper[39m[33m,[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js [Client Component Browser]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component Browser]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Client Component Browser]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js [Client Component SSR]
+    ./src/app/Dashboard/components/MaintenanceManagement.jsx [Client Component SSR]
+    ./src/app/Dashboard/Dashboard.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Client Component SSR]
+    ./src/app/Dashboard/page.jsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./src/app/Dashboard/components/AnalyticsDashboard.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/MaintenanceManagement.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/Overview.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/AnalyticsDashboard.jsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/BlacklistManagement.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/ClientsManagement.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/ContractsManagement.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/InsuranceManagement.jsx:4:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/MaintenanceManagement.jsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/Overview.jsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/SmartCarsControllers.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/SmartContra.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/VehiclesManagement.jsx:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/mnt/FacturesTab.js:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/mnt/MaintenanceFormDialog.js:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/Dashboard/components/mnt/VehicleMaintenanceTab.js:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)

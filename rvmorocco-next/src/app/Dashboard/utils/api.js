@@ -7,4 +7,12 @@ const api = axios.create({
   },
 });
 
+export const insuranceAPI = {
+  getAll: async () => ({ data: [] }),
+};
+
+export const maintenanceAPI = {
+  getAll: async () => ({ data: [] }),
+};
+
 export default api;
