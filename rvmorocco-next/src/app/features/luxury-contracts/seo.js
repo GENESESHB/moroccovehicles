@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Contrats de Location VIP & Prestations Luxe Maroc | Smart Car Location",
+    title: "Contrats VIP & Prestations Luxe",
     description: "Bénéficiez de nos contrats de location sur-mesure pour véhicules de prestige : Conciergerie, Assurance Premium, discrétion absolue et flexibilité totale.",
     keywords: [
         "contrat location vip maroc",
@@ -20,7 +20,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/luxury-contracts",
     },
     openGraph: {
-        title: "Contrats VIP & Services Exclusifs | Smart Car Location",
+        title: "Contrats VIP & Services",
         description: "Des solutions de mobilité premium avec des contrats sur-mesure pour les clients les plus exigeants.",
         url: "https://moroccovehicles.com/features/luxury-contracts",
         siteName: "Smart Car Location",
@@ -37,7 +37,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Gestion des Contrats de Location de Prestige",
+        title: "Contrats de Prestige",
         description: "La perfection dans les moindres détails, de la réservation à l'état des lieux VIP.",
         images: ["https://moroccovehicles.com/images/twitter-luxury-contracts.jpg"],
     },

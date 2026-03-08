@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Logiciel Gestion Maintenance & Flotte Auto Maroc 2026 | Smart Car Location",
+  title: "Logiciel Gestion Maintenance",
   description: "Solution n°1 au Maroc en 2026 pour la gestion de l'entretien de flotte automobile. Planifiez vos révisions, recevez des alertes automatiques, suivez le carnet d'entretien numérique et optimisez vos coûts (préventif vs curatif).",
   keywords: [
     "gestion maintenance flotte automobile",
@@ -29,7 +29,7 @@ export const metadata = {
     canonical: "https://moroccovehicles.com/features/maintenance ",
   },
   openGraph: {
-    title: "Logiciel Maintenance & Suivi Flotte 2026 | Smart Car Location",
+    title: "Maintenance & Suivi Flotte",
     description: "Anticipez et gérez les entretiens de vos véhicules de location avec notre solution SaaS avancée.",
     url: "https://moroccovehicles.com/features/maintenance ",
     siteName: "Smart Car Location",
@@ -46,7 +46,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Logiciel Entretien Flotte Auto 2026 | Smart Car Location",
+    title: "Entretien Flotte Auto",
     description: "Gérez l'entretien de vos véhicules facilement : révisions prioritaires, rappels automatiques, suivi budgétaire 100% cloud.",
     images: ["https://moroccovehicles.com/images/twitter-maintenance.jpg "],
   },

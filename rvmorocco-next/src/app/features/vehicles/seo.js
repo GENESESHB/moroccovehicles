@@ -1,7 +1,7 @@
 // ❌ SUPPRIMER : import { faqs } from './faqs';
 
 export const metadata = {
-  title: "Gestion de Flotte & Parc Automobile Maroc | Smart Car Location",
+  title: "Gestion de Flotte & Parc Auto",
   description: "Système complet de gestion de parc automobile au Maroc : fiches véhicules, suivi kilométrage, gestion des documents légaux (assurances) et coûts de réparation.",
   keywords: [
     "gestion parc automobile Maroc",
@@ -24,7 +24,7 @@ export const metadata = {
     canonical: "https://moroccovehicles.com/features/vehicles", // ✅ Sans espace
   },
   openGraph: {
-    title: "Logiciel de Gestion de Parc Automobile | Smart Car Location",
+    title: "Logiciel de Gestion Parc Auto",
     description: "Pilotez sereinement votre agence de location : disponibilité en temps réel, alertes d'entretien et gestion documentaire de votre flotte.",
     url: "https://moroccovehicles.com/features/vehicles", // ✅ Sans espace
     siteName: "Smart Car Location",
@@ -41,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gestion de Flotte Automobile | Smart Car Location",
+    title: "Gestion de Flotte Automobile",
     description: "Le suivi de votre flotte automobile simplifié avec notre solution Saas 100% connectée.",
     images: ["https://moroccovehicles.com/images/twitter-vehicles.jpg"], // ✅ URL absolue
   },

@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Liste Noire Clients Location Voiture & Sécurité Flotte | Smart Car Location",
+    title: "Liste Noire & Sécurité",
     description: "Protégez votre agence contre la fraude, les impayés et les accidents grâce au module de Liste Noire. Blocage automatique et alertes en temps réel.",
     keywords: [
         "liste noire client location voiture",
@@ -20,7 +20,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/black-list",
     },
     openGraph: {
-        title: "Sécurité & Liste Noire Clients | Smart Car Location",
+        title: "Sécurité & Liste Noire",
         description: "Identifiez les clients à risque et empêchez formellement les locations frauduleuses.",
         url: "https://moroccovehicles.com/features/black-list",
         siteName: "Smart Car Location",
@@ -37,7 +37,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Liste Noire et Sécurité pour Agences Auto",
+        title: "Liste Noire pour Agences",
         description: "Bloquez automatiquement les clients problématiques et surveillez vos contentieux.",
         images: ["https://moroccovehicles.com/images/twitter-blacklist.jpg"],
     },

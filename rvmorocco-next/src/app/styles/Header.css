@@ -107,55 +107,119 @@ body {
 .wego-mobile {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: flex-end;
   z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .wego-mobile-sheet {
-  background: rgba(173, 216, 230, 0.1); /* fond eau */
-  backdrop-filter: blur(10px);
-  border-left: 1px solid #36c275;
-  width: 70%;
-  padding: 20px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(54, 194, 117, 0.3);
+  width: 75%;
+  max-width: 320px;
+  padding: 30px 24px;
   display: flex;
   flex-direction: column;
   border-radius: 24px 0 0 24px;
-  gap: 16px; /* espace entre les liens */
+  gap: 20px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
 .wego-mobile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.wego-mobile-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(to right, #ffffff, #36c275);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wego-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .wego-mobile-nav a {
-  color: white;
+  color: #f1f5f9;
   text-decoration: none;
-  padding: 12px;
+  padding: 14px 18px;
   font-weight: 500;
-  border-radius: none;
-  border-bottom: 1px solid #36c275;
-  background: none;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
   display: block;
   transition: all 0.3s ease;
-  margin-bottom: 5PX;
+  border: 1px solid transparent;
 }
 
-.wego-mobile-nav a:hover {
-  color: white;
-  background-color: #36c275;
+.wego-mobile-nav a:hover,
+.wego-mobile-nav a:active {
+  color: #36c275;
+  background: rgba(54, 194, 117, 0.1);
+  border-color: rgba(54, 194, 117, 0.2);
+  transform: translateX(5px);
+}
+
+.wego-mobile-nav .wego-btn {
+  margin-top: 20px;
+  background: #36c275;
+  color: white !important;
+  text-align: center;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 600;
+}
+
+.wego-mobile-nav .wego-btn:hover {
+  background: #2fae5e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(54, 194, 117, 0.3);
 }
 
 .wego-close {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.wego-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 /* ==== Responsive ==== */

@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Location Voiture de Luxe Maroc : Ferrari, Porsche, Urus | Smart Car Location",
+    title: "Location Voiture de Luxe",
     description: "Réservez votre véhicule de prestige au Maroc. Ferrari, Lamborghini, Range Rover avec service conciergerie personnalisé et livraison VIP.",
     keywords: [
         "location voiture luxe maroc",
@@ -21,7 +21,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/luxury-cars",
     },
     openGraph: {
-        title: "Collection Prestige - Location de Voitures de Luxe | Smart Car Location",
+        title: "Collection Prestige - Luxe",
         description: "Conduisez l'excellence au Maroc. Flotte exclusive de Supercars et SUV Premium avec conciergerie VIP.",
         url: "https://moroccovehicles.com/features/luxury-cars",
         siteName: "Smart Car Location",
@@ -38,7 +38,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Location de Voitures de Prestige & Supercars",
+        title: "Prestige & Supercars",
         description: "L'expérience premium par excellence. Louez les plus belles voitures de la flotte Smart Car Location.",
         images: ["https://moroccovehicles.com/images/twitter-luxury.jpg"],
     },

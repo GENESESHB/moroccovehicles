@@ -2,10 +2,10 @@ import SupportContent from './SupportContent';
 import styles from './support.module.css';
 
 export const metadata = {
-  title: 'Support & FAQ – MoroccoVehicles | Aide et assistance 24/7',
+  title: 'Support & FAQ 24/7',
   description: 'Centre d’aide MoroccoVehicles : FAQ, support technique par téléphone, email et chat IA 24/7. Trouvez des réponses à vos questions sur la gestion de flotte.',
   openGraph: {
-    title: 'Support MoroccoVehicles – Assistance 24/7',
+    title: 'Support & Assistance',
     description: 'Besoin d’aide ? Consultez notre FAQ ou contactez notre équipe support.',
     url: 'https://moroccovehicles.com/support', // ✅ updated domain
     siteName: 'MoroccoVehicles',

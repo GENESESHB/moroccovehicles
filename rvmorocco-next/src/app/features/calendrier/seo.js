@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Calendrier & Planning Location Auto Interactif | Smart Car Location",
+    title: "Calendrier & Planning Interactif",
     description: "Synchronisez vos réservations, retours et plages de maintenance grâce à un planning interactif glisser-déposer. Évitez les erreurs d'overbooking.",
     keywords: [
         "calendrier réservation voiture",
@@ -21,7 +21,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/calendrier",
     },
     openGraph: {
-        title: "Planning Location Auto Interactif | Smart Car Location",
+        title: "Planning Location",
         description: "Synchronisez vos réservations, retours et plages de maintenance grâce à un planning interactif glisser-déposer. Évitez les erreurs d'overbooking.",
         url: "https://moroccovehicles.com/features/calendrier",
         siteName: "Smart Car Location",
@@ -38,7 +38,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Planning Location Auto | Smart Car Location",
+        title: "Planning Location Auto",
         description: "Évitez les surréservations et exportez sur Google Agenda.",
         images: ["https://moroccovehicles.com/images/twitter-calendrier.jpg"],
     },

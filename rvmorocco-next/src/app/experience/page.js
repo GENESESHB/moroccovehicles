@@ -4,7 +4,7 @@ import styles from './experience.module.css';
 // ✅ 2026: Enhanced metadata with AI search optimization
 export const metadata = {
   // ✅ 2026: Optimized title with transformation keywords and ROI signals
-  title: 'Expérience Client – MoroccoVehicles | Témoignages & ROI Gestion Flotte',
+  title: 'Expérience Client & ROI',
   
   // ✅ 2026: Enhanced description with social proof and quantified benefits
   description: 'Découvrez comment MoroccoVehicles transforme les agences de location au Maroc : +40% productivité, -30% coûts admin, 500+ véhicules gérés. Témoignages clients, études de cas et avant/après digitalisation.',
@@ -49,7 +49,7 @@ export const metadata = {
   
   // ✅ 2026: OpenGraph optimized for social proof
   openGraph: {
-    title: 'L\'expérience MoroccoVehicles – Témoignages & Résultats Clients',
+    title: 'Expérience Client',
     description: 'Votre agence mérite mieux que Excel. Découvrez comment nos clients gagnent 20h/semaine, réduisent leurs coûts de 30% et fidélisent leurs clients. Études de cas et retours d\'expérience.',
     url: 'https://moroccovehicles.com/experience',
     siteName: 'MoroccoVehicles',
@@ -88,7 +88,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@moroccovehicles',
     creator: '@moroccovehicles',
-    title: 'Expérience MoroccoVehicles – Ce que disent nos clients',
+    title: 'Témoignages Clients',
     description: '+40% productivité, -30% coûts, 500+ véhicules gérés. Découvrez les témoignages de nos clients.',
     images: ['https://moroccovehicles.com/images/og-experience.jpg'],
   },

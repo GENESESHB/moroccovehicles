@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Tableau de Bord Analytique | Gestion de Flotte Automobile Maroc",
+    title: "Tableau de Bord Analytique",
     description: "Statistiques en temps réel pour optimiser votre flotte de véhicules au Maroc. Comparez vos revenus Luxury vs Regular, suivez le taux d'occupation et téléchargez vos KPIs 2026.",
     keywords: [
         "tableau de bord analytique flotte automobile",
@@ -23,7 +23,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/overview",
     },
     openGraph: {
-        title: "Tableau de Bord et KPIs Flotte Auto 2026 | Smart Car Location",
+        title: "Tableau de Bord & KPIs",
         description: "Analysez vos performances annuelles, le taux d'occupation et la croissance de vos véhicules réguliers et de luxe en un coup d'œil.",
         url: "https://moroccovehicles.com/features/overview",
         siteName: "Smart Car Location",
@@ -40,7 +40,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Statistiques Flotte Automobile | Smart Car Location",
+        title: "Statistiques Flotte",
         description: "Les meilleurs outils analytiques 2026 pour maximiser le revenu de votre agence de location de véhicules.",
         images: ["https://moroccovehicles.com/images/twitter-overview.jpg"],
     },

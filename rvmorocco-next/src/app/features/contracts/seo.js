@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Gestion des Contrats de Location Auto & e-Signature | Smart Car Location",
+    title: "Gestion Contrats & e-Signature",
     description: "Digitalisez vos contrats de location avec signature électronique (Loi marocaine), états des lieux numériques photos, et facturation automatique pour LLD/LCD.",
     keywords: [
         "logiciel contrat location voiture",
@@ -21,7 +21,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/contracts",
     },
     openGraph: {
-        title: "Contrats de Location Auto Dématérialisés | Smart Car Location",
+        title: "Contrats Auto Dématérialisés",
         description: "Édition de contrats, e-signature à valeur légale, et états des lieux sur tablette pour les agences de location au Maroc.",
         url: "https://moroccovehicles.com/features/contracts",
         siteName: "Smart Car Location",
@@ -38,7 +38,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Contrats de Location & Signature Électronique",
+        title: "Contrats & Signature Élec",
         description: "Zéro papier ! Digitalisez vos contrats de l'état des lieux à la signature sur tablette.",
         images: ["https://moroccovehicles.com/images/twitter-contracts.jpg"],
     },

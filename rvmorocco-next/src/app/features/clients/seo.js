@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "CRM Location Voiture Maroc | Fiches Clients & Fidélité | Smart Car Location",
+    title: "CRM Fiches Clients & Fidélité",
     description: "Fidélisez votre clientèle grâce à notre CRM dédié aux agences de location au Maroc. Historique, stockage des CIN/Permis, segmentation et suivi du CA par client.",
     keywords: [
         "CRM location voiture",
@@ -21,7 +21,7 @@ export const metadata = {
         canonical: "https://moroccovehicles.com/features/clients",
     },
     openGraph: {
-        title: "CRM Location Voiture Maroc | Fiches Clients & Fidélité",
+        title: "CRM Fiches Clients",
         description: "Fidélisez votre clientèle grâce à notre CRM dédié aux agences de location au Maroc. Historique, stockage des CIN/Permis, segmentation et suivi du CA par client.",
         url: "https://moroccovehicles.com/features/clients",
         siteName: "Smart Car Location",
@@ -38,7 +38,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "CRM Location Voiture Maroc | Fiches Clients",
+        title: "CRM Fiches Clients",
         description: "Gérez l'historique de vos locataires et accélérez les créations de contrats.",
         images: ["https://moroccovehicles.com/images/twitter-clients.jpg"],
     },

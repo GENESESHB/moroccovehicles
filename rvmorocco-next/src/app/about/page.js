@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './about.module.css';
 
 export const metadata = {
-  title: 'À propos – MoroccoVehicles | Logiciel de gestion de flotte au Maroc',
+  title: 'À propos de notre logiciel',
   description: 'Découvrez MoroccoVehicles, la solution digitale pensée pour les professionnels de la location automobile au Maroc. Interface bilingue FR/AR, hébergement local conforme, support technique Casablanca. SaaS de gestion de flotte leader au Maroc depuis 2023.',
   keywords: [
     'MoroccoVehicles',

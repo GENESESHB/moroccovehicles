@@ -1,5 +1,6 @@
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import Providers from '@/app/components/Providers';
 import './globals.css';
 
 export const metadata = {
@@ -821,17 +822,19 @@ export default function RootLayout({ children }) {
       </head>
       
       <body className="antialiased" suppressHydrationWarning>
-        <a href="#main-content" className="skip-link" style={{ position: 'absolute', left: '-9999px', zIndex: 999 }}>
-          Aller au contenu principal
-        </a>
-        
-        <Header />
-        
-        <main id="main-content" role="main" style={{ padding: '0px' }}>
-          {children}
-        </main>
-        
-        <Footer />
+        <Providers>
+          <a href="#main-content" className="skip-link" style={{ position: 'absolute', left: '-9999px', zIndex: 999 }}>
+            Aller au contenu principal
+          </a>
+          
+          <Header />
+          
+          <main id="main-content" role="main" style={{ padding: '0px' }}>
+            {children}
+          </main>
+          
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

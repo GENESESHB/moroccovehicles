@@ -1,0 +1,827 @@
+/* components/Dashboard/components/SmartCarsControllers.css */
+:root {
+  /* Binance Color Palette */
+  --binance-black: #0B0E11;
+  --binance-dark: #181A20;
+  --binance-card: #1E2329;
+  --binance-border: #2B3139;
+  --binance-yellow: #F3BA2F;
+  --binance-yellow-hover: #FCD535;
+  --binance-text: #EAECEF;
+  --binance-text-secondary: #848E9C;
+  --binance-success: #0ECB81;
+  --binance-danger: #F6465D;
+  --binance-warning: #FCD535;
+  --binance-info: #2E8CF0;
+  
+  /* Spacing */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.smart-cars-controllers {
+  padding: var(--space-6);
+  background: var(--binance-black);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--binance-text);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.section-header {
+  margin-bottom: var(--space-8);
+}
+
+.section-header h1 {
+  color: var(--binance-text);
+  margin-bottom: var(--space-2);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.section-header p {
+  color: var(--binance-text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Add Car Section */
+.add-car-section {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.btn-add-car {
+  background: var(--binance-yellow);
+  color: var(--binance-black);
+  border: 1px solid var(--binance-yellow); /* Added yellow border */
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(243, 186, 47, 0.2);
+}
+
+.btn-add-car:hover {
+  background: var(--binance-yellow-hover);
+  border-color: var(--binance-yellow-hover); /* Added hover border */
+  transform: translateY(-1px);
+}
+
+.btn-add-car:active {
+  transform: translateY(1px);
+}
+
+/* Form Styles */
+.form-section {
+  background: var(--binance-card);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: var(--space-8);
+  border: 1px solid var(--binance-border);
+  transition: border-color 0.3s ease;
+}
+
+.form-section:hover {
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--binance-border);
+}
+
+.form-header h3 {
+  color: var(--binance-text);
+  margin: 0;
+  font-weight: 600;
+}
+
+.btn-close-form {
+  background: var(--binance-dark);
+  color: var(--binance-text);
+  border: 1px solid var(--binance-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-close-form:hover {
+  background: var(--binance-border);
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.smart-car-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.form-subsection {
+  padding: var(--space-4);
+  border: 1px solid var(--binance-border);
+  border-radius: var(--radius-md);
+  background: var(--binance-dark);
+  transition: border-color 0.3s ease;
+}
+
+.form-subsection:hover {
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.form-subsection h4 {
+  margin: 0 0 var(--space-4) 0;
+  color: var(--binance-text);
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--binance-border);
+}
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--binance-text);
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--binance-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: var(--binance-dark);
+  color: var(--binance-text);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--binance-yellow); /* Added focus border */
+  box-shadow: 0 0 0 2px rgba(243, 186, 47, 0.2);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--binance-text);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  transform: scale(1.2);
+  accent-color: var(--binance-yellow);
+}
+
+.file-upload {
+  margin-top: var(--space-2);
+}
+
+.file-info {
+  margin: var(--space-2) 0;
+  padding: var(--space-2);
+  background: var(--binance-dark);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--binance-text-secondary);
+  font-weight: 400;
+}
+
+.image-preview {
+  margin-top: var(--space-2);
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--binance-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--binance-border);
+}
+
+/* List Styles */
+.smart-cars-list {
+  background: var(--binance-card);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.list-header h2 {
+  color: var(--binance-text);
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btn-refresh {
+  background: var(--binance-dark);
+  border: 1px solid var(--binance-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--binance-text);
+  transition: all 0.2s ease;
+}
+
+.btn-refresh:hover {
+  background: var(--binance-border);
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--binance-text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.empty-state .btn-primary {
+  margin-top: var(--space-4);
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-5);
+}
+
+.car-card {
+  background: var(--binance-dark);
+  border: 1px solid var(--binance-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.car-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.car-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.car-image:hover img {
+  transform: scale(1.05);
+}
+
+.car-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 14, 17, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.car-image:hover .car-overlay {
+  opacity: 1;
+}
+
+.view-details {
+  color: var(--binance-black);
+  font-weight: 600;
+  padding: 8px 16px;
+  background: var(--binance-yellow);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--binance-yellow); /* Added border */
+}
+
+.no-image {
+  height: 100%;
+  background: var(--binance-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--binance-text-secondary);
+  font-weight: 400;
+}
+
+.car-info {
+  padding: var(--space-4);
+}
+
+.car-info h3 {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--binance-text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.car-details p {
+  margin: 4px 0;
+  color: var(--binance-text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.car-actions {
+  padding: var(--space-4);
+  border-top: 1px solid var(--binance-border);
+  background: var(--binance-card);
+}
+
+.car-status {
+  margin-bottom: var(--space-3);
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-active {
+  background: rgba(14, 203, 129, 0.2);
+  color: var(--binance-success);
+}
+
+.status-inactive {
+  background: rgba(246, 70, 93, 0.2);
+  color: var(--binance-danger);
+}
+
+.status-maintenance {
+  background: rgba(46, 140, 240, 0.2);
+  color: var(--binance-info);
+}
+
+.status-rented {
+  background: rgba(243, 186, 47, 0.2);
+  color: var(--binance-yellow);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.action-buttons button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.action-buttons button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styles */
+.btn-success {
+  background: var(--binance-success);
+  color: white;
+  box-shadow: 0 4px 8px rgba(14, 203, 129, 0.3);
+}
+
+.btn-success:hover {
+  background: #0ba968;
+}
+
+.btn-warning {
+  background: var(--binance-warning);
+  color: var(--binance-black);
+  box-shadow: 0 4px 8px rgba(252, 213, 53, 0.3);
+}
+
+.btn-warning:hover {
+  background: #f5ce2e;
+}
+
+.btn-danger {
+  background: var(--binance-danger);
+  color: white;
+  box-shadow: 0 4px 8px rgba(246, 70, 93, 0.3);
+}
+
+.btn-danger:hover {
+  background: #e03448;
+}
+
+.btn-secondary {
+  background: var(--binance-dark);
+  color: var(--binance-text);
+  border: 1px solid var(--binance-border);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: var(--binance-border);
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.btn-primary {
+  background: var(--binance-yellow);
+  color: var(--binance-black);
+  box-shadow: 0 4px 8px rgba(243, 186, 47, 0.3);
+  border: 1px solid var(--binance-yellow); /* Added border */
+}
+
+.btn-primary:hover {
+  background: var(--binance-yellow-hover);
+  border-color: var(--binance-yellow-hover); /* Added hover border */
+}
+
+.btn-info {
+  background: var(--binance-info);
+  color: white;
+  box-shadow: 0 4px 8px rgba(46, 140, 240, 0.3);
+}
+
+.btn-info:hover {
+  background: #1e7ad8;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 14, 17, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--binance-card);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--binance-yellow); /* Added yellow border */
+}
+
+.modal-large {
+  max-width: 800px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--binance-border);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--binance-text);
+  font-weight: 600;
+}
+
+.btn-close {
+  background: var(--binance-dark);
+  border: 1px solid var(--binance-border);
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--binance-text-secondary);
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.btn-close:hover {
+  color: var(--binance-text);
+  background: var(--binance-border);
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.modal-body {
+  padding: var(--space-5);
+  overflow-y: auto;
+  max-height: calc(80vh - 160px); /* Adjust based on header and footer height */
+}
+
+.modal-actions {
+  padding: var(--space-5);
+  border-top: 1px solid var(--binance-border);
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.warning-text {
+  color: var(--binance-danger);
+  font-weight: 600;
+  margin-top: var(--space-4);
+}
+
+/* Edit Form Styles */
+.edit-car-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-5);
+}
+
+.current-images {
+  margin-top: var(--space-4);
+}
+
+.current-images h5 {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--binance-text);
+  font-weight: 500;
+}
+
+.current-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.current-image {
+  text-align: center;
+}
+
+.current-image p {
+  margin: 0 0 var(--space-2) 0;
+  font-size: 12px;
+  color: var(--binance-text-secondary);
+  font-weight: 400;
+}
+
+.current-image img {
+  max-width: 100%;
+  max-height: 100px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--binance-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.note {
+  font-size: 12px;
+  color: var(--binance-text-secondary);
+  font-style: italic;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Car Details Styles */
+.car-details-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.detail-section {
+  padding: var(--space-4);
+  border: 1px solid var(--binance-border);
+  border-radius: var(--radius-md);
+  background: var(--binance-dark);
+  transition: border-color 0.3s ease;
+}
+
+.detail-section:hover {
+  border-color: var(--binance-yellow); /* Added hover border */
+}
+
+.detail-section h4 {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--binance-text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--binance-border);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: var(--binance-text-secondary);
+}
+
+.detail-value {
+  color: var(--binance-text);
+  font-weight: 400;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.document-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.document-image {
+  text-align: center;
+}
+
+.document-image p {
+  margin: 0 0 var(--space-2) 0;
+  font-weight: 500;
+  color: var(--binance-text-secondary);
+}
+
+.document-image img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--binance-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply hidden scrollbar to all scrollable elements */
+.modal,
+.modal-body,
+.smart-cars-controllers,
+.cars-grid,
+.form-section,
+.smart-cars-list {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.modal::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar,
+.smart-cars-controllers::-webkit-scrollbar,
+.cars-grid::-webkit-scrollbar,
+.form-section::-webkit-scrollbar,
+.smart-cars-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .smart-cars-controllers {
+    padding: var(--space-4);
+  }
+  
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .list-header {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .modal {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .document-images {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .smart-car-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header h1 {
+    font-size: 24px;
+  }
+  
+  .btn-add-car {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .smart-cars-controllers {
+    padding: var(--space-3);
+  }
+  
+  .form-section,
+  .smart-cars-list {
+    padding: var(--space-4);
+  }
+  
+  .modal {
+    width: 100%;
+    margin: 10px;
+    border-radius: var(--radius-md);
+  }
+}
+
+/* add file mangement pop */

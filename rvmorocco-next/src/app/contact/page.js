@@ -4,7 +4,7 @@ import styles from './contact.module.css';
 // ✅ 2026: Enhanced metadata with AI search optimization
 export const metadata = {
   // ✅ 2026: Optimized title with action keywords and geo-targeting
-  title: 'Contact – MoroccoVehicles | Démo & Devis Gestion de Flotte Maroc',
+  title: 'Contact - Démo & Devis',
   
   // ✅ 2026: Enhanced description with contact intent and local signals
   description: 'Contactez MoroccoVehicles à Casablanca pour une démonstration gratuite ou un devis personnalisé. Notre équipe de conseillers flotte répond sous 24h. Support FR/AR. Tél: +212-XXX-XXXXXX.',
@@ -48,7 +48,7 @@ export const metadata = {
   
   // ✅ 2026: OpenGraph optimized for contact intent
   openGraph: {
-    title: 'Contactez MoroccoVehicles – Démo Gratuite & Devis',
+    title: 'Contactez-nous - Démo & Devis',
     description: 'Parlons de votre projet de digitalisation de flotte. Démonstration personnalisée, devis sur mesure, support technique FR/AR. Basés à Casablanca, intervention sur tout le Maroc.',
     url: 'https://moroccovehicles.com/contact',
     siteName: 'MoroccoVehicles',
@@ -80,7 +80,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@moroccovehicles',
     creator: '@moroccovehicles',
-    title: 'Contact MoroccoVehicles – Démo & Devis Gratuit',
+    title: 'Contact - Démo & Devis Gratuit',
     description: 'Besoin d\'une solution de gestion de flotte ? Contactez notre équipe à Casablanca. Démo personnalisée et devis sous 24h.',
     images: ['https://moroccovehicles.com/images/contact-morocco-vehicles.jpeg'],
   },
