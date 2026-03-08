@@ -805,6 +805,21 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* 
+               * ==========================================
+               * LICENCE ACCORDÉE À HASSAN BOUDRAA
+               * CIN: VA132492
+               * PROJECT: MOROCCOVEHICLES
+               * ==========================================
+               */
+              console.log("%c✓ Project Licensed to Hassan Boudraa (CIN: VA132492)", "color: #36c275; font-size: 12px; font-weight: bold; border: 1px solid #36c275; padding: 4px; border-radius: 4px;");
+            `
+          }}
+        />
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         

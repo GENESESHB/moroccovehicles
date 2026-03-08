@@ -121,37 +121,40 @@ body {
 }
 
 .wego-mobile-sheet {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.98);
   backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(54, 194, 117, 0.3);
-  width: 75%;
-  max-width: 320px;
-  padding: 30px 24px;
+  width: 100%;
+  height: 100%;
+  padding: 40px 24px;
   display: flex;
   flex-direction: column;
-  border-radius: 24px 0 0 24px;
-  gap: 20px;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  animation: slideDownFull 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+@keyframes slideDownFull {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .wego-mobile-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 16px;
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .wego-mobile-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
   margin: 0;
   background: linear-gradient(to right, #ffffff, #36c275);
   -webkit-background-clip: text;
@@ -162,28 +165,30 @@ body {
 .wego-mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
 }
 
 .wego-mobile-nav a {
   color: #f1f5f9;
   text-decoration: none;
-  padding: 14px 18px;
-  font-weight: 500;
-  font-size: 1.1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 16px;
+  background: transparent;
   display: block;
   transition: all 0.3s ease;
-  border: 1px solid transparent;
+  border: none;
+  text-align: center;
 }
 
 .wego-mobile-nav a:hover,
 .wego-mobile-nav a:active {
   color: #36c275;
   background: rgba(54, 194, 117, 0.1);
-  border-color: rgba(54, 194, 117, 0.2);
-  transform: translateX(5px);
+  transform: scale(1.05);
 }
 
 .wego-mobile-nav .wego-btn {
@@ -191,25 +196,27 @@ body {
   background: #36c275;
   color: white !important;
   text-align: center;
-  border-radius: 12px;
-  padding: 14px;
+  border-radius: 50px;
+  padding: 16px 32px;
   font-weight: 600;
+  font-size: 1.3rem;
+  box-shadow: 0 10px 25px -5px rgba(54, 194, 117, 0.4);
 }
 
 .wego-mobile-nav .wego-btn:hover {
   background: #2fae5e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(54, 194, 117, 0.3);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px -5px rgba(54, 194, 117, 0.6);
 }
 
 .wego-close {
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
