@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     Calendar, Clock, Car, TrendingUp, Activity, CalendarRange, AlertCircle, Bell, Download,
     CheckCircle, ArrowUpRight, ArrowDownRight, Zap, ChevronRight, Eye, Edit3, Sunrise, Sunset,
@@ -307,6 +308,7 @@ export default function CalendrierClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className="moduleSection bgWhite">
                 <div className="containerContent">

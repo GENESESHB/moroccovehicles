@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     Shield, ShieldCheck, ShieldAlert, TrendingUp, CheckCircle, Clock,
     DollarSign, Search, Plus, MoreVertical, Download, Eye, Edit3,
@@ -596,6 +597,7 @@ export default function AssuranceClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className={`${styles.moduleSection} ${styles.bgLight}`}>
                 <div className={styles.containerContent}>

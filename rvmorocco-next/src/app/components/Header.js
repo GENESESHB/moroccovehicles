@@ -56,6 +56,7 @@ export default function Header() {
           <div className="wego-menu">
             <Link href="/about" className="wego-link">À propos</Link>
             <Link href="/features" className="wego-link">Projets</Link>
+            <Link href="/blogs" className="wego-link">Blogs</Link>
             <Link href="/contact" className="wego-link">Contact</Link>
             <Link href="/support" className="wego-link">Support</Link>
             <Link href="/experience" className="wego-link">Expérience</Link>
@@ -84,6 +85,7 @@ export default function Header() {
               <nav className="wego-mobile-nav">
                 <Link href="/about" onClick={closeMenu}>À propos</Link>
                 <Link href="/features" onClick={closeMenu}>Projets</Link>
+                <Link href="/blogs" onClick={closeMenu}>Blogs</Link>
                 <Link href="/contact" onClick={closeMenu}>Contact</Link>
                 <Link href="/support" onClick={closeMenu}>Support</Link>
                 <Link href="/experience" onClick={closeMenu}>Expérience</Link>

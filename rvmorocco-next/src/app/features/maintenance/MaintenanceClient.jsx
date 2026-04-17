@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
   Wrench,
   Toolbox,
@@ -587,7 +588,8 @@ export default function MaintenanceClient() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        <BlogSection />
+            {/* CTA Section */}
         <section className="ctaSection">
           <div className="containerContent">
             <div className="ctaBox" style={{ background: 'linear-gradient(135deg, #36c275 0%, #2a9e5c 100%)' }}>

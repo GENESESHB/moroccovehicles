@@ -2,6 +2,7 @@ export const metadata = {
     title: "Liste Noire & Sécurité",
     description: "Protégez votre agence contre la fraude, les impayés et les accidents grâce au module de Liste Noire. Blocage automatique et alertes en temps réel.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "liste noire client location voiture",
         "gestion impayés loueur de voiture",
         "logiciel sécurité location auto",
@@ -54,7 +55,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Liste Noire",
@@ -74,4 +76,17 @@ export const jsonLd = {
         "Traçabilité des motifs (Impayés, Excès de vitesse, Dégradations)",
         "Réconciliation des statuts résolus"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de BLACK LIST",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

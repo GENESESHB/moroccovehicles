@@ -2,6 +2,7 @@ export const metadata = {
     title: "Location Voiture de Luxe",
     description: "Réservez votre véhicule de prestige au Maroc. Ferrari, Lamborghini, Range Rover avec service conciergerie personnalisé et livraison VIP.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "location voiture luxe maroc",
         "location ferrari casablanca",
         "location lamborghini marrakech",
@@ -55,7 +56,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Collection Prestige de Voitures - Smart Car Location",
@@ -81,4 +83,17 @@ export const jsonLd = {
             }
         ]
     }
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de LUXURY CARS",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

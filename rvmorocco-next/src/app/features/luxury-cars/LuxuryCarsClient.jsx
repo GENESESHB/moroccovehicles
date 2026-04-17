@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     FileText, PenTool, Shield, Calendar, TrendingUp, CheckCircle, Clock, DollarSign,  Settings, User,
     Search, Filter, Plus, MoreVertical, Download, Eye, Edit3, Trash2, ChevronRight, BarChart3, PieChart,
@@ -594,6 +595,7 @@ export default function LuxuryCarsClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
                 <div className={styles.containerContent}>

@@ -1,0 +1,153 @@
+
+.blogsPageWrapper {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: 60px;
+  font-family: inherit;
+}
+
+.containerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heroSection {
+  background: #ffffff;
+  padding: 80px 0 60px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroContent h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.heroContent p {
+  font-size: 18px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.blogsListSection {
+  padding: 60px 0 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.blogCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blogCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+.blogImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blogCategory {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #3b82f6;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.blogContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blogTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.blogTitle a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blogTitle a:hover {
+  color: #3b82f6;
+}
+
+.blogExcerpt {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.blogFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.readTime {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.readMore {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 36px;
+  }
+}

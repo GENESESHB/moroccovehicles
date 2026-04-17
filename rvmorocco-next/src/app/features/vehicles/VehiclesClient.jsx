@@ -11,6 +11,7 @@ import {
   VEHICLE_STATS, VEHICLES_LIST, COLORS, Icons 
 } from './constants';
 import { faqs } from './faqs';
+import BlogSection from './BlogSection';
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
 
 const StatCard = ({ icon: Icon, label, value, subtext, color, trend }) => (
@@ -935,6 +936,7 @@ export default function VehiclesClient() {
       </section>
 
 
+      <BlogSection />
       {/* FAQ Section (SEO Optimized) */}
       <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
         <div className={styles.containerContent}>

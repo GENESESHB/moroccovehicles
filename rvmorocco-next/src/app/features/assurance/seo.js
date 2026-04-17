@@ -2,6 +2,7 @@ export const metadata = {
     title: "Gestion Assurance & Sinistres Location Auto | Smart Car Location",
     description: "Gérez efficacement vos polices d'assurance automobile, anticipez les renouvellements et suivez vos dossiers de sinistres depuis un tableau de bord centralisé.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "gestion assurance flotte automobile",
         "logiciel assurance location voiture",
         "suivi sinistre agence location",
@@ -55,7 +56,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Assurance",
@@ -75,4 +77,17 @@ export const jsonLd = {
         "Calcul des indemnités et gestion des franchises par véhicule",
         "Archivage électronique des cartes vertes et attestations"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de ASSURANCE",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

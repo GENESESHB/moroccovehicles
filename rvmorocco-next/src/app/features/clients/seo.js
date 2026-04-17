@@ -2,6 +2,7 @@ export const metadata = {
     title: "CRM Fiches Clients & Fidélité",
     description: "Fidélisez votre clientèle grâce à notre CRM dédié aux agences de location au Maroc. Historique, stockage des CIN/Permis, segmentation et suivi du CA par client.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "CRM location voiture",
         "gestion clients agence location maroc",
         "base de données conducteurs",
@@ -55,7 +56,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module CRM Clients",
@@ -75,4 +77,17 @@ export const jsonLd = {
         "Suivi du chiffre d'affaires et de la rentabilité par client",
         "Alertes péremption des documents d'identité"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de CLIENTS",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

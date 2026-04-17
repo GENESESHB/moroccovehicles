@@ -2,6 +2,7 @@ export const metadata = {
   title: "Logiciel Gestion Maintenance",
   description: "Solution n°1 au Maroc en 2026 pour la gestion de l'entretien de flotte automobile. Planifiez vos révisions, recevez des alertes automatiques, suivez le carnet d'entretien numérique et optimisez vos coûts (préventif vs curatif).",
   keywords: [
+        "gestionair flotte automobile moins chere",
     "gestion maintenance flotte automobile",
     "logiciel entretien véhicule 2026",
     "suivi maintenance voiture Maroc",
@@ -67,7 +68,8 @@ export const metadata = {
 };
 
 // JSON-LD structured data for Google Rich Results (SEO Schema Markup)
-export const jsonLd = {
+export const jsonLd = [
+  {
   "@context": "https://schema.org ",
   "@type": "SoftwareApplication",
   "name": "Smart Car Location - Module Maintenance",
@@ -98,4 +100,17 @@ export const jsonLd = {
       }
     }
   }
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de MAINTENANCE",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

@@ -2,6 +2,7 @@ export const metadata = {
     title: "Calendrier & Planning Interactif",
     description: "Synchronisez vos réservations, retours et plages de maintenance grâce à un planning interactif glisser-déposer. Évitez les erreurs d'overbooking.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "calendrier réservation voiture",
         "planning location auto maroc",
         "logiciel planning véhicules",
@@ -55,7 +56,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Calendrier",
@@ -75,4 +77,17 @@ export const jsonLd = {
         "Export et Synchronisation vers Google Agenda & iCal",
         "Tableau de bord temps-réel des prises en charge et retours"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de CALENDRIER",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

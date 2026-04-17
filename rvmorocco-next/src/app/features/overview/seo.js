@@ -2,6 +2,7 @@ export const metadata = {
     title: "Tableau de Bord Analytique",
     description: "Statistiques en temps réel pour optimiser votre flotte de véhicules au Maroc. Comparez vos revenus Luxury vs Regular, suivez le taux d'occupation et téléchargez vos KPIs 2026.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "tableau de bord analytique flotte automobile",
         "statistiques location véhicule Maroc",
         "logiciel KPIs flotte automobile 2026",
@@ -56,7 +57,8 @@ export const metadata = {
     },
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Analytique",
@@ -75,4 +77,17 @@ export const jsonLd = {
         "Calculs métriques avancés (growth rate, consistency score)",
         "Reportings financiers exacts avec temps réel"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de OVERVIEW",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

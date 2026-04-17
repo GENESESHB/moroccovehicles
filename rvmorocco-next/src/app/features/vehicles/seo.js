@@ -4,6 +4,7 @@ export const metadata = {
   title: "Gestion de Flotte & Parc Auto",
   description: "Système complet de gestion de parc automobile au Maroc : fiches véhicules, suivi kilométrage, gestion des documents légaux (assurances) et coûts de réparation.",
   keywords: [
+        "gestionair flotte automobile moins chere",
     "gestion parc automobile Maroc",
     "logiciel suivi véhicules",
     "flotte automobile location",
@@ -58,7 +59,8 @@ export const metadata = {
 };
 
 // ✅ UNIQUEMENT SoftwareApplication - PAS de FAQPage ici
-export const jsonLd = {
+export const jsonLd = [
+  {
   "@context": "https://schema.org", // ✅ Sans espace
   "@type": "SoftwareApplication",
   "name": "Smart Car Location - Module Flotte",
@@ -82,4 +84,17 @@ export const jsonLd = {
     "ratingValue": "4.8",
     "reviewCount": "127"
   }
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de VEHICLES",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

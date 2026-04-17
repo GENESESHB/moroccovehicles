@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     FileText, Calendar, TrendingUp, CheckCircle, Clock, DollarSign, Search, Plus, MoreVertical, Download, Eye, Edit3, ChevronRight, BarChart3, PieChart, Activity, Zap, Lock, Users, Camera, ArrowUpRight, ArrowDownRight, Star, Gem, Award, Heart, Sparkles, MapPin, ShieldCheck, FileCheck, Headphones, Database, Crown, FileSignature, ChevronDown, MessageCircleQuestion
 } from 'lucide-react';
@@ -538,6 +539,7 @@ export default function LuxuryContractsClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
                 <div className={styles.containerContent}>

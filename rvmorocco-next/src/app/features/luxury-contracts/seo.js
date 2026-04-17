@@ -2,6 +2,7 @@ export const metadata = {
     title: "Contrats VIP & Prestations Luxe",
     description: "Bénéficiez de nos contrats de location sur-mesure pour véhicules de prestige : Conciergerie, Assurance Premium, discrétion absolue et flexibilité totale.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "contrat location vip maroc",
         "location voiture luxe avec chauffeur",
         "contrat prestige Smart Car Location",
@@ -54,7 +55,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Contrats VIP",
@@ -74,4 +76,17 @@ export const jsonLd = {
         "Options Chauffeur et Sécurité Rapprochée intégrables",
         "Archivage ultra-sécurisé et confidentiel"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de LUXURY CONTRACTS",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

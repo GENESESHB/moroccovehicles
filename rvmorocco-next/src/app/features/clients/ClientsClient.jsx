@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     Users, UserPlus, Heart, TrendingUp, CheckCircle, Clock, DollarSign,
     Search, Plus, Eye, Edit3, ChevronRight, BarChart3, PieChart, Activity,
@@ -511,6 +512,7 @@ export default function ClientsClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className="moduleSection bgLight">
                 <div className="containerContent">

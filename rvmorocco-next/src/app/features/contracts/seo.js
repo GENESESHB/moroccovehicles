@@ -2,6 +2,7 @@ export const metadata = {
     title: "Gestion Contrats & e-Signature",
     description: "Digitalisez vos contrats de location avec signature électronique (Loi marocaine), états des lieux numériques photos, et facturation automatique pour LLD/LCD.",
     keywords: [
+        "gestionair flotte automobile moins chere",
         "logiciel contrat location voiture",
         "signature electronique contrat auto",
         "etat des lieux numérique location",
@@ -55,7 +56,8 @@ export const metadata = {
     }
 };
 
-export const jsonLd = {
+export const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Smart Car Location - Module Contrats",
@@ -75,4 +77,17 @@ export const jsonLd = {
         "Facturation récurrente automatisée",
         "Prise d'empreinte bancaire et cautions intégrées"
     ]
-};
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Guide Complet : Maîtrisez le module de CONTRACTS",
+    "image": "https://moroccovehicles.com/images/fleet_management_blog_hero.png",
+    "wordcount": "1000",
+    "keywords": "gestionair flotte automobile moins chere",
+    "author": {
+        "@type": "Organization",
+        "name": "Smart Car Location"
+    }
+}
+];

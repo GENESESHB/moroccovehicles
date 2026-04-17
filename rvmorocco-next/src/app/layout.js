@@ -799,13 +799,16 @@ const structuredData = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr-MA" dir="ltr" suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         <script
+          id="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          suppressHydrationWarning
         />
         
         <script
+          id="licence-info"
           dangerouslySetInnerHTML={{
             __html: `
               /* 
@@ -818,6 +821,7 @@ export default function RootLayout({ children }) {
               console.log("%c✓ Project Licensed to Hassan Boudraa (CIN: VA132492)", "color: #36c275; font-size: 12px; font-weight: bold; border: 1px solid #36c275; padding: 4px; border-radius: 4px;");
             `
           }}
+          suppressHydrationWarning
         />
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />

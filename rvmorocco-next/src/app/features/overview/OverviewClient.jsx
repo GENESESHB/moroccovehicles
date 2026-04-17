@@ -1,3 +1,4 @@
+import BlogSection from './BlogSection';
 'use client';
 
 import React, { useState, useMemo } from 'react';
@@ -869,6 +870,8 @@ export default function OverviewClient() {
             </div>
           </div>
         </section>
+<BlogSection />
+
       </div>
     </>
   );

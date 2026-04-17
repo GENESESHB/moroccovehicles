@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     FileText, PenTool, Shield, Calendar, TrendingUp, CheckCircle, Clock, DollarSign,
     Search, Plus, MoreVertical, Download, Eye, Edit3, ChevronRight, BarChart3, PieChart,
@@ -637,6 +638,7 @@ export default function ContractsClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* CTA Section */}
             <section className={styles.ctaSection}>
                 <div className={styles.containerContent}>

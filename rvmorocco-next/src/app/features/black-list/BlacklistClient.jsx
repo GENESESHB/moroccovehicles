@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import BlogSection from './BlogSection';
 import {
     Ban, UserX, AlertTriangle, Shield, Calendar, TrendingUp, CheckCircle, Clock, DollarSign,
     Search, Filter, Plus, MoreVertical, Download, Eye, Edit3, Trash2, ChevronRight, BarChart3, PieChart,
@@ -515,6 +516,7 @@ export default function BlacklistClient() {
                 </div>
             </section>
 
+            <BlogSection />
             {/* FAQ Section */}
             <section className={`${styles.moduleSection} ${styles.bgWhite}`}>
                 <div className={styles.containerContent}>
