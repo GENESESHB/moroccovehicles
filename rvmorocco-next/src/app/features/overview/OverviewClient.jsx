@@ -1,7 +1,7 @@
-import BlogSection from './BlogSection';
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import BlogSection from './BlogSection';
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, 
   Tooltip, Legend, ResponsiveContainer, Cell, LineChart, Line,

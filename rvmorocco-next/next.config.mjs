@@ -3,9 +3,6 @@ const nextConfig = {
   devIndicators: {
     appIsrStatus: false, 
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
