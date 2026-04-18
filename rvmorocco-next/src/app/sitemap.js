@@ -55,5 +55,22 @@ export default async function sitemap() {
     { url: `${baseUrl}/features/assurance`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
-  return [...staticRoutes, ...featuresRoutes];
+  const blogsRoutes = [
+    { url: `${baseUrl}/blogs`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/blogs/assurance-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/black-list-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/calendrier-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/clients-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/contracts-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/finances-rentabilite-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/login-security-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/luxury-cars-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/luxury-contracts-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/maintenance-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/overview-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/partenaires-b2b-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/blogs/vehicles-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+  ];
+
+  return [...staticRoutes, ...featuresRoutes, ...blogsRoutes];
 }
