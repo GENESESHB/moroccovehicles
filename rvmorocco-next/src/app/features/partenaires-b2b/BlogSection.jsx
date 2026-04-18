@@ -68,11 +68,11 @@ export default function PartenairesB2bBlogSection() {
                     })
                 }}
             />
-<video defaultMuted width="100%" autoPlay loop muted playsInline poster="/compressed_videos/devenaire-partenaire-form.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module PARTENAIRES B2B et ses bénéfices opérationnels" style={{ display: "block", width: "100%", pointerEvents: "none" }}>
+<div dangerouslySetInnerHTML={{ __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/devenaire-partenaire-form.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module PARTENAIRES B2B et ses bénéfices opérationnels" style="display: block; width: 100%; pointer-events: none;">
                   <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-google-chrome-2026-04-14-18-44-35.mp4" type="video/mp4" />
                   Votre navigateur ne supporte pas la balise vidéo.
                 Votre navigateur ne supporte pas l'affichage de notre vidéo pour le gestionair flotte automobile moins chere. <br/><strong>Contexte de la vidéo :</strong> Ce clip explique en détail le fonctionnement du module PARTENAIRES B2B pour digitaliser votre agence.
-</video>
+</video>` }} />
             </div>
 
             <h2 style={{ fontSize: "32px", marginBottom: "24px", color: "#1e293b", borderLeft: "4px solid #3b82f6", paddingLeft: "16px" }}>3. Cas pratique et Retour sur Investissement</h2>

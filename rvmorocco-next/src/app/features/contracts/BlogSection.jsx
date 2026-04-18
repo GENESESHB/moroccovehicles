@@ -103,11 +103,11 @@ export default function ContractsBlogSection() {
                     })
                 }}
             />
-<video defaultMuted width="100%" autoPlay loop muted playsInline poster="/compressed_videos/smart-contra-list-components.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module CONTRACTS et ses bénéfices opérationnels" style={{ display: "block", width: "100%", pointerEvents: "none" }}>
+<div dangerouslySetInnerHTML={{ __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/smart-contra-list-components.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module CONTRACTS et ses bénéfices opérationnels" style="display: block; width: 100%; pointer-events: none;">
                   <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-lists-smart-contra-imprime-update-active-delet-update.mp4" type="video/mp4" />
                   Votre navigateur ne supporte pas la balise vidéo.
                 Votre navigateur ne supporte pas l'affichage de notre vidéo pour le gestionair flotte automobile moins chere. <br/><strong>Contexte de la vidéo :</strong> Ce clip explique en détail le fonctionnement du module CONTRACTS pour digitaliser votre agence.
-</video>
+</video>` }} />
             </div>
 
             

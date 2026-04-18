@@ -103,11 +103,11 @@ export default function LuxurycarsBlogSection() {
                     })
                 }}
             />
-<video defaultMuted width="100%" autoPlay loop muted playsInline poster="/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module LUXURY CARS et ses bénéfices opérationnels" style={{ display: "block", width: "100%", pointerEvents: "none" }}>
+<div dangerouslySetInnerHTML={{ __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png" title="Démonstration logicielle du gestionair flotte automobile moins chere" aria-label="Vidéo démonstrative complète expliquant le fonctionnement exact du module LUXURY CARS et ses bénéfices opérationnels" style="display: block; width: 100%; pointer-events: none;">
                   <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-smart-cars-componnets-add-and-all-you-need.mp4" type="video/mp4" />
                   Votre navigateur ne supporte pas la balise vidéo.
                 Votre navigateur ne supporte pas l'affichage de notre vidéo pour le gestionair flotte automobile moins chere. <br/><strong>Contexte de la vidéo :</strong> Ce clip explique en détail le fonctionnement du module LUXURY CARS pour digitaliser votre agence.
-</video>
+</video>` }} />
             </div>
 
             
