@@ -59,7 +59,7 @@ export default function Header() {
             <Link href="/blogs" className="wego-link">Blogs</Link>
             <Link href="/contact" className="wego-link">Contact</Link>
             <Link href="/support" className="wego-link">Support</Link>
-            <Link href="/experience" className="wego-link">Expérience</Link>
+            <Link href="/gestion-automobiles" className="wego-link">Gestion de Flotte</Link>
             <Link href="/partner" className="wego-btn" onClick={closeMenu}>Devenir partenaire</Link>
           </div>
 
@@ -88,7 +88,7 @@ export default function Header() {
                 <Link href="/blogs" onClick={closeMenu}>Blogs</Link>
                 <Link href="/contact" onClick={closeMenu}>Contact</Link>
                 <Link href="/support" onClick={closeMenu}>Support</Link>
-                <Link href="/experience" onClick={closeMenu}>Expérience</Link>
+                <Link href="/gestion-automobiles" onClick={closeMenu}>Gestion de Flotte</Link>
                 <Link href="/partner" className="wego-btn" onClick={closeMenu}>Devenir partenaire</Link>
               </nav>
             </div>

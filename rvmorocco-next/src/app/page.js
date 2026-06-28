@@ -1,19 +1,21 @@
-import FleetSoftwareShowcase from './components/FleetSoftwareShowcase';
+import BookingWizard from '@/app/components/Booking/BookingWizard';
 
 export const metadata = {
-  title: 'MoroccoVehicles – Logiciel de gestion de flotte automobile au Maroc',
-  description: 'Optimisez vos locations, suivez vos véhicules en temps réel et maximisez votre rentabilité avec MoroccoVehicles. Solution complète pour agences de location.',
+  title: 'MoroccoVehicles – Location de voitures au Maroc | Réservation en ligne',
+  description:
+    'Réservez votre voiture de location au Maroc en 3 étapes simples. Véhicules standard et de luxe disponibles à Fez, Casablanca, Marrakech, Rabat et Tanger.',
   openGraph: {
-    title: 'MoroccoVehicles – Logiciel de gestion de flotte automobile',
-    description: 'Optimisez vos locations, suivez vos véhicules en temps réel et maximisez votre rentabilité avec MoroccoVehicles.',
+    title: 'MoroccoVehicles – Location de voitures au Maroc',
+    description:
+      'Réservez votre voiture de location au Maroc en 3 étapes simples. Véhicules standard et de luxe disponibles dans toutes les grandes villes.',
     url: 'https://moroccovehicles.com',
     siteName: 'MoroccoVehicles',
     images: [
       {
-        url: 'https://moroccovehicles.com/images/morocco-vehicles1.jpeg', // or rv-morocco.jpeg – pick the most representative image
+        url: 'https://moroccovehicles.com/images/morocco-vehicles1.jpeg',
         width: 1200,
         height: 630,
-        alt: 'MoroccoVehicles – Interface de gestion de flotte',
+        alt: 'MoroccoVehicles – Location de voitures au Maroc',
       },
     ],
     locale: 'fr_FR',
@@ -22,5 +24,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <FleetSoftwareShowcase />;
+  return <BookingWizard />;
 }

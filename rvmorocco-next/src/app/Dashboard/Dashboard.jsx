@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import api from '../utils/api';
+import { useAuth } from './contexts/AuthContext';
+import api from './utils/api';
 import Overview from './components/Overview';
 import VehiclesManagement from './components/VehiclesManagement';
 import ContractsManagement from './components/ContractsManagement';

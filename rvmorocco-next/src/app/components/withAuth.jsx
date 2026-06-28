@@ -1,53 +1,59 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function withAuth(Component) {
   return function ProtectedRoute(props) {
-    const { loggedIn } = useAuth();
+    const { loggedIn, loading } = useAuth();
     const router = useRouter();
-    const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
-      const savedToken = localStorage.getItem('token');
-      
-      if (!loggedIn && !savedToken) {
-        // Rediriger vers la page d'accueil ou de connexion
-        router.push('/login');
+      // Only redirect AFTER auth check is complete
+      if (!loading && !loggedIn) {
+        router.replace('/login');
       }
-    }, [loggedIn, router]);
+    }, [loading, loggedIn, router]);
 
-    useEffect(() => {
-      if (loggedIn) {
-        setIsAuthorized(true);
-      } else {
-        setIsAuthorized(false);
-      }
-    }, [loggedIn]);
-
-    if (!isAuthorized) {
+    // ── While validating the token, show a full-screen spinner ────────────
+    if (loading) {
       return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#0B0E11', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div style={{
-            width: '40px',
-            height: '40px',
-            border: '4px solid #F0B90B',
-            borderTop: '4px solid transparent',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite'
-          }}></div>
-          <style dangerouslySetInnerHTML={{__html: `
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          `}} />
+        <div
+          style={{
+            minHeight: '100vh',
+            backgroundColor: '#0B0E11',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '16px',
+          }}
+        >
+          <div
+            style={{
+              width: '48px',
+              height: '48px',
+              border: '4px solid rgba(240, 185, 11, 0.2)',
+              borderTop: '4px solid #F0B90B',
+              borderRadius: '50%',
+              animation: 'spin 0.8s linear infinite',
+            }}
+          />
+          <p style={{ color: '#9CA3AF', fontSize: '14px', fontFamily: 'sans-serif' }}>
+            Vérification de la session…
+          </p>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>
       );
     }
 
+    // ── Not authenticated — render nothing (redirect is in progress) ───────
+    if (!loggedIn) {
+      return null;
+    }
+
+    // ── Authenticated — render protected page ─────────────────────────────
     return <Component {...props} />;
   };
 }

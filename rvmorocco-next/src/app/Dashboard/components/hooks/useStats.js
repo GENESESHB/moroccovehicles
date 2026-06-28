@@ -1,6 +1,6 @@
 // src/hooks/useStats.js
 import { useState, useEffect, useCallback } from 'react';
-import { statsApi } from '../../../../utils/statsApi';
+import { statsApi } from '../../utils/statsApi';
 
 export const useStats = (initialYear, initialMonth) => {
   const [stats, setStats] = useState({
