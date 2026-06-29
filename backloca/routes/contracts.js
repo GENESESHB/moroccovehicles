@@ -1,7 +1,7 @@
 // routes/contracts.js
 const express = require('express');
 const router = express.Router();
-const contractController = require('../controllers/contractController');
+const contractController = require('../controllers/ContractController');
 const auth = require('../middleware/auth');
 
 router.post('/', auth, contractController.createContract);
