@@ -56,9 +56,9 @@ export default function Header() {
           <div className="wego-menu">
             <Link href="/about" className="wego-link">À propos</Link>
             <Link href="/features" className="wego-link">Projets</Link>
+            <Link href="/tarifs" className="wego-link">Tarifs</Link>
             <Link href="/blogs" className="wego-link">Blogs</Link>
-            <Link href="/contact" className="wego-link">Contact</Link>
-            <Link href="/support" className="wego-link">Support</Link>
+            <Link href="/assistance" className="wego-link">Assistance</Link>
             <Link href="/gestion-automobiles" className="wego-link">Gestion de Flotte</Link>
             <Link href="/partner" className="wego-btn" onClick={closeMenu}>Devenir partenaire</Link>
           </div>
@@ -85,9 +85,9 @@ export default function Header() {
               <nav className="wego-mobile-nav">
                 <Link href="/about" onClick={closeMenu}>À propos</Link>
                 <Link href="/features" onClick={closeMenu}>Projets</Link>
+                <Link href="/tarifs" onClick={closeMenu}>Tarifs</Link>
                 <Link href="/blogs" onClick={closeMenu}>Blogs</Link>
-                <Link href="/contact" onClick={closeMenu}>Contact</Link>
-                <Link href="/support" onClick={closeMenu}>Support</Link>
+                <Link href="/assistance" onClick={closeMenu}>Assistance</Link>
                 <Link href="/gestion-automobiles" onClick={closeMenu}>Gestion de Flotte</Link>
                 <Link href="/partner" className="wego-btn" onClick={closeMenu}>Devenir partenaire</Link>
               </nav>

@@ -8,8 +8,9 @@ import '../styles/Footer.css';
 const footerLinks = {
   company: [
     { name: 'À propos', href: '/about' },
+    { name: 'Tarifs', href: '/tarifs' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Support', href: '/support' },
+    { name: 'Assistance', href: '/assistance' },
     { name: 'Expérience', href: '/experience' },
     { name: 'Devenir partenaire', href: '/partner' },
   ],

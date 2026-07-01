@@ -92,11 +92,11 @@ export default function PartnerPage() {
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
 
-      setMessage(response.data?.message || 'Merci ! Votre demande de partenariat a été envoyée. Nous vous contacterons sous 48h.');
+      setMessage(response.data?.message || 'Demande soumise avec succès ! En attente de validation par l\'administrateur.');
 
-      // ✅ Redirection vers la page d'accueil après 2 secondes
+      // ✅ Redirection vers la page de connexion après 2.5 secondes
       timeoutRef.current = setTimeout(() => {
-        router.push('/');
+        router.push('/login?message=Votre+demande+a+%C3%A9t%C3%A9+soumise.+Attendez+la+validation+de+l%27administrateur.');
       }, 2500);
     } catch (err) {
       console.error('Form submission error:', err);

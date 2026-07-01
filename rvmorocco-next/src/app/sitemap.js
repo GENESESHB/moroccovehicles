@@ -22,6 +22,18 @@ export default async function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/tarifs`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/assistance`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/support`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
