@@ -844,3 +844,221 @@ exports.updateVehicleInContracts = async (req, res) => {
     });
   }
 };
+
+exports.createPublicReservation = async (req, res) => {
+  try {
+    const {
+      vehicleId,
+      pickup,
+      dropoff,
+      dateFrom,
+      dateTo,
+      driverInfo,
+      extras
+    } = req.body;
+
+    console.log('📥 Public reservation request:', req.body);
+
+    const mongoose = require('mongoose');
+    let vehicle;
+    let partner;
+
+    if (vehicleId.startsWith('mock')) {
+      const anyUser = await User.findOne({ role: 'agence' });
+      const partnerId = anyUser ? anyUser._id : new mongoose.Types.ObjectId();
+      
+      vehicle = {
+        _id: vehicleId,
+        name: vehicleId === 'mock8' ? 'Tesla Model 3' : vehicleId === 'mock9' ? 'Dacia Spring Electric' : 'Dacia Logan',
+        type: 'Electrique',
+        boiteVitesse: 'Automatique',
+        pricePerDay: vehicleId === 'mock8' ? 800 : vehicleId === 'mock9' ? 290 : 300,
+        matricule: 'M-MOCK-123',
+        partnerId: partnerId,
+        available: true,
+        carburant: 'Electrique'
+      };
+      
+      partner = anyUser || {
+        _id: partnerId,
+        name: 'Agence WegoRent Mock',
+        entreprise: 'WegoRent',
+        email: 'mock@wegorent.com',
+        number: '+212622283559',
+        country: 'Morocco',
+        city: 'Casablanca',
+        status: 'active',
+        role: 'agence',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+    } else {
+      vehicle = await Vehicle.findById(vehicleId);
+      if (!vehicle) {
+        return res.status(404).json({ success: false, message: 'Véhicule non trouvé' });
+      }
+      partner = await User.findById(vehicle.partnerId);
+      if (!partner) {
+        return res.status(404).json({ success: false, message: 'Partenaire non trouvé' });
+      }
+    }
+
+    // Verify availability
+    const startDateTime = new Date(dateFrom);
+    const endDateTime = new Date(dateTo);
+    
+    if (!vehicleId.startsWith('mock')) {
+      const overlappingContracts = await Contract.find({
+        'vehicleInfo.vehicleId': vehicleId,
+        'rentalInfo.startDateTime': { $lt: endDateTime },
+        'rentalInfo.endDateTime': { $gt: startDateTime },
+        status: { $in: ['pending', 'active'] }
+      });
+
+      if (overlappingContracts.length > 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'Le véhicule n\'est pas disponible pour ces dates'
+        });
+      }
+    }
+
+    // Blacklist Check
+    if (driverInfo.cin) {
+      const isBlacklisted = await Blacklist.findOne({
+        $or: [
+          { cin: driverInfo.cin },
+          { licenseNumber: driverInfo.licenseNumber || '' }
+        ]
+      });
+
+      if (isBlacklisted) {
+        return res.status(400).json({
+          success: false,
+          message: 'Réservation non autorisée. Ce client est dans la liste noire.'
+        });
+      }
+    }
+
+    // Calculations
+    const diffTime = Math.abs(endDateTime - startDateTime);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
+
+    const baseCost = vehicle.pricePerDay * diffDays;
+    const gpsCost = extras.gps ? 50 * diffDays : 0;
+    const babySeatCost = extras.babySeat ? 30 * diffDays : 0;
+    const insuranceCost = extras.insurance ? 100 * diffDays : 0;
+
+    const total = baseCost + gpsCost + babySeatCost + insuranceCost;
+
+    // Create Contract
+    const nameParts = driverInfo.name.trim().split(' ');
+    const firstName = nameParts[0] || 'Client';
+    const lastName = nameParts.slice(1).join(' ') || 'Visiteur';
+
+    // Generate vehicle object for schema
+    const schemaVehicleInfo = {
+      vehicleId: vehicleId.startsWith('mock') ? new mongoose.Types.ObjectId() : vehicle._id,
+      name: vehicle.name,
+      type: vehicle.type || 'Citadine',
+      boiteVitesse: vehicle.boiteVitesse || 'Automatique',
+      description: vehicle.description || '',
+      image: vehicle.image || '',
+      pricePerDay: vehicle.pricePerDay,
+      carburant: vehicle.carburant || 'Electrique',
+      niveauReservoir: vehicle.niveauReservoir || '100%',
+      radio: vehicle.radio || true,
+      gps: vehicle.gps || true,
+      mp3: vehicle.mp3 || true,
+      cd: vehicle.cd || false,
+      matricule: vehicle.matricule || 'M-MOCK-123',
+      kmDepart: vehicle.kmDepart || 0,
+      kmRetour: vehicle.kmRetour || 0,
+      impot2026: vehicle.impot2026 || false,
+      impot2027: vehicle.impot2027 || false,
+      impot2028: vehicle.impot2028 || false,
+      impot2029: vehicle.impot2029 || false,
+      assuranceStartDate: vehicle.assuranceStartDate || null,
+      assuranceEndDate: vehicle.assuranceEndDate || null,
+      vidangeInterval: vehicle.vidangeInterval || '',
+      remarques: vehicle.remarques || '',
+      dommages: vehicle.dommages || [],
+      available: vehicle.available || true,
+      createdAt: vehicle.createdAt || new Date(),
+      updatedAt: vehicle.updatedAt || new Date()
+    };
+
+    const contract = new Contract({
+      partnerInfo: {
+        partnerId: partner._id,
+        partnerName: partner.entreprise || partner.name,
+        partnerEmail: partner.email,
+        partnerPhone: partner.number || '',
+        partnerLogo: partner.logoEntreprise || '',
+        partnerCountry: partner.country || 'Morocco',
+        partnerCity: partner.city || '',
+        partnerStatus: partner.status || 'approved',
+        partnerRole: partner.role || 'agence',
+        partnerCreatedAt: partner.createdAt || new Date(),
+        partnerUpdatedAt: partner.updatedAt || new Date()
+      },
+      clientInfo: {
+        lastName,
+        firstName,
+        birthDate: new Date(),
+        phone: driverInfo.phone,
+        address: 'Non spécifiée',
+        cin: driverInfo.cin,
+        licenseNumber: 'En attente',
+        licenseIssueDate: new Date()
+      },
+      secondDriverInfo: {
+        lastName: '',
+        firstName: '',
+        licenseNumber: '',
+        licenseIssueDate: null
+      },
+      vehicleInfo: schemaVehicleInfo,
+      rentalInfo: {
+        startDateTime,
+        endDateTime,
+        startLocation: pickup,
+        endLocation: dropoff,
+        prixParJour: vehicle.pricePerDay,
+        rentalDays: diffDays,
+        rentalCost: baseCost,
+        deliveryCost: 0,
+        dropOffCost: 0,
+        insuranceCost: insuranceCost,
+        babySeatCost: babySeatCost,
+        surveillanceCost: gpsCost,
+        tva: 0,
+        deposit: 0,
+        subtotal: total,
+        prixTotal: total
+      },
+      contractMetadata: {
+        createdBy: partner._id,
+        status: 'pending'
+      },
+      status: 'pending'
+    });
+
+    await contract.save();
+
+    res.status(201).json({
+      success: true,
+      message: 'Réservation créée avec succès',
+      contractNumber: contract.contractNumber,
+      totalPrice: total,
+      contract
+    });
+  } catch (error) {
+    console.error('Error creating public reservation:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Erreur lors de la création de la réservation',
+      error: error.message
+    });
+  }
+};

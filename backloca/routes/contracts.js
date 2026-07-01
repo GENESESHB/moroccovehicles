@@ -4,6 +4,7 @@ const router = express.Router();
 const contractController = require('../controllers/ContractController');
 const auth = require('../middleware/auth');
 
+router.post('/public/reserve', contractController.createPublicReservation);
 router.post('/', auth, contractController.createContract);
 router.get('/my-contracts', auth, contractController.getMyContracts);
 router.get('/:id', auth, contractController.getContract);

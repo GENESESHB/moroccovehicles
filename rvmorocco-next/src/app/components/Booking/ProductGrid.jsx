@@ -73,7 +73,7 @@ export default function ProductGrid({
 
       {/* ── FILTERED VEHICLES ── */}
       <h2 className="section-heading">
-        Véhicules {category === 'luxe' ? 'Prestige & Luxe' : 'Standard'} disponibles
+        Véhicules {category === 'luxe' ? 'Prestige & Luxe' : category === 'electrique' ? '100% Électriques' : 'Standard'} disponibles
         <span className="count-pill">{filteredVehicles.length}</span>
       </h2>
 

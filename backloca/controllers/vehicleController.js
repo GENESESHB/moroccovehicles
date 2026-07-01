@@ -627,6 +627,50 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           country: "Morocco"
         },
         available: true
+      },
+      {
+        _id: "mock8",
+        name: "Tesla Model 3",
+        type: "Berline",
+        boiteVitesse: "Automatique",
+        description: "100% électrique. Technologie de pointe, silence absolu, accélérations instantanées et autonomie exceptionnelle.",
+        image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&q=80",
+        pricePerDay: 800,
+        carburant: "Electrique",
+        gps: true,
+        radio: true,
+        mp3: true,
+        cd: false,
+        partnerId: {
+          _id: "p8",
+          name: "Prestige Eco Rent",
+          entreprise: "Prestige Eco",
+          city: "Casablanca",
+          country: "Morocco"
+        },
+        available: true
+      },
+      {
+        _id: "mock9",
+        name: "Dacia Spring Electric",
+        type: "Citadine",
+        boiteVitesse: "Automatique",
+        description: "Citadine 100% électrique, compacte et agile. La solution idéale et économique pour la ville.",
+        image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80",
+        pricePerDay: 290,
+        carburant: "Electrique",
+        gps: true,
+        radio: true,
+        mp3: true,
+        cd: false,
+        partnerId: {
+          _id: "p9",
+          name: "WegoRent Rabat",
+          entreprise: "WegoRent",
+          city: "Rabat",
+          country: "Morocco"
+        },
+        available: true
       }
     ];
 
