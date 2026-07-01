@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import axios from 'axios';
+const axiosInstance = axios.default || axios;
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -31,7 +32,7 @@ const LoginForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('https://moroccovehicles-1-6zww.onrender.com/api/auth/login', {
+      const response = await axiosInstance.post('https://moroccovehicles-1-6zww.onrender.com/api/auth/login', {
         email,
         password,
       });

@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import styles from './contact.module.css';
 import axios from 'axios';
+const axiosInstance = axios.default || axios;
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ export default function ContactForm() {
     });
 
     try {
-      await axios.post('https://formspree.io/f/xqaagbjk', formDataToSend, {
+      await axiosInstance.post('https://formspree.io/f/xqaagbjk', formDataToSend, {
         headers: { 'Accept': 'application/json' }
       });
       setStatus('SUCCESS');

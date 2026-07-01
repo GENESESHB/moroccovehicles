@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+const axiosInstance = axios.default || axios;
 
 export default function PartnerPage() {
   const router = useRouter();
@@ -85,21 +86,21 @@ export default function PartnerPage() {
         }
       });
 
-      await axios.post(
-        'https://formspree.io/f/xqaagbjk ',
+      const response = await axiosInstance.post(
+        'https://moroccovehicles-1-6zww.onrender.com/users/demande',
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
 
-      setMessage('Merci ! Votre demande de partenariat a été envoyée. Nous vous contacterons sous 48h.');
+      setMessage(response.data?.message || 'Merci ! Votre demande de partenariat a été envoyée. Nous vous contacterons sous 48h.');
 
       // ✅ Redirection vers la page d'accueil après 2 secondes
       timeoutRef.current = setTimeout(() => {
         router.push('/');
-      }, 2000);
+      }, 2500);
     } catch (err) {
       console.error('Form submission error:', err);
-      setMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+      setMessage(err.response?.data?.message || 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
     } finally {
       setIsSubmitting(false);
     }

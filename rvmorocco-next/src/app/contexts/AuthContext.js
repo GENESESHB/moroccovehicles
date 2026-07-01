@@ -3,9 +3,11 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
+const axiosInstance = axios.default || axios;
+
 const AuthContext = createContext({});
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://moroccovehicles-1-6zww.onrender.com/api';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       // Use the real backend endpoint: GET /api/auth/me
-      const response = await axios.get(`${API_BASE_URL}/auth/me`, {
+      const response = await axiosInstance.get(`${API_BASE_URL}/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
         timeout: 8000,
       });

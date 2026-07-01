@@ -42,10 +42,10 @@ export default function BookingWizard() {
 
   /* ── Fetch location on mount ── */
   useEffect(() => {
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'https://moroccovehicles-1-6zww.onrender.com/api';
     const serverOrigin = apiBase.replace('/api', '');
 
-    axios.get(`${serverOrigin}/whoami/place`, { timeout: 6000 })
+    api.get(`${serverOrigin}/whoami/place`, { timeout: 6000 })
       .then(res => {
         const city = res.data?.geolocation?.city || '';
         const CITIES = ['Fez', 'Casablanca', 'Marrakech', 'Rabat', 'Tanger', 'Agadir'];
