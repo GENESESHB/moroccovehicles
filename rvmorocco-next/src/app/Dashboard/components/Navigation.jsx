@@ -6,6 +6,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
     { id: 'overview', label: 'Vue d\'ensemble', color: 'var(--purple)' },
     { id: 'vehicles', label: 'Gestion Véhicules', color: 'var(--blue)' },
     { id: 'contracts', label: 'Contrats', color: 'var(--green)' },
+    { id: 'reservations', label: 'Réservations', color: '#f59e0b' },
     { id: 'blacklist', label: 'Liste Noire', color: 'var(--red)' }
   ];
 

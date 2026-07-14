@@ -1769,3 +1769,33 @@ input[type="date"].form-input {
   cursor: not-allowed;
   transform: none !important;
 }
+
+/* Mobile dropdown navigation animations and responsive rules */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .wnav-right, .wnav-center {
+    display: none !important;
+  }
+  
+  .mobile-hamburger {
+    display: block !important;
+  }
+
+  .mobile-menu-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .mobile-menu-link-btn:hover {
+    background: #2aa15f !important;
+  }
+}

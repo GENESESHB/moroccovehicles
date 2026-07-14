@@ -468,17 +468,70 @@ exports.markDamagesRepaired = async (req, res) => {
 
 exports.getAvailableVehiclesPublic = async (req, res) => {
   try {
-    const vehicles = await Vehicle.find({ available: true })
+    const mongoose = require('mongoose');
+    const SmartCar = mongoose.model('SmartCar');
+
+    // 1. Fetch available regular vehicles
+    const dbVehicles = await Vehicle.find({ available: true })
       .populate('partnerId', 'name entreprise city country logoEntreprise')
       .sort({ createdAt: -1 });
 
-    // Fallback Mock Vehicles in Moroccan cities
+    // 2. Fetch available smart/luxury cars
+    let dbSmartCars = [];
+    try {
+      dbSmartCars = await SmartCar.find({ status: 'available' })
+        .populate('partnerId', 'name entreprise city country logoEntreprise')
+        .sort({ createdAt: -1 });
+    } catch (scError) {
+      console.error('⚠️ Could not fetch SmartCars from DB:', scError.message);
+    }
+
+    const combinedVehicles = [];
+
+    // 3. Add and normalize regular vehicles
+    if (dbVehicles && dbVehicles.length > 0) {
+      dbVehicles.forEach(v => {
+        const carObj = v.toObject();
+        carObj.vehicleSource = 'vehicle';
+        carObj.transmission = carObj.boiteVitesse;
+        combinedVehicles.push(carObj);
+      });
+    }
+
+    // 4. Add and normalize smart/luxury cars
+    if (dbSmartCars && dbSmartCars.length > 0) {
+      dbSmartCars.forEach(sc => {
+        const scObj = sc.toObject();
+        combinedVehicles.push({
+          _id: scObj._id,
+          name: scObj.nomVehicule,
+          type: scObj.typeVehicule || 'Standard',
+          boiteVitesse: scObj.boiteVitesse,
+          transmission: scObj.boiteVitesse,
+          description: scObj.description || 'Véhicule Luxury Smart connecté.',
+          image: scObj.imageVehicule?.url || 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80',
+          pricePerDay: scObj.prixJour,
+          carburant: scObj.typeCarburant === 'Diesel' ? 'Gasoil' : scObj.typeCarburant,
+          gps: scObj.equipementsAudio?.includes('GPS') || false,
+          radio: scObj.equipementsAudio?.includes('Radio') || false,
+          mp3: scObj.equipementsAudio?.includes('MP3') || false,
+          cd: scObj.equipementsAudio?.includes('CD') || false,
+          partnerId: scObj.partnerId || null,
+          available: scObj.status === 'available',
+          vehicleSource: 'smartcar',
+          matricule: scObj.numeroMatricule
+        });
+      });
+    }
+
+    // 5. Fallback Mock Vehicles
     const mockVehicles = [
       {
         _id: "mock1",
         name: "Dacia Logan",
         type: "Citadine",
         boiteVitesse: "Manuelle",
+        transmission: "Manuelle",
         description: "Économique, fiable et parfaite pour les trajets en ville ou en famille au Maroc.",
         image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 250,
@@ -494,13 +547,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Fez",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock2",
         name: "Renault Clio 5",
         type: "Citadine",
         boiteVitesse: "Manuelle",
+        transmission: "Manuelle",
         description: "Moderne, dynamique et très sobre. Parfaite pour explorer le Maroc.",
         image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 300,
@@ -516,13 +571,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Casablanca",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock3",
         name: "Range Rover Velar",
         type: "SUV premium",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "Le luxe absolu et le confort suprême pour vos voyages d'affaires ou vacances.",
         image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 1200,
@@ -538,13 +595,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Marrakech",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock4",
         name: "Mercedes-Benz Classe E",
         type: "Berline premium",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "Élégance, prestige et confort de conduite exceptionnel. Idéal pour vos événements.",
         image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 1500,
@@ -560,13 +619,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Rabat",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock5",
         name: "Dacia Duster",
         type: "SUV",
         boiteVitesse: "Manuelle",
+        transmission: "Manuelle",
         description: "Robuste et spacieux, idéal pour les routes de montagne et le grand confort.",
         image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 400,
@@ -582,13 +643,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Tanger",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock6",
         name: "Porsche Cayenne Coupe",
         type: "SUV premium",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "SUV ultra sportif combinant performance légendaire et confort d'exception.",
         image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 2500,
@@ -604,13 +667,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Marrakech",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock7",
         name: "Hyundai Tucson",
         type: "SUV",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "SUV moderne et élégant avec un espace généreux et une conduite fluide.",
         image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 450,
@@ -626,13 +691,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Fez",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock8",
         name: "Tesla Model 3",
         type: "Berline",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "100% électrique. Technologie de pointe, silence absolu, accélérations instantanées et autonomie exceptionnelle.",
         image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 800,
@@ -648,13 +715,15 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Casablanca",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       },
       {
         _id: "mock9",
         name: "Dacia Spring Electric",
         type: "Citadine",
         boiteVitesse: "Automatique",
+        transmission: "Automatique",
         description: "Citadine 100% électrique, compacte et agile. La solution idéale et économique pour la ville.",
         image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80",
         pricePerDay: 290,
@@ -670,29 +739,27 @@ exports.getAvailableVehiclesPublic = async (req, res) => {
           city: "Rabat",
           country: "Morocco"
         },
-        available: true
+        available: true,
+        vehicleSource: 'vehicle'
       }
     ];
 
-    // Combine database vehicles and mock vehicles
-    const combinedVehicles = [];
-    
-    // Add real vehicles from DB
-    if (vehicles && vehicles.length > 0) {
-      vehicles.forEach(v => {
-        // Format to standard JS object
-        const carObj = v.toObject();
-        combinedVehicles.push(carObj);
-      });
-    }
-    
-    // Append mock vehicles if they don't already exist in the list by name
     mockVehicles.forEach(mockCar => {
       const exists = combinedVehicles.some(v => v.name.toLowerCase() === mockCar.name.toLowerCase());
       if (!exists) {
         combinedVehicles.push(mockCar);
       }
     });
+
+    // 6. Proximity Sorting based on client city (req.query.pickup)
+    const clientCity = req.query.pickup || '';
+    if (clientCity) {
+      combinedVehicles.sort((a, b) => {
+        const aMatch = a.partnerId?.city?.toLowerCase() === clientCity.toLowerCase() ? 1 : 0;
+        const bMatch = b.partnerId?.city?.toLowerCase() === clientCity.toLowerCase() ? 1 : 0;
+        return bMatch - aMatch; // exact matches first
+      });
+    }
 
     res.json({
       success: true,

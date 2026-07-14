@@ -50,7 +50,8 @@ export default function ReservationSystem({
         dateFrom: search.dateFrom,
         dateTo: search.dateTo,
         driverInfo: driver,
-        extras: extras
+        extras: extras,
+        vehicleSource: selectedCar.vehicleSource
       };
 
       const response = await api.post('/contracts/public/reserve', payload);

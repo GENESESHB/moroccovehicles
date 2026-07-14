@@ -13,6 +13,7 @@ import SmartCarsControllers from './components/SmartCarsControllers';
 import SmartContra from './components/SmartContra';
 import AnalyticsDashboard from './components/AnalyticsDashboard';
 import MaintenanceManagement from './components/MaintenanceManagement';
+import ReservationsManagement from './components/ReservationsManagement';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -290,6 +291,8 @@ const Dashboard = () => {
         return <VehiclesManagement {...commonProps} />;
       case 'contracts':
         return <ContractsManagement {...commonProps} />;
+      case 'reservations':
+        return <ReservationsManagement {...commonProps} />;
       case 'blacklist':
         return <BlacklistManagement {...commonProps} />;
       case 'clients':
@@ -424,11 +427,22 @@ const Dashboard = () => {
     </svg>
   );
 
+  const ReservationsIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+      <path d="M9 14h6"></path>
+      <path d="M9 18h6"></path>
+      <path d="M9 10h6"></path>
+    </svg>
+  );
+
   // Menu items avec le nouveau libellé "Calendrier" et l'icône calendrier
   const menuItems = [
     { id: 'overview', label: 'Vue d\'ensemble', icon: <OverviewIcon /> },
     { id: 'vehicles', label: 'Véhicules', icon: <VehiclesIcon /> },
     { id: 'contracts', label: 'Contrats', icon: <ContractsIcon /> },
+    { id: 'reservations', label: 'Réservations', icon: <ReservationsIcon /> },
     { id: 'smart-cars', label: 'Luxury Voitures', icon: <SmartCarsIcon /> },
     { id: 'smart-contra', label: 'Luxury Contracts', icon: <SmartContractsIcon /> },
     { id: 'analytics', label: 'Calendrier', icon: <CalendarIcon /> }, // ← Changé ici

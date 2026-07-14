@@ -146,13 +146,15 @@ export default function HeroSection({
   onSearch,
   loading
 }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <section className="wego-hero">
       <div className="wego-hero-bg" />
       <div className="hero-overlay-pattern" />
 
       {/* ── NAVIGATION ── */}
-      <nav className="wego-booking-nav">
+      <nav className="wego-booking-nav" style={{ position: 'relative' }}>
         <div className="wnav-left">
           <a href="/" className="wnav-logo">
             <span className="wnav-logo-text">M.</span>
@@ -168,12 +170,86 @@ export default function HeroSection({
           <span className="wnav-flag">MA</span>
           <span className="wnav-lang">FR | MAD</span>
         </div>
+        
+        {/* Desktop nav links */}
         <div className="wnav-right">
           <button className="wnav-link">Assistance</button>
           <a href="/gestion-automobiles" className="wnav-link">Gestion de Flotte</a>
           <a href="/Dashboard" className="wnav-link">Mon espace</a>
           <a href="/login" className="wnav-connect-btn">Se connecter</a>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button 
+          className="mobile-hamburger" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          style={{
+            display: 'none',
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            cursor: 'pointer',
+            padding: '8px',
+            zIndex: 110,
+            outline: 'none'
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            {menuOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+              </>
+            )}
+          </svg>
+        </button>
+
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div 
+            className="mobile-dropdown-menu"
+            style={{
+              position: 'absolute',
+              top: '70px',
+              left: '16px',
+              right: '16px',
+              background: 'rgba(14, 35, 54, 0.95)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              padding: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '12px',
+              zIndex: 100,
+              boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+              animation: 'slideDown 0.25s ease-out'
+            }}
+          >
+            <a href="/assistance" className="mobile-menu-link" style={{ color: '#fff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontSize: '15px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.05)' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              Assistance
+            </a>
+            <a href="/gestion-automobiles" className="mobile-menu-link" style={{ color: '#fff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontSize: '15px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.05)' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+              Gestion de Flotte
+            </a>
+            <a href="/Dashboard" className="mobile-menu-link" style={{ color: '#fff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontSize: '15px', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.05)' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Mon espace
+            </a>
+            <a href="/login" className="mobile-menu-link-btn" style={{ textAlign: 'center', background: '#36c275', color: '#fff', textDecoration: 'none', padding: '14px', borderRadius: '12px', fontSize: '15px', fontWeight: '700', marginTop: '8px', boxShadow: '0 4px 12px rgba(54, 194, 117, 0.3)' }}>
+              Se connecter
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* ── HERO CONTENT ── */}

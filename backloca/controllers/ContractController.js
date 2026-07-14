@@ -854,12 +854,14 @@ exports.createPublicReservation = async (req, res) => {
       dateFrom,
       dateTo,
       driverInfo,
-      extras
+      extras,
+      vehicleSource
     } = req.body;
 
     console.log('📥 Public reservation request:', req.body);
 
     const mongoose = require('mongoose');
+    const SmartCar = mongoose.model('SmartCar');
     let vehicle;
     let partner;
 
@@ -891,6 +893,35 @@ exports.createPublicReservation = async (req, res) => {
         role: 'agence',
         createdAt: new Date(),
         updatedAt: new Date()
+      };
+    } else if (vehicleSource === 'smartcar') {
+      const smartCar = await SmartCar.findById(vehicleId);
+      if (!smartCar) {
+        return res.status(404).json({ success: false, message: 'SmartCar non trouvé' });
+      }
+      partner = await User.findById(smartCar.partnerId || smartCar.userId);
+      if (!partner) {
+        return res.status(404).json({ success: false, message: 'Partenaire non trouvé pour ce véhicule connecté' });
+      }
+
+      vehicle = {
+        _id: smartCar._id,
+        name: smartCar.nomVehicule,
+        type: smartCar.typeVehicule || 'Citadine',
+        boiteVitesse: smartCar.boiteVitesse || 'Automatique',
+        description: smartCar.kilometerNotes || 'Luxury Smart Car',
+        image: smartCar.imageVehicule?.url || '',
+        pricePerDay: smartCar.prixJour,
+        carburant: smartCar.typeCarburant === 'Diesel' ? 'Gasoil' : smartCar.typeCarburant,
+        niveauReservoir: '100%',
+        radio: smartCar.equipementsAudio?.includes('Radio') || false,
+        gps: smartCar.equipementsAudio?.includes('GPS') || false,
+        mp3: smartCar.equipementsAudio?.includes('MP3') || false,
+        cd: smartCar.equipementsAudio?.includes('CD') || false,
+        matricule: smartCar.numeroMatricule || 'M-MOCK-123',
+        kmDepart: smartCar.kmDepart || 0,
+        kmRetour: smartCar.kmRetour || 0,
+        available: smartCar.status === 'available'
       };
     } else {
       vehicle = await Vehicle.findById(vehicleId);
@@ -944,7 +975,7 @@ exports.createPublicReservation = async (req, res) => {
     const diffTime = Math.abs(endDateTime - startDateTime);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
 
-    const baseCost = vehicle.pricePerDay * diffDays;
+    const baseCost = (vehicle.pricePerDay || vehicle.prixJour) * diffDays;
     const gpsCost = extras.gps ? 50 * diffDays : 0;
     const babySeatCost = extras.babySeat ? 30 * diffDays : 0;
     const insuranceCost = extras.insurance ? 100 * diffDays : 0;
@@ -959,19 +990,19 @@ exports.createPublicReservation = async (req, res) => {
     // Generate vehicle object for schema
     const schemaVehicleInfo = {
       vehicleId: vehicleId.startsWith('mock') ? new mongoose.Types.ObjectId() : vehicle._id,
-      name: vehicle.name,
-      type: vehicle.type || 'Citadine',
+      name: vehicle.name || vehicle.nomVehicule,
+      type: vehicle.type || vehicle.typeVehicule || 'Citadine',
       boiteVitesse: vehicle.boiteVitesse || 'Automatique',
       description: vehicle.description || '',
-      image: vehicle.image || '',
-      pricePerDay: vehicle.pricePerDay,
-      carburant: vehicle.carburant || 'Electrique',
+      image: vehicle.image || (vehicle.imageVehicule?.url) || '',
+      pricePerDay: vehicle.pricePerDay || vehicle.prixJour,
+      carburant: vehicle.carburant || vehicle.typeCarburant || 'Electrique',
       niveauReservoir: vehicle.niveauReservoir || '100%',
-      radio: vehicle.radio || true,
-      gps: vehicle.gps || true,
-      mp3: vehicle.mp3 || true,
+      radio: vehicle.radio || false,
+      gps: vehicle.gps || false,
+      mp3: vehicle.mp3 || false,
       cd: vehicle.cd || false,
-      matricule: vehicle.matricule || 'M-MOCK-123',
+      matricule: vehicle.matricule || vehicle.numeroMatricule || 'M-MOCK-123',
       kmDepart: vehicle.kmDepart || 0,
       kmRetour: vehicle.kmRetour || 0,
       impot2026: vehicle.impot2026 || false,
