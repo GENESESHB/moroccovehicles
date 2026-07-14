@@ -16,7 +16,6 @@ export default function BookingWizard() {
   const [loading, setLoading] = useState(true);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [hasSearched, setHasSearched] = useState(false);
   const [userCity, setUserCity] = useState('');
   const [locationLoading, setLocationLoading] = useState(true);
   const [selectedCar, setSelectedCar] = useState(null);
@@ -88,10 +87,9 @@ export default function BookingWizard() {
     return list.filter(v => !isLuxe(v) && v.carburant?.toLowerCase() !== 'electrique');
   };
 
-  // Trigger search on Step 1
+  // Trigger search and go to Step 2
   const handleSearch = async () => {
     setSearchLoading(true);
-    setHasSearched(true);
     try {
       const params = {
         pickup: search.pickup,
@@ -111,14 +109,15 @@ export default function BookingWizard() {
       setSearchResults([]);
     } finally {
       setSearchLoading(false);
+      setStep(2); // Go to Select Vehicle
       window.scrollTo({ top: 400, behavior: 'smooth' });
     }
   };
 
-  // Choose vehicle and go to Step 2
+  // Choose vehicle and go to Step 3
   const handleBook = (car) => {
     setSelectedCar(car);
-    setStep(2); // Go to Select Packs
+    setStep(3); // Go to Select Packs
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -126,7 +125,6 @@ export default function BookingWizard() {
     setStep(1);
     setSelectedCar(null);
     setSearchResults([]);
-    setHasSearched(false);
     setExtras({ gps: false, babySeat: false, insurance: false });
     setDriver({ name: '', email: '', phone: '', cin: '' });
     setBookingDetails(null);
@@ -163,84 +161,94 @@ export default function BookingWizard() {
         <div className="step-track">
           <div className={`step-item ${step === 1 ? 'active' : step > 1 ? 'done' : ''}`}>
             <span className="step-circle">{step > 1 ? '✓' : '1'}</span>
-            <span>Choisir un véhicule</span>
+            <span>Recherche</span>
           </div>
           <div className={`step-connector ${step > 1 ? 'done' : ''}`} />
+          
           <div className={`step-item ${step === 2 ? 'active' : step > 2 ? 'done' : ''}`}>
             <span className="step-circle">{step > 2 ? '✓' : '2'}</span>
-            <span>Sélectionner des Packs</span>
+            <span>Choisir un véhicule</span>
           </div>
           <div className={`step-connector ${step > 2 ? 'done' : ''}`} />
+          
           <div className={`step-item ${step === 3 ? 'active' : step > 3 ? 'done' : ''}`}>
             <span className="step-circle">{step > 3 ? '✓' : '3'}</span>
-            <span>Informations Client</span>
+            <span>Sélectionner des Packs</span>
           </div>
           <div className={`step-connector ${step > 3 ? 'done' : ''}`} />
-          <div className={`step-item ${step === 4 ? 'active' : ''}`}>
-            <span className="step-circle">4</span>
+          
+          <div className={`step-item ${step === 4 ? 'active' : step > 4 ? 'done' : ''}`}>
+            <span className="step-circle">{step > 4 ? '✓' : '4'}</span>
+            <span>Informations Client</span>
+          </div>
+          <div className={`step-connector ${step > 4 ? 'done' : ''}`} />
+          
+          <div className={`step-item ${step === 5 ? 'active' : ''}`}>
+            <span className="step-circle">5</span>
             <span>Confirmation</span>
           </div>
         </div>
 
-        {/* Step 1: Vehicle selection (Hero Search + Grid) */}
+        {/* Step 1: Proximity Suggestions / Initial Load */}
         {step === 1 && (
           <div className="step1-container" style={{ padding: '0 20px' }}>
-            {hasSearched ? (
-              <div className="search-results-section">
-                {searchLoading ? (
-                  <div className="loader-wrap">
-                    <div className="spinner" />
-                    <p>Recherche en cours...</p>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="section-heading">
-                      {getFilteredVehicles(searchResults).length > 0
-                        ? `${getFilteredVehicles(searchResults).length} véhicule(s) trouvé(s)`
-                        : 'Aucun véhicule trouvé pour ces critères'}
-                    </h2>
-                    {getFilteredVehicles(searchResults).length === 0 && (
-                      <p style={{ color: '#64748b', marginBottom: '24px' }}>Modifiez vos critères (ville, dates, catégorie) et relancez la recherche.</p>
-                    )}
-                    <ProductGrid
-                      vehicles={searchResults}
-                      filteredVehicles={getFilteredVehicles(searchResults)}
-                      proximityVehicles={[]}
-                      userCity={search.pickup}
-                      isLuxe={isLuxe}
-                      loading={false}
-                      locationLoading={false}
-                      category={category}
-                      onBook={handleBook}
-                    />
-                    <button 
-                      className="btn-back" 
-                      onClick={() => setHasSearched(false)}
-                      style={{ marginTop: '2rem' }}
-                    >
-                      ← Voir les suggestions de proximité
-                    </button>
-                  </>
-                )}
+            <ProductGrid
+              vehicles={vehicles}
+              filteredVehicles={getFilteredVehicles(proximityVehicles)}
+              proximityVehicles={getFilteredVehicles(proximityVehicles)}
+              userCity={userCity}
+              isLuxe={isLuxe}
+              loading={loading}
+              locationLoading={locationLoading}
+              category={category}
+              onBook={handleBook}
+            />
+          </div>
+        )}
+
+        {/* Step 2: Search Results */}
+        {step === 2 && (
+          <div className="search-results-section" style={{ padding: '0 20px' }}>
+            {searchLoading ? (
+              <div className="loader-wrap">
+                <div className="spinner" />
+                <p>Recherche en cours...</p>
               </div>
             ) : (
-              <ProductGrid
-                vehicles={vehicles}
-                filteredVehicles={getFilteredVehicles(proximityVehicles)}
-                proximityVehicles={getFilteredVehicles(proximityVehicles)}
-                userCity={userCity}
-                isLuxe={isLuxe}
-                loading={loading}
-                locationLoading={locationLoading}
-                category={category}
-                onBook={handleBook}
-              />
+              <>
+                <h2 className="section-heading">
+                  {getFilteredVehicles(searchResults).length > 0
+                    ? `${getFilteredVehicles(searchResults).length} véhicule(s) trouvé(s)`
+                    : 'Aucun véhicule trouvé pour ces critères'}
+                </h2>
+                {getFilteredVehicles(searchResults).length === 0 && (
+                  <p style={{ color: '#64748b', marginBottom: '24px' }}>Modifiez vos critères (ville, dates, catégorie) et relancez la recherche.</p>
+                )}
+                <ProductGrid
+                  vehicles={searchResults}
+                  filteredVehicles={getFilteredVehicles(searchResults)}
+                  proximityVehicles={[]}
+                  userCity={search.pickup}
+                  isLuxe={isLuxe}
+                  loading={false}
+                  locationLoading={false}
+                  category={category}
+                  onBook={handleBook}
+                />
+                <button 
+                  className="btn-back" 
+                  onClick={() => setStep(1)}
+                  style={{ marginTop: '2rem' }}
+                >
+                  ← Modifier la recherche
+                </button>
+              </>
             )}
           </div>
         )}
 
-        {/* Step 2, 3 & 4: Reservation System (Packs, Driver info, Confirmation) */}
-        {step > 1 && (
+        {/* Step 3, 4 & 5: Reservation System (Packs, Driver info, Confirmation) */}
+        {step > 2 && (
           <ReservationSystem
             step={step}
             setStep={setStep}

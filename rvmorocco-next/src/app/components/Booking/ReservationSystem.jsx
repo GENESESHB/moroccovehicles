@@ -73,7 +73,7 @@ export default function ReservationSystem({
       
       if (response.data?.success) {
         setBookingDetails(response.data);
-        setStep(4); // Go to Step 4: Confirmation page
+        setStep(5); // Go to Step 5: Confirmation page
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setErrorMsg(response.data?.message || 'Erreur lors de la création de la réservation.');
@@ -86,8 +86,8 @@ export default function ReservationSystem({
     }
   };
 
-  // ── STEP 2: SELECT PACKS & OPTIONS ──
-  if (step === 2 && selectedCar) {
+  // ── STEP 3: SELECT PACKS & OPTIONS ──
+  if (step === 3 && selectedCar) {
     return (
       <div className="wizard-panel">
         <div className="wizard-panel-head">
@@ -117,14 +117,14 @@ export default function ReservationSystem({
               </div>
 
               <div className="wizard-actions" style={{ marginTop: '40px' }}>
-                <button type="button" className="btn-back" onClick={() => setStep(1)}>
+                <button type="button" className="btn-back" onClick={() => setStep(2)}>
                   ← Retour au véhicule
                 </button>
                 <button 
                   type="button" 
                   className="btn-confirm" 
                   onClick={() => {
-                    setStep(3);
+                    setStep(4);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   style={{ background: '#36c275', color: '#fff', padding: '14px 28px', borderRadius: '10px', border: 'none', fontWeight: '700', cursor: 'pointer' }}
@@ -165,8 +165,8 @@ export default function ReservationSystem({
     );
   }
 
-  // ── STEP 3: DRIVER INFORMATION ──
-  if (step === 3 && selectedCar) {
+  // ── STEP 4: DRIVER INFORMATION ──
+  if (step === 4 && selectedCar) {
     return (
       <div className="wizard-panel">
         <div className="wizard-panel-head">
@@ -233,7 +233,7 @@ export default function ReservationSystem({
                 )}
 
                 <div className="wizard-actions">
-                  <button type="button" className="btn-back" onClick={() => setStep(2)} disabled={submitting}>
+                  <button type="button" className="btn-back" onClick={() => setStep(3)} disabled={submitting}>
                     ← Retour aux options
                   </button>
                   <button type="submit" className="btn-confirm" disabled={submitting} style={{ background: '#36c275', color: '#fff', padding: '14px 28px', borderRadius: '10px', border: 'none', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -287,8 +287,8 @@ export default function ReservationSystem({
     );
   }
 
-  // ── STEP 4: SUCCESS / CONFIRMATION ──
-  if (step === 4 && selectedCar && bookingDetails) {
+  // ── STEP 5: SUCCESS / CONFIRMATION ──
+  if (step === 5 && selectedCar && bookingDetails) {
     const { contractNumber, totalPrice } = bookingDetails;
     return (
       <div className="wizard-panel">
