@@ -84,5 +84,21 @@ export default async function sitemap() {
     { url: `${baseUrl}/blogs/vehicles-power-gestionair-flotte-automobile-moins-chere`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
-  return [...staticRoutes, ...featuresRoutes, ...blogsRoutes];
+  // ── SEO Landing Pages ──────────────────────────────────────────────────────
+  const seoRoutes = [
+    // Original SEO page
+    { url: `${baseUrl}/location-voiture-maroc-7-euro-sans-livraison`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    // City-specific landing pages
+    { url: `${baseUrl}/location-voiture-casablanca-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/location-voiture-marrakech-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/location-voiture-agadir-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/location-voiture-rabat-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/location-voiture-tanger-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/location-voiture-fes-pas-cher`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    // Thematic landing pages
+    { url: `${baseUrl}/louer-voiture-maroc-sans-frais-livraison`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
+    { url: `${baseUrl}/voiture-electrique-location-maroc`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  ];
+
+  return [...staticRoutes, ...featuresRoutes, ...blogsRoutes, ...seoRoutes];
 }
