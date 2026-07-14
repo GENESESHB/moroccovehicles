@@ -27,6 +27,7 @@ export default function ReservationSystem({
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [errors, setErrors] = useState({});
 
   const calcTotal = () => {
     if (!selectedCar) return 0;
@@ -37,8 +38,22 @@ export default function ReservationSystem({
     return total;
   };
 
+  const validateDriverForm = () => {
+    const errs = {};
+    if (!driver.name.trim()) errs.name = 'Nom complet obligatoire';
+    if (!driver.email.trim() || !/\S+@\S+\.\S+/.test(driver.email)) errs.email = 'Email invalide';
+    if (!driver.phone.trim()) errs.phone = 'Téléphone obligatoire';
+    if (!driver.cin.trim()) errs.cin = 'CIN / Passeport obligatoire';
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
   const handleConfirm = async (e) => {
     e.preventDefault();
+    if (!validateDriverForm()) {
+      return;
+    }
+
     setSubmitting(true);
     setErrorMsg('');
 
@@ -71,7 +86,8 @@ export default function ReservationSystem({
     }
   };
 
-  if (step === 3 && selectedCar) {
+  // ── STEP 2: SELECT PACKS & OPTIONS ──
+  if (step === 2 && selectedCar) {
     return (
       <div className="wizard-panel">
         <div className="wizard-panel-head">
@@ -79,36 +95,134 @@ export default function ReservationSystem({
           <p>Personnalisez votre voyage en choisissant vos packs additionnels.</p>
         </div>
         <div className="wizard-panel-body">
+          <div className="step2-grid">
+            <div>
+              {/* ── EXTRAS ── */}
+              <p className="extras-heading">Options supplémentaires</p>
+              <div className="extras-row">
+                {EXTRAS_CONFIG.map(ex => (
+                  <div
+                    key={ex.key}
+                    className={`extra-card ${extras[ex.key] ? 'selected' : ''}`}
+                    onClick={() => setExtras({ ...extras, [ex.key]: !extras[ex.key] })}
+                  >
+                    <div className="extra-card-top">
+                      <input type="checkbox" readOnly checked={extras[ex.key]} />
+                      <strong>{ex.label}</strong>
+                    </div>
+                    <span className="extra-price-tag">+{ex.price} MAD/jour</span>
+                    <p className="extra-desc">{ex.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="wizard-actions" style={{ marginTop: '40px' }}>
+                <button type="button" className="btn-back" onClick={() => setStep(1)}>
+                  ← Retour au véhicule
+                </button>
+                <button 
+                  type="button" 
+                  className="btn-confirm" 
+                  onClick={() => {
+                    setStep(3);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  style={{ background: '#36c275', color: '#fff', padding: '14px 28px', borderRadius: '10px', border: 'none', fontWeight: '700', cursor: 'pointer' }}
+                >
+                  Continuer →
+                </button>
+              </div>
+            </div>
+
+            {/* ── SUMMARY PANEL ── */}
+            <div className="summary-panel">
+              <h3>Récapitulatif</h3>
+              <img
+                src={selectedCar.image || 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80'}
+                alt={selectedCar.name}
+                className="summary-car-img"
+                style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '12px', marginBottom: '16px' }}
+              />
+              <div className="summary-row"><span>Véhicule</span><span>{selectedCar.name}</span></div>
+              <div className="summary-row"><span>Catégorie</span><span>{selectedCar.carburant === 'Electrique' ? 'Électrique' : selectedCar.type || 'Standard'}</span></div>
+              <div className="summary-row"><span>Départ</span><span>{search.pickup}</span></div>
+              <div className="summary-row"><span>Retour</span><span>{search.dropoff}</span></div>
+              <div className="summary-row"><span>Du</span><span>{fmt(search.dateFrom)}</span></div>
+              <div className="summary-row"><span>Au</span><span>{fmt(search.dateTo)}</span></div>
+              <div className="summary-row"><span>Durée</span><span>{days()} jour(s)</span></div>
+              <div className="summary-row"><span>Tarif de base</span><span>{selectedCar.pricePerDay * days()} MAD</span></div>
+              {extras.gps && <div className="summary-row"><span>GPS Premium</span><span>+{50 * days()} MAD</span></div>}
+              {extras.babySeat && <div className="summary-row"><span>Siège Bébé</span><span>+{30 * days()} MAD</span></div>}
+              {extras.insurance && <div className="summary-row"><span>Assurance 0 Franchise</span><span>+{100 * days()} MAD</span></div>}
+              <div className="summary-total" style={{ borderTop: '2px dashed #e2e8f0', paddingTop: '16px', marginTop: '16px', fontWeight: '800', fontSize: '18px' }}>
+                <span>Total estimé</span>
+                <span>{calcTotal()} MAD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── STEP 3: DRIVER INFORMATION ──
+  if (step === 3 && selectedCar) {
+    return (
+      <div className="wizard-panel">
+        <div className="wizard-panel-head">
+          <h2>Informations du conducteur principal</h2>
+          <p>Renseignez vos coordonnées de contact pour votre dossier de réservation.</p>
+        </div>
+        <div className="wizard-panel-body">
           <form onSubmit={handleConfirm}>
             <div className="step2-grid">
               <div>
-                {/* ── EXTRAS ── */}
-                <p className="extras-heading">Options supplémentaires</p>
-                <div className="extras-row">
-                  {EXTRAS_CONFIG.map(ex => (
-                    <div
-                      key={ex.key}
-                      className={`extra-card ${extras[ex.key] ? 'selected' : ''}`}
-                      onClick={() => setExtras({ ...extras, [ex.key]: !extras[ex.key] })}
-                    >
-                      <div className="extra-card-top">
-                        <input type="checkbox" readOnly checked={extras[ex.key]} />
-                        <strong>{ex.label}</strong>
-                      </div>
-                      <span className="extra-price-tag">+{ex.price} MAD/jour</span>
-                      <p className="extra-desc">{ex.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* ── DRIVER DETAILS REVIEW ── */}
-                <p className="extras-heading" style={{ marginTop: '32px' }}>Détails du conducteur (Résumé)</p>
-                <div style={{ padding: '20px', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '24px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '14px' }}>
-                    <div><strong>Conducteur :</strong> {driver.name}</div>
-                    <div><strong>CIN / Passeport :</strong> {driver.cin}</div>
-                    <div><strong>Email :</strong> {driver.email}</div>
-                    <div><strong>Téléphone :</strong> {driver.phone}</div>
+                <div className="driver-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+                  <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151' }}>Nom complet</label>
+                    <input
+                      style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '12px', fontSize: '14px', outline: 'none' }}
+                      className={`form-input ${errors.name ? 'error' : ''}`}
+                      placeholder="ex : Ahmed Benali"
+                      value={driver.name}
+                      onChange={e => setDriver({ ...driver, name: e.target.value })}
+                    />
+                    {errors.name && <span className="form-error" style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{errors.name}</span>}
+                  </div>
+                  <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151' }}>Adresse e-mail</label>
+                    <input
+                      type="email"
+                      style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '12px', fontSize: '14px', outline: 'none' }}
+                      className={`form-input ${errors.email ? 'error' : ''}`}
+                      placeholder="ex : ahmed@mail.com"
+                      value={driver.email}
+                      onChange={e => setDriver({ ...driver, email: e.target.value })}
+                    />
+                    {errors.email && <span className="form-error" style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{errors.email}</span>}
+                  </div>
+                  <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151' }}>Téléphone</label>
+                    <input
+                      type="tel"
+                      style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '12px', fontSize: '14px', outline: 'none' }}
+                      className={`form-input ${errors.phone ? 'error' : ''}`}
+                      placeholder="+212 6XX-XXXXXX"
+                      value={driver.phone}
+                      onChange={e => setDriver({ ...driver, phone: e.target.value })}
+                    />
+                    {errors.phone && <span className="form-error" style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{errors.phone}</span>}
+                  </div>
+                  <div className="form-field" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151' }}>CIN / Passeport</label>
+                    <input
+                      style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '12px', fontSize: '14px', outline: 'none' }}
+                      className={`form-input ${errors.cin ? 'error' : ''}`}
+                      placeholder="ex : CD123456"
+                      value={driver.cin}
+                      onChange={e => setDriver({ ...driver, cin: e.target.value })}
+                    />
+                    {errors.cin && <span className="form-error" style={{ color: '#ef4444', fontSize: '12px', marginTop: '4px' }}>{errors.cin}</span>}
                   </div>
                 </div>
 
@@ -120,7 +234,7 @@ export default function ReservationSystem({
 
                 <div className="wizard-actions">
                   <button type="button" className="btn-back" onClick={() => setStep(2)} disabled={submitting}>
-                    ← Modifier le véhicule
+                    ← Retour aux options
                   </button>
                   <button type="submit" className="btn-confirm" disabled={submitting} style={{ background: '#36c275', color: '#fff', padding: '14px 28px', borderRadius: '10px', border: 'none', fontWeight: '700', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     {submitting ? (
@@ -129,7 +243,7 @@ export default function ReservationSystem({
                         Enregistrement...
                       </>
                     ) : (
-                      'Confirmer & Enregistrer'
+                      'Confirmer & Réserver'
                     )}
                   </button>
                 </div>
@@ -173,12 +287,13 @@ export default function ReservationSystem({
     );
   }
 
+  // ── STEP 4: SUCCESS / CONFIRMATION ──
   if (step === 4 && selectedCar && bookingDetails) {
     const { contractNumber, totalPrice } = bookingDetails;
     return (
       <div className="wizard-panel">
         <div className="success-body" style={{ maxWidth: '650px', margin: '0 auto', textAlign: 'center', padding: '40px 20px' }}>
-          <div className="success-icon" style={{ width: '64px', height: '64px', background: '#36c275', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyCenter: 'center', margin: '0 auto 24px', justifyContent: 'center' }}>
+          <div className="success-icon" style={{ width: '64px', height: '64px', background: '#36c275', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M20 6 9 17l-5-5"/>
             </svg>
