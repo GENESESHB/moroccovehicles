@@ -1,4 +1,5 @@
 // src/app/booking/page.js
+import { Suspense } from 'react';
 import BookingWizard from '@/app/components/Booking/BookingWizard';
 
 export const metadata = {
@@ -7,5 +8,10 @@ export const metadata = {
 };
 
 export default function BookingPage() {
-  return <BookingWizard />;
+  return (
+    <Suspense fallback={<div style={{ minHeight: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>Chargement des véhicules disponibles...</div>}>
+      <BookingWizard />
+    </Suspense>
+  );
 }
+

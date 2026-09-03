@@ -1,4 +1,5 @@
 // src/app/page.js
+import { Suspense } from 'react';
 import BookingWizard from '@/app/components/Booking/BookingWizard';
 
 export const metadata = {
@@ -8,5 +9,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <BookingWizard />;
+  return (
+    <Suspense fallback={<div style={{ minHeight: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b' }}>Chargement...</div>}>
+      <BookingWizard />
+    </Suspense>
+  );
 }

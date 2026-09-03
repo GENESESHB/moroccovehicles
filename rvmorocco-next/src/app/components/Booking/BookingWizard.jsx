@@ -1,7 +1,8 @@
 // src/app/components/Booking/BookingWizard.jsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import api from '@/app/utils/api';
 import HeroSection from './HeroSection';
 import ProductGrid from './ProductGrid';
@@ -10,6 +11,9 @@ import ChatBot from './ChatBot';
 import '../../styles/Booking.css';
 
 export default function BookingWizard() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [step, setStep] = useState(1);
   const [category, setCategory] = useState('normal');
   const [vehicles, setVehicles] = useState([]);
@@ -55,7 +59,9 @@ export default function BookingWizard() {
         const matched = CITIES.find(c => c.toLowerCase() === city.toLowerCase());
         if (matched) {
           setUserCity(matched);
-          setSearch(p => ({ ...p, pickup: matched, dropoff: matched }));
+          if (!searchParams.get('pickup')) {
+            setSearch(p => ({ ...p, pickup: matched, dropoff: matched }));
+          }
         } else setUserCity(city || 'Fez');
       })
       .catch(() => setUserCity('Fez'))
@@ -66,6 +72,56 @@ export default function BookingWizard() {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
+
+  const executeSearch = useCallback(async (searchCriteria, targetCat) => {
+    setSearchLoading(true);
+    try {
+      const params = {
+        pickup: searchCriteria.pickup,
+        dropoff: searchCriteria.dropoff,
+        dateFrom: searchCriteria.dateFrom,
+        dateTo: searchCriteria.dateTo,
+        category: targetCat || category,
+      };
+      const response = await api.get('/vehicles/public/available', { params });
+      if (response.data?.success) {
+        setSearchResults(response.data.vehicles || []);
+      } else {
+        setSearchResults([]);
+      }
+    } catch (error) {
+      console.error('Erreur recherche:', error);
+      setSearchResults([]);
+    } finally {
+      setSearchLoading(false);
+      setStep(2); // Go to Select Vehicle
+      window.scrollTo({ top: 380, behavior: 'smooth' });
+    }
+  }, [category]);
+
+  // Read URL search parameters on page load or navigation change
+  useEffect(() => {
+    const pickupParam = searchParams.get('pickup');
+    const dropoffParam = searchParams.get('dropoff');
+    const dateFromParam = searchParams.get('dateFrom');
+    const dateToParam = searchParams.get('dateTo');
+    const categoryParam = searchParams.get('category');
+    const stepParam = searchParams.get('step');
+
+    if (pickupParam || dateFromParam || stepParam === '2') {
+      const newSearch = {
+        pickup: pickupParam || search.pickup,
+        dropoff: dropoffParam || pickupParam || search.dropoff,
+        dateFrom: dateFromParam || search.dateFrom,
+        dateTo: dateToParam || search.dateTo,
+      };
+      setSearch(newSearch);
+      const targetCat = categoryParam || category;
+      if (categoryParam) setCategory(categoryParam);
+
+      executeSearch(newSearch, targetCat);
+    }
+  }, [searchParams, executeSearch]);
 
   const days = () => {
     const a = new Date(search.dateFrom);
@@ -87,32 +143,20 @@ export default function BookingWizard() {
     return list.filter(v => !isLuxe(v) && v.carburant?.toLowerCase() !== 'electrique');
   };
 
-  // Trigger search and go to Step 2
-  const handleSearch = async () => {
-    setSearchLoading(true);
-    try {
-      const params = {
-        pickup: search.pickup,
-        dropoff: search.dropoff,
-        dateFrom: search.dateFrom,
-        dateTo: search.dateTo,
-        category: category,
-      };
-      const response = await api.get('/vehicles/public/available', { params });
-      if (response.data?.success) {
-        setSearchResults(response.data.vehicles || []);
-      } else {
-        setSearchResults([]);
-      }
-    } catch (error) {
-      console.error('Erreur recherche:', error);
-      setSearchResults([]);
-    } finally {
-      setSearchLoading(false);
-      setStep(2); // Go to Select Vehicle
-      window.scrollTo({ top: 400, behavior: 'smooth' });
-    }
+  // Trigger search and navigate to /booking with query params
+  const handleSearch = () => {
+    const query = new URLSearchParams({
+      pickup: search.pickup,
+      dropoff: search.dropoff,
+      dateFrom: search.dateFrom,
+      dateTo: search.dateTo,
+      category: category,
+      step: '2'
+    }).toString();
+
+    router.push(`/booking?${query}`);
   };
+
 
   // Choose vehicle and go to Step 3
   const handleBook = (car) => {
