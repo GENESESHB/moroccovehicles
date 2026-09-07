@@ -77,10 +77,9 @@ export default function HomePage() {
       dateFrom: search.dateFrom,
       dateTo: search.dateTo,
       category: category,
-      step: '2'
     }).toString();
 
-    router.push(`/booking?${query}`);
+    router.push(`/search?${query}`);
   };
 
   const handleBook = (car) => {

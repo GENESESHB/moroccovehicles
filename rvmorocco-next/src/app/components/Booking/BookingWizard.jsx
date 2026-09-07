@@ -143,7 +143,7 @@ export default function BookingWizard() {
     return list.filter(v => !isLuxe(v) && v.carburant?.toLowerCase() !== 'electrique');
   };
 
-  // Trigger search and navigate to /booking with query params
+  // Trigger search and navigate to dedicated /search page
   const handleSearch = () => {
     const query = new URLSearchParams({
       pickup: search.pickup,
@@ -151,10 +151,9 @@ export default function BookingWizard() {
       dateFrom: search.dateFrom,
       dateTo: search.dateTo,
       category: category,
-      step: '2'
     }).toString();
 
-    router.push(`/booking?${query}`);
+    router.push(`/search?${query}`);
   };
 
 

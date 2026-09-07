@@ -1696,6 +1696,28 @@ input[type="date"].form-input {
     padding: 24px 16px 60px;
   }
 
+  .step-track {
+    flex-wrap: wrap;
+    gap: 6px 0;
+    justify-content: center;
+  }
+
+  .step-item {
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .step-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .step-connector {
+    width: 24px;
+    margin: 0 4px;
+  }
+
   .wizard-panel-head,
   .wizard-panel-body {
     padding: 20px;
@@ -1727,6 +1749,22 @@ input[type="date"].form-input {
 
   .service-tabs {
     justify-content: center;
+  }
+
+  .step-item {
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .step-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .step-connector {
+    width: 16px;
+    margin: 0 2px;
   }
 
   .vehicles-grid {

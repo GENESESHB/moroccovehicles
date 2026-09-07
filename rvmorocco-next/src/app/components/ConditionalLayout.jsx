@@ -5,8 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 // Routes that should NOT show the public header/footer
-// The booking homepage has its own embedded Wego-style nav
-const NO_LAYOUT_ROUTES = ['/Dashboard', '/dashboard', '/'];
+const NO_LAYOUT_ROUTES = ['/Dashboard', '/dashboard', '/', '/booking', '/search'];
 
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname();
