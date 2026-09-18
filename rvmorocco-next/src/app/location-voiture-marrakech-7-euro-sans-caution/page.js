@@ -1,53 +1,50 @@
-// src/app/location-voiture-marrakech-pas-cher/page.js
+// src/app/location-voiture-marrakech-7-euro-sans-caution/page.js
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Location Voiture Marrakech Pas Cher | Des 7 EUR par jour | MoroccoVehicles',
-  description: 'Location voiture Marrakech au meilleur prix des 7 EUR par jour. Livraison gratuite a l aeroport Menara (RAK), Gueliz, Hivernage et Medina. Sans frais caches. Assistance 24/7.',
-  keywords: ['location voiture marrakech', 'louer voiture marrakech pas cher', 'voiture location marrakech', 'rent a car marrakech', 'location auto marrakech 2026'],
+  title: 'Location Voiture Marrakech 7 Euro Sans Caution | Offre 2026 | MoroccoVehicles',
+  description: 'Louez une voiture a Marrakech a 7 EUR par jour sans caution bloquee. Pre-autorisation par carte sans debit reel. Livraison gratuite aeroport Menara, Medina et Gueliz.',
+  keywords: ['location voiture marrakech sans caution', 'location voiture marrakech 7 euro sans caution', 'louer voiture marrakech sans depot', 'rent car marrakech no deposit 2026'],
   openGraph: {
-    title: 'Location Voiture Marrakech Pas Cher - MoroccoVehicles',
-    description: 'Louez votre voiture a Marrakech des 7 EUR par jour. Livraison aeroport Menara gratuite et kilometrage illimite.',
-    url: 'https://moroccovehicles.com/location-voiture-marrakech-pas-cher',
+    title: 'Location Voiture Marrakech 7 EUR Sans Caution - MoroccoVehicles',
+    description: 'Offre exclusive Marrakech : 7 EUR / jour sans caution bloquee, kilometrage illimite et remise gratuite Menara.',
+    url: 'https://moroccovehicles.com/location-voiture-marrakech-7-euro-sans-caution',
     siteName: 'MoroccoVehicles',
     locale: 'fr_MA',
     type: 'website',
   },
-  alternates: { canonical: 'https://moroccovehicles.com/location-voiture-marrakech-pas-cher' },
+  alternates: { canonical: 'https://moroccovehicles.com/location-voiture-marrakech-7-euro-sans-caution' },
   robots: { index: true, follow: true },
 };
 
 const vehicles = [
-  { name: 'Dacia Logan', price: '7 EUR', category: 'Economique', fuel: 'Diesel', seats: 5 },
-  { name: 'Fiat Panda', price: '8 EUR', category: 'Citadine', fuel: 'Essence', seats: 5 },
-  { name: 'Renault Clio', price: '10 EUR', category: 'Compacte', fuel: 'Essence', seats: 5 },
-  { name: 'Dacia Duster', price: '15 EUR', category: 'SUV Polyvalent', fuel: 'Diesel', seats: 5 },
-  { name: 'Citroen C3', price: '11 EUR', category: 'Confort Urbain', fuel: 'Essence', seats: 5 },
-  { name: 'Mercedes Classe A', price: '45 EUR', category: 'Luxe & Prestige', fuel: 'Essence', seats: 5 },
+  { name: 'Dacia Logan Diesel', price: '7 EUR', category: 'Economique', desc: 'Faible consommation et grand confort sur les routes de l Atlas' },
+  { name: 'Fiat Panda Urban', price: '8 EUR', category: 'Citadine Pratique', desc: 'Maniable pour circuler dans les ruelles autour de la Medina' },
+  { name: 'Renault Clio 5', price: '10 EUR', category: 'Polyvalente', desc: 'Idéale pour virées a Essaouira et desert d Agafay' },
+  { name: 'Dacia Duster', price: '15 EUR', category: 'SUV Baroudeur', desc: 'Garde au sol sure pour excursions montagneuses' },
 ];
 
 const faqs = [
-  { q: 'Ou recuperer ma voiture de location a Marrakech ?', a: 'La livraison est gratuite directement a l aeroport Marrakech-Menara devant votre terminal d arrivee, a votre riad en Medina, a votre hotel en zone Hivernage, Palmeraie ou Gueliz.' },
-  { q: 'Un SUV est-il recommande pour les excursions depuis Marrakech ?', a: 'Pour les sorties vers l Atlas (Ourika, Imlil, col du Tichka), le desert d Agafay ou la route cotiere d Essaouira, un modele surleve tel que le Dacia Duster offre une motricite et un confort exemplaires.' },
-  { q: 'Le kilometrage est-il reellement illimite ?', a: 'Oui, tous nos contrats a Marrakech incluent le kilometrage illimite. Vous parcourez les distances de votre choix sans surfacturation au retour.' },
-  { q: 'Quelles sont les formalites pour une remise a l aeroport Menara ?', a: 'Notre agent vous attend a la sortie des passagers avec une pancarte a votre nom. L inspection du vehicule se fait sur tablette en moins de 5 minutes.' },
+  { q: 'Comment beneficier de la location a Marrakech sans depot bloque ?', a: 'Notre formule sans caution s appuie sur une pre-autorisation securisee sans prelevement reel de fonds sur votre compte, vous preservant des soucis de plafond bancaire durant votre sejour.' },
+  { q: 'Ou se fait la remise du vehicule a Marrakech ?', a: 'A l aeroport Marrakech-Menara des l atterrissage de votre avion, a votre riad en Medina ou a votre hotel a Gueliz ou en Palmeraie.' },
+  { q: 'Le kilometrage est-il limite ?', a: 'Non, tous nos vehicules incluent le kilometrage illimite sans restriction d itineraire au Maroc.' },
 ];
 
 const neighborLinks = [
-  { name: 'Marrakech 7 EUR sans caution', href: '/location-voiture-marrakech-7-euro-sans-caution' },
+  { name: 'Marrakech pas cher', href: '/location-voiture-marrakech-pas-cher' },
+  { name: 'Casablanca 7 EUR sans caution', href: '/location-voiture-casablanca-7-euro-sans-caution' },
+  { name: 'Fes 7 EUR sans caution', href: '/location-voiture-fes-7-euro-sans-caution' },
   { name: 'Voitures electriques Maroc', href: '/voiture-electrique-location-maroc' },
   { name: 'Livraison gratuite Maroc', href: '/louer-voiture-maroc-sans-frais-livraison' },
   { name: 'Casablanca pas cher', href: '/location-voiture-casablanca-pas-cher' },
-  { name: 'Casablanca sans caution', href: '/location-voiture-casablanca-7-euro-sans-caution' },
   { name: 'Agadir pas cher', href: '/location-voiture-agadir-pas-cher' },
   { name: 'Rabat pas cher', href: '/location-voiture-rabat-pas-cher' },
   { name: 'Tanger pas cher', href: '/location-voiture-tanger-pas-cher' },
   { name: 'Fes pas cher', href: '/location-voiture-fes-pas-cher' },
-  { name: 'Fes sans caution', href: '/location-voiture-fes-7-euro-sans-caution' },
   { name: 'Partenaires B2B Flotte', href: '/blogs/partenaires-b2b-power-gestionair-flotte-automobile-moins-chere' },
 ];
 
-export default function MarrakechPage() {
+export default function MarrakechSansCautionPage() {
   return (
     <div style={{ background: '#faf5f0', minHeight: '100vh', color: '#1e293b', fontFamily: 'Inter, sans-serif' }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 40px', maxWidth: '1200px', margin: '0 auto', borderBottom: '1px solid #e2e8f0', background: '#fff', borderRadius: '12px', marginTop: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
@@ -64,56 +61,41 @@ export default function MarrakechPage() {
       </header>
 
       <section style={{ padding: '70px 20px', textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-        <span style={{ background: '#ffedd5', color: '#9a3412', padding: '6px 14px', borderRadius: '999px', fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '16px', display: 'inline-block' }}>Marrakech & Aeroport Menara</span>
+        <span style={{ background: '#ffedd5', color: '#9a3412', padding: '6px 14px', borderRadius: '999px', fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '16px', display: 'inline-block' }}>Offre Sans Caution Marrakech</span>
         <h1 style={{ fontSize: 'clamp(28px,5vw,50px)', fontWeight: '900', lineHeight: 1.15, marginBottom: '20px' }}>
-          Location Voiture <span style={{ color: '#ea580c' }}>Marrakech</span> Pas Cher<br />
-          <span style={{ color: '#16a34a' }}>A partir de 7 EUR par jour - Kilometrage Illimite</span>
+          Location Voiture <span style={{ color: '#ea580c' }}>Marrakech 7 Euro</span><br />
+          <span style={{ color: '#16a34a' }}>Sans Caution Bloquee - Aeroport Menara Inclus</span>
         </h1>
         <p style={{ fontSize: '18px', color: '#475569', lineHeight: 1.7, marginBottom: '32px' }}>
-          Visitez Marrakech, les contreforts de l Atlas, le desert d Agafay et la cote atlantique en toute autonomie. Livraison gratuite a l aeroport Menara ou a votre adresse d hebergement.
+          Profitez de la magie de Marrakech et de l Atlas sans immobiliser votre budget vacances. Formule transparente des 7 EUR par jour avec etat des lieux 2D digitalise.
         </p>
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/booking" style={{ background: '#ea580c', color: '#fff', textDecoration: 'none', padding: '16px 36px', borderRadius: '12px', fontSize: '16px', fontWeight: '700', boxShadow: '0 8px 24px rgba(234,88,12,.3)' }}>
             Reserver a Marrakech
           </Link>
           <a href="https://wa.me/212622283559" style={{ background: '#fff', border: '2px solid #ea580c', color: '#ea580c', textDecoration: 'none', padding: '16px 36px', borderRadius: '12px', fontSize: '16px', fontWeight: '700' }}>
-            Demande WhatsApp
+            WhatsApp Direct
           </a>
         </div>
       </section>
 
-      <section style={{ background: '#431407', padding: '40px 20px', marginBottom: '60px' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: '24px', textAlign: 'center' }}>
-          {[['7 EUR', 'Prix journalier d appel'], ['0 EUR', 'Livraison a Menara'], ['100%', 'Kilometrage illimite'], ['24/7', 'Assistance locale']].map(([val, label]) => (
-            <div key={label}>
-              <div style={{ fontSize: '34px', fontWeight: '900', color: '#fdba74' }}>{val}</div>
-              <div style={{ fontSize: '14px', color: '#fed7aa', marginTop: '4px' }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section style={{ padding: '0 20px 80px', maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '40px' }}>Flotte Disponible a Marrakech</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '24px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '40px' }}>Modeles Disponibles Sans Caution a Marrakech</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '24px' }}>
           {vehicles.map((v) => (
             <div key={v.name} style={{ background: '#fff', borderRadius: '16px', padding: '28px', boxShadow: '0 4px 20px rgba(0,0,0,0.04)', border: '1px solid #e2e8f0' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '800', margin: 0, color: '#0f172a' }}>{v.name}</h3>
-                  <span style={{ fontSize: '12px', background: '#ffedd5', color: '#9a3412', padding: '2px 8px', borderRadius: '6px', fontWeight: '600' }}>{v.category}</span>
+                  <h3 style={{ fontSize: '19px', fontWeight: '800', margin: 0, color: '#0f172a' }}>{v.name}</h3>
+                  <span style={{ fontSize: '12px', color: '#ea580c', fontWeight: '700' }}>{v.category}</span>
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <div style={{ fontSize: '24px', fontWeight: '900', color: '#ea580c' }}>{v.price}</div>
                   <div style={{ fontSize: '11px', color: '#94a3b8' }}>par jour</div>
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '13px', color: '#64748b', marginBottom: '20px' }}>
-                <span>Carburant : {v.fuel}</span>
-                <span>Places : {v.seats}</span>
-                <span>Kilometrage : Illimite</span>
-                <span>Assurance : Incluse</span>
-              </div>
+              <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '16px' }}>{v.desc}</p>
+              <div style={{ fontSize: '12px', color: '#9a3412', fontWeight: '700', marginBottom: '16px' }}>Sans caution debitée - Kilometrage illimite</div>
               <Link href="/booking" style={{ display: 'block', textAlign: 'center', background: '#ea580c', color: '#fff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontWeight: '700', fontSize: '14px' }}>
                 Reserver ce vehicule
               </Link>
@@ -124,11 +106,11 @@ export default function MarrakechPage() {
 
       <section style={{ background: '#fff', padding: '80px 20px', borderTop: '1px solid #e2e8f0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '40px' }}>Questions Frequentes - Location a Marrakech</h2>
+          <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '40px' }}>Questions Frequentes sur la Formule Sans Caution</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {faqs.map(({ q, a }) => (
               <div key={q} style={{ background: '#faf5f0', padding: '24px', borderRadius: '12px', border: '1px solid #fed7aa' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '10px', color: '#7c2d12' }}>{q}</h3>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '8px', color: '#7c2d12' }}>{q}</h3>
                 <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{a}</p>
               </div>
             ))}
@@ -139,7 +121,7 @@ export default function MarrakechPage() {
       <section style={{ background: '#f1f5f9', padding: '60px 20px', borderTop: '1px solid #e2e8f0' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '22px', fontWeight: '800', textAlign: 'center', marginBottom: '24px', color: '#0f172a' }}>
-            Consultez les Destinations et Offres Associees
+            Consultez Nos Autres Guides & Villes
           </h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
             {neighborLinks.map((item) => (

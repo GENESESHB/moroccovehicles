@@ -9,6 +9,13 @@ export const metadata = {
 
 const blogs = [
   {
+    id: 'guide-expert-terrain-2026',
+    title: 'Location de Voiture au Maroc en 2026 : Le Retour d Experience d un Expert Terrain',
+    description: 'Analyse sans filtre : la verite sur les tarifs a 7 EUR, la formule sans caution, les pieges d aeroport et la realite des voitures electriques sur les autoroutes marocaines.',
+    image: '/compressed_videos/smart-contra-list-components.png',
+    link: '/blogs/guide-expert-location-voiture-maroc-experience-terrain-2026'
+  },
+  {
     id: 'assurance',
     title: 'Comment réduire vos coûts d’assurance de flotte en 2026',
     description: "Découvrez les stratégies pour optimiser les primes et gérer les sinistres plus efficacement avec un logiciel dédié.",
