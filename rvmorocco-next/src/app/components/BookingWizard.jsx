@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import api from '@/app/utils/api';
+import { SERVER_ORIGIN } from '@/app/config';
 import HeroSection from './HeroSection';
 import ProductGrid from './ProductGrid';
 import ReservationSystem from './ReservationSystem';
@@ -42,10 +43,7 @@ export default function BookingWizard() {
 
   /* ── Fetch location on mount ── */
   useEffect(() => {
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'https://moroccovehicles-1-6zww.onrender.com/api';
-    const serverOrigin = apiBase.replace('/api', '');
-
-    api.get(`${serverOrigin}/whoami/place`, { timeout: 6000 })
+    api.get(`${SERVER_ORIGIN}/whoami/place`, { timeout: 6000 })
       .then(res => {
         const city = res.data?.geolocation?.city || '';
         const CITIES = ['Fez', 'Casablanca', 'Marrakech', 'Rabat', 'Tanger', 'Agadir'];

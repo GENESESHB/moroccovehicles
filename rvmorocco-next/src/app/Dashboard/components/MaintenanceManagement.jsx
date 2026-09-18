@@ -248,7 +248,7 @@ const MaintenanceDashboard = () => {
     return (
       <Grid container spacing={2} sx={{ mb: 3 }}>
         {statCards.map((stat, index) => (
-          <Grid item xs={6} sm={4} md={2.4} key={index}>
+          <Grid item xs={12} sm={6} md={2.4} key={index}>
             <Card sx={{ 
               height: '100%', 
               boxShadow: 2,
@@ -293,7 +293,7 @@ const MaintenanceDashboard = () => {
   };
 
   return (
-    <Box sx={{ p: { xs: 2, md: 3 } }}>
+    <Box sx={{ p: { xs: 1.5, md: 3 } }}>
       {/* Success Snackbar */}
       <Snackbar
         open={snackbarOpen}
@@ -322,11 +322,11 @@ const MaintenanceDashboard = () => {
       <Box sx={{ mb: 3 }}>
         <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
           <Grid item xs={12} md="auto">
-            <Typography variant="h4" component="h1" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography variant="h5" component="h1" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1, fontSize: { xs: '1.25rem', sm: '1.75rem' }, fontWeight: 'bold' }}>
               <CarRepair />
               Vehicle Maintenance & Factures Dashboard
             </Typography>
-            <Typography variant="body1" color="textSecondary">
+            <Typography variant="body2" color="textSecondary">
               Manage maintenance for both regular vehicles and Luxury cars. Create factures and track maintenance status.
             </Typography>
           </Grid>
@@ -338,7 +338,7 @@ const MaintenanceDashboard = () => {
                 await fetchMaintenanceVehicles();
                 await fetchFactures();
               }}
-              sx={{ borderRadius: 2 }}
+              sx={{ borderRadius: 2, width: { xs: '100%', sm: 'auto' } }}
             >
               Refresh All Data
             </Button>

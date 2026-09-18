@@ -5,6 +5,7 @@ import axios from 'axios';
 const axiosInstance = axios.default || axios;
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
+import { API_URL } from '../config';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -32,7 +33,7 @@ const LoginForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axiosInstance.post('https://moroccovehicles-1-6zww.onrender.com/api/auth/login', {
+      const response = await axiosInstance.post(`${API_URL}/auth/login`, {
         email,
         password,
       });

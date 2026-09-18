@@ -2,12 +2,13 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { API_URL } from '@/app/config';
 
 const axiosInstance = axios.default || axios;
 
 const AuthContext = createContext({});
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://moroccovehicles-1-6zww.onrender.com/api';
+const API_BASE_URL = API_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 const axiosInstance = axios.default || axios;
+import { SERVER_ORIGIN } from '../config';
 
 export default function PartnerPage() {
   const router = useRouter();
@@ -87,7 +88,7 @@ export default function PartnerPage() {
       });
 
       const response = await axiosInstance.post(
-        'https://moroccovehicles-1-6zww.onrender.com/users/demande',
+        `${SERVER_ORIGIN}/users/demande`,
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );

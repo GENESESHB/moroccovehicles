@@ -22,6 +22,14 @@ const InsuranceFormModal = ({
   isSmartCar
 }) => {
   const [submitError, setSubmitError] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const selectedVehicle = formData.vehicleId
     ? allVehicles.find(v => v._id === formData.vehicleId)
@@ -54,14 +62,14 @@ const InsuranceFormModal = ({
       justifyContent: 'center',
       alignItems: 'center',
       zIndex: 1000,
-      padding: '20px'
+      padding: isMobile ? '10px 5px' : '20px'
     }}>
       <div style={{
         backgroundColor: '#fff',
         borderRadius: '24px',
         width: '100%',
         maxWidth: '800px',
-        maxHeight: '90vh',
+        maxHeight: isMobile ? '95vh' : '90vh',
         overflow: 'hidden',
         boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
         display: 'flex',
@@ -69,7 +77,7 @@ const InsuranceFormModal = ({
       }}>
         {/* Header */}
         <div style={{
-          padding: '24px 32px',
+          padding: isMobile ? '16px 20px' : '24px 32px',
           backgroundColor: '#36C275',
           borderBottom: '1px solid #E2E8F0',
           display: 'flex',
@@ -79,7 +87,7 @@ const InsuranceFormModal = ({
           <div>
             <h2 style={{
               margin: 0,
-              fontSize: '22px',
+              fontSize: isMobile ? '18px' : '22px',
               fontWeight: '600',
               color: '#ffffff',
               letterSpacing: '-0.01em'

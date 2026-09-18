@@ -653,8 +653,8 @@ const VehicleMaintenanceTab = ({
     return (
       <>
         {/* Vehicle table */}
-        <TableContainer>
-          <Table>
+        <TableContainer sx={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <Table sx={{ minWidth: 700 }}>
             <TableHead>
               <TableRow>
                 <TableCell>Vehicle</TableCell>

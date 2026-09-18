@@ -461,8 +461,8 @@ const FacturesTab = ({
     }
 
     return (
-      <TableContainer component={Paper} elevation={0} sx={{ borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
-        <Table>
+      <TableContainer component={Paper} elevation={0} sx={{ borderRadius: 2, border: '1px solid', borderColor: 'divider', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+        <Table sx={{ minWidth: 750 }}>
           <TableHead>
             <TableRow sx={{ backgroundColor: 'primary.light' }}>
               <TableCell sx={{ fontWeight: 'bold', color: 'primary.dark' }}>Facture #</TableCell>

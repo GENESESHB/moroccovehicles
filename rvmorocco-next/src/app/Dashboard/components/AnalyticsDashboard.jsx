@@ -1084,9 +1084,9 @@ const AnalyticsDashboard = () => {
     })) || [];
 
     return (
-      <Paper sx={{ p: 2, height: { xs: 'auto', md: 'calc(100vh - 200px)' }, overflow: 'hidden' }}>
-        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h6">
+      <Paper sx={{ p: { xs: 1, sm: 2 }, height: { xs: '650px', md: 'calc(100vh - 200px)' }, overflow: 'hidden' }}>
+        <Box sx={{ mb: 1.5, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ fontSize: { xs: '1rem', sm: '1.25rem' }, fontWeight: 'bold' }}>
             Rental Calendar
           </Typography>
           <Button
@@ -1098,22 +1098,55 @@ const AnalyticsDashboard = () => {
           </Button>
         </Box>
 
-        <FullCalendar
-          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          initialView={isMobile ? "timeGridDay" : "dayGridMonth"}
-          events={events}
-          headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          }}
-          eventClick={(clickInfo) => {
-            const event = clickInfo.event.extendedProps;
-            setSelectedEvent(event);
-            setEventDialogOpen(true);
-          }}
-          height="100%"
-        />
+        <Box sx={{
+          height: 'calc(100% - 48px)',
+          '& .fc': {
+            height: '100%'
+          },
+          '& .fc .fc-toolbar': {
+            flexDirection: { xs: 'column', sm: 'row' },
+            gap: 1,
+            alignItems: 'center',
+            mb: 1.5
+          },
+          '& .fc .fc-toolbar-title': {
+            fontSize: { xs: '1rem', sm: '1.3rem' },
+            fontWeight: '600'
+          },
+          '& .fc .fc-button': {
+            padding: { xs: '3px 6px', sm: '6px 12px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' }
+          },
+          '& .fc .fc-view-harness': {
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch'
+          }
+        }}>
+          <FullCalendar
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            initialView={isMobile ? "timeGridDay" : "dayGridMonth"}
+            events={events}
+            headerToolbar={
+              isMobile
+                ? {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'today,dayGridMonth'
+                  }
+                : {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                  }
+            }
+            eventClick={(clickInfo) => {
+              const event = clickInfo.event.extendedProps;
+              setSelectedEvent(event);
+              setEventDialogOpen(true);
+            }}
+            height="100%"
+          />
+        </Box>
       </Paper>
     );
   };

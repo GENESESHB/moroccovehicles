@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { API_URL } from '@/app/config';
+
 const axiosInstance = axios.default || axios;
 
 const api = axiosInstance.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://moroccovehicles-1-6zww.onrender.com/api',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

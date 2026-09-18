@@ -1109,7 +1109,8 @@ const Dashboard = () => {
           <div style={{
             position: 'fixed',
             top: '20px',
-            right: '20px',
+            right: isMobile ? '15px' : '20px',
+            left: isMobile ? '15px' : 'auto',
             padding: '16px 24px',
             backgroundColor: message.includes('✅') ? 'rgba(14, 63, 46, 0.9)' : 'rgba(62, 21, 21, 0.9)',
             color: message.includes('✅') ? '#36c275' : '#f3ba2f',
@@ -1121,7 +1122,7 @@ const Dashboard = () => {
             boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
             border: message.includes('✅') ? '1px solid rgba(54, 194, 117, 0.2)' : '1px solid rgba(243, 186, 47, 0.2)',
             animation: 'slideIn 0.3s ease-out',
-            maxWidth: '400px',
+            maxWidth: isMobile ? 'calc(100% - 30px)' : '400px',
             backdropFilter: 'blur(10px)'
           }}>
             {message.includes('✅') ? (
@@ -1158,7 +1159,7 @@ const Dashboard = () => {
         {/* Content Area */}
         <div style={{
           flex: 1,
-          padding: isMobile ? '15px' : '30px',
+          padding: isMobile ? '12px 10px 75px 10px' : '30px',
           overflowY: 'auto',
           opacity: loading ? 0.5 : 1,
           transition: 'opacity 0.3s ease'

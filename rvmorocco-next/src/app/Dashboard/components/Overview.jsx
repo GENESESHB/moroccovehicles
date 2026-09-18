@@ -1288,6 +1288,44 @@ const styles = `
   background: #ffeaea; color: #c0392b; padding: 15px;
   border-radius: 8px; text-align: center; margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+  .tracker-header-finance {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+  }
+  .tracker-header-finance h1 {
+    font-size: 18px;
+  }
+  .finance-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+  .vehicle-count-grid {
+    grid-template-columns: 1fr;
+  }
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+  .luxury-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .comparison-charts {
+    grid-template-columns: 1fr;
+  }
+  .vehicle-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+  }
+  .chart-container-finance, .breakdown-section, .comparison-section, .vehicle-variation-section {
+    padding: 15px;
+  }
+}
 `;
 
 // Add styles

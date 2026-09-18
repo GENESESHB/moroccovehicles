@@ -18,6 +18,14 @@ const ContractFormPopup = ({
   const [currentStep, setCurrentStep] = useState(1);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Calculate total price when dates, vehicle, or any cost changes
   useEffect(() => {
@@ -129,7 +137,7 @@ const ContractFormPopup = ({
   const renderStep1 = () => (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
       gap: '20px',
       marginBottom: '25px'
     }}>
@@ -566,7 +574,7 @@ const ContractFormPopup = ({
   const renderStep2 = () => (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
       gap: '20px',
       marginBottom: '25px'
     }}>
@@ -1384,14 +1392,14 @@ const ContractFormPopup = ({
       justifyContent: 'center',
       alignItems: 'center',
       zIndex: 1000,
-      padding: '20px'
+      padding: isMobile ? '10px 5px' : '20px'
     }}>
       <div style={{
         backgroundColor: '#FFFFFF',
         borderRadius: '12px',
         width: '100%',
         maxWidth: '1400px',
-        maxHeight: '90vh',
+        maxHeight: isMobile ? '95vh' : '90vh',
         overflow: 'hidden',
         boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2)',
         display: 'flex',
@@ -1402,21 +1410,21 @@ const ContractFormPopup = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '20px 30px',
+          padding: isMobile ? '14px 16px' : '20px 30px',
           backgroundColor: isEditing ? '#FFB300' : '#4CAF50',
           color: '#FFFFFF'
         }}>
           <div>
             <h2 style={{ 
               margin: 0, 
-              fontSize: '24px',
+              fontSize: isMobile ? '18px' : '24px',
               fontWeight: '600'
             }}>
               {isEditing ? 'Modifier le Contrat' : 'Créer un Nouveau Contrat'}
             </h2>
             <p style={{ 
               margin: '5px 0 0 0', 
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               opacity: 0.9
             }}>
               {currentStep === 1 && "Étape 1: Informations du client"}
@@ -1455,7 +1463,7 @@ const ContractFormPopup = ({
         <div style={{
           flex: 1,
           overflowY: 'auto',
-          padding: '0 30px 30px'
+          padding: isMobile ? '0 12px 16px' : '0 30px 30px'
         }}>
           <form onSubmit={handleSubmit}>
             {currentStep === 1 && renderStep1()}
