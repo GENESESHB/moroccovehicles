@@ -1,153 +1,466 @@
 // src/app/louer-voiture-maroc-sans-frais-livraison/page.js
+import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Louer Voiture Maroc Sans Frais de Livraison | Edition 2026 | MoroccoVehicles',
-  description: 'Louez une voiture au Maroc sans frais de livraison caches. Remise gratuite a l aeroport, a l hotel ou au port. Prix transparent des 7 EUR par jour a Casablanca, Marrakech, Rabat, Agadir, Tanger, Fes.',
-  keywords: ['louer voiture maroc sans livraison', 'location voiture maroc sans frais livraison', 'voiture maroc pas cher livraison gratuite', 'location sans depot livraison maroc 2026'],
+  title: "Louer Voiture Maroc Sans Frais Livraison | Des 7 EUR | MoroccoVehicles",
+  description: "Guide et reservation pour louer voiture maroc sans frais livraison a Casablanca, Marrakech, Tanger et Fes. Zero surtaxe aeroport, contrat net et assistance 24/7.",
+  keywords: [
+    "louer voiture maroc sans frais livraison",
+    "louer voiture maroc sans frais livraison 2026",
+    "louer voiture maroc sans frais livraison aeroport",
+    "louer voiture maroc sans frais livraison sans frais",
+    "louer voiture maroc sans frais livraison avis",
+    "location voiture maroc",
+    "moroccovehicles"
+  ],
   openGraph: {
-    title: 'Louer Voiture Maroc Sans Frais de Livraison - MoroccoVehicles',
-    description: 'Zero frais de livraison au Maroc. Des 7 EUR par jour, livraison gratuite a l aeroport, hotel ou port.',
-    url: 'https://moroccovehicles.com/louer-voiture-maroc-sans-frais-livraison',
-    siteName: 'MoroccoVehicles',
-    locale: 'fr_MA',
-    type: 'website',
+    title: "Louer Voiture Maroc Sans Frais Livraison | Des 7 EUR | MoroccoVehicles",
+    description: "Guide et reservation pour louer voiture maroc sans frais livraison a Casablanca, Marrakech, Tanger et Fes. Zero surtaxe aeroport, contrat net et assistance 24/7.",
+    url: "https://moroccovehicles.com/louer-voiture-maroc-sans-frais-livraison",
+    siteName: "MoroccoVehicles",
+    locale: "fr_MA",
+    type: "article",
   },
-  alternates: { canonical: 'https://moroccovehicles.com/louer-voiture-maroc-sans-frais-livraison' },
-  robots: { index: true, follow: true },
+  alternates: {
+    canonical: "https://moroccovehicles.com/louer-voiture-maroc-sans-frais-livraison",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-export default function SansLivraisonPage() {
-  const cities = [
-    { name: 'Casablanca', airport: 'Mohammed V (CMN)', price: '7 EUR', tag: 'Axe Economique' },
-    { name: 'Marrakech', airport: 'Menara (RAK)', price: '7 EUR', tag: 'Axe Touristique' },
-    { name: 'Agadir', airport: 'Al Massira (AGA)', price: '7 EUR', tag: 'Cote Atlantique' },
-    { name: 'Rabat', airport: 'Rabat-Sale (RBA)', price: '7 EUR', tag: 'Capitale Administrative' },
-    { name: 'Tanger', airport: 'Ibn Batouta (TNG) / Port Tanger Med', price: '7 EUR', tag: 'Porte du Nord' },
-    { name: 'Fes', airport: 'Fes-Saiss (FEZ)', price: '7 EUR', tag: 'Centre Historique' },
-    { name: 'Essaouira', airport: 'Mogador (ESU)', price: '9 EUR', tag: 'Littoral Ouest' },
-    { name: 'Ouarzazate', airport: 'Moulay Ali Cherif', price: '10 EUR', tag: 'Sud & Portes du Desert' },
-  ];
+const vehicles = [
+  {
+    "name": "Dacia Logan Diesel",
+    "price": "7 EUR",
+    "autonomy": "950 km",
+    "charge": "Gazole 5L/100",
+    "seats": 5,
+    "type": "Berline Economique"
+  },
+  {
+    "name": "Renault Clio 5",
+    "price": "9 EUR",
+    "autonomy": "880 km",
+    "charge": "Essence 5.2L/100",
+    "seats": 5,
+    "type": "Citadine Confort"
+  },
+  {
+    "name": "Dacia Duster 4x2",
+    "price": "14 EUR",
+    "autonomy": "1050 km",
+    "charge": "Diesel Polyvalent",
+    "seats": 5,
+    "type": "SUV Familial"
+  },
+  {
+    "name": "Hyundai i10",
+    "price": "8 EUR",
+    "autonomy": "750 km",
+    "charge": "Essence Urbaine",
+    "seats": 5,
+    "type": "Micro Citadine"
+  }
+];
 
-  const advantages = [
-    { title: 'Zero Frais Caches', desc: 'Pas de taxe d aeroport imprevue, pas de frais de prise en charge nocturne. Le montant confirme sur votre bon de commande correspond exactement au montant du contrat.' },
-    { title: 'Livraison sur Mesure', desc: 'Prise en charge directement a la sortie du terminal aeroportuaire, a votre hotel, riad ou gare ferroviaire ONCF sans deplacement inutile.' },
-    { title: 'Disponibilite 24h/24 et 7j/7', desc: 'Nos coordinateurs s adaptent aux retards de vols grace au suivi en direct des numeros de vol pour vous remettre les cles des votre atterrissage.' },
-    { title: 'Paiement Flexible', desc: 'Reglement par carte bancaire securisee, virement bancaire ou especes lors de la remise des cles avec recu officiel.' },
-    { title: 'Assurance et Assistance 24/7', desc: 'Assurance comprise des la signature du contrat, avec assistance remorquage sur l ensemble du reseau routier marocain.' },
-    { title: 'Coordination Directe WhatsApp', desc: 'Echange direct avec l agent assigne a votre remise de cles pour une coordination sans attente.' },
-  ];
+const faqs = [
+  {
+    "q": "Est-il possible d obtenir une livraison offerte meme apres minuit ?",
+    "a": "Oui, nos equipes assurent les livraisons a toute heure sans appliquer de surtaxe de vol nocturne ou de retard."
+  },
+  {
+    "q": "La remise a mon riad en medina est-elle couverte ?",
+    "a": "Nous remettons le vehicule au parking securise le plus proche de la porte de votre riad sans cout supplementaire."
+  },
+  {
+    "q": "Quels documents dois-je presenter pour finaliser le contrat ?",
+    "a": "Votre passeport ou CIN marocaine en cours de validite et un permis de conduire valide depuis plus de 12 mois."
+  },
+  {
+    "q": "La restitution inter-villes engendre-t-elle des frais de convoyage ?",
+    "a": "La restitution dans une autre ville majeure est organisee simplement sans frais excessifs sur demande prealable."
+  }
+];
 
-  const neighborLinks = [
-    { name: 'Voitures electriques Maroc', href: '/voiture-electrique-location-maroc' },
-    { name: 'Location a 7 EUR sans livraison', href: '/location-voiture-maroc-7-euro-sans-livraison' },
-    { name: 'Casablanca pas cher', href: '/location-voiture-casablanca-pas-cher' },
-    { name: 'Casablanca sans caution', href: '/location-voiture-casablanca-7-euro-sans-caution' },
-    { name: 'Marrakech pas cher', href: '/location-voiture-marrakech-pas-cher' },
-    { name: 'Marrakech sans caution', href: '/location-voiture-marrakech-7-euro-sans-caution' },
-    { name: 'Tanger pas cher', href: '/location-voiture-tanger-pas-cher' },
-    { name: 'Rabat pas cher', href: '/location-voiture-rabat-pas-cher' },
-    { name: 'Fes pas cher', href: '/location-voiture-fes-pas-cher' },
-    { name: 'Fes sans caution', href: '/location-voiture-fes-7-euro-sans-caution' },
-    { name: 'Agadir pas cher', href: '/location-voiture-agadir-pas-cher' },
-    { name: 'Partenaires B2B Flotte', href: '/blogs/partenaires-b2b-power-gestionair-flotte-automobile-moins-chere' },
-  ];
+const neighborLinks = [
+  {
+    "name": "Voiture Electrique Maroc",
+    "href": "/voiture-electrique-location-maroc"
+  },
+  {
+    "name": "Sans Frais de Livraison Maroc",
+    "href": "/louer-voiture-maroc-sans-frais-livraison"
+  },
+  {
+    "name": "Maroc 7 Euro Sans Livraison",
+    "href": "/location-voiture-maroc-7-euro-sans-livraison"
+  },
+  {
+    "name": "Casablanca Pas Cher",
+    "href": "/location-voiture-casablanca-pas-cher"
+  },
+  {
+    "name": "Casablanca 7 Euro Sans Caution",
+    "href": "/location-voiture-casablanca-7-euro-sans-caution"
+  },
+  {
+    "name": "Marrakech Pas Cher",
+    "href": "/location-voiture-marrakech-pas-cher"
+  },
+  {
+    "name": "Marrakech 7 Euro Sans Caution",
+    "href": "/location-voiture-marrakech-7-euro-sans-caution"
+  },
+  {
+    "name": "Tanger Pas Cher",
+    "href": "/location-voiture-tanger-pas-cher"
+  },
+  {
+    "name": "Rabat Pas Cher",
+    "href": "/location-voiture-rabat-pas-cher"
+  },
+  {
+    "name": "Fes Pas Cher",
+    "href": "/location-voiture-fes-pas-cher"
+  },
+  {
+    "name": "Fes 7 Euro Sans Caution",
+    "href": "/location-voiture-fes-7-euro-sans-caution"
+  },
+  {
+    "name": "Agadir Pas Cher",
+    "href": "/location-voiture-agadir-pas-cher"
+  },
+  {
+    "name": "Guide Expert Maroc 2026",
+    "href": "/blogs/guide-expert-location-voiture-maroc-experience-terrain-2026"
+  }
+];
+
+export default function DestinationLandingPage() {
+  const jsonLdBlog = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: 'Louer Voiture Maroc Sans Frais Livraison : Zero Frais Aeroport et Transparence Totale',
+    description: 'Guide et reservation pour louer voiture maroc sans frais livraison a Casablanca, Marrakech, Tanger et Fes. Zero surtaxe aeroport, contrat net et assistance 24/7.',
+    author: {
+      '@type': 'Organization',
+      name: 'MoroccoVehicles',
+      url: 'https://moroccovehicles.com'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'MoroccoVehicles',
+      url: 'https://moroccovehicles.com'
+    },
+    datePublished: '2026-01-15T09:00:00+01:00',
+    dateModified: '2026-03-20T11:00:00+01:00',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://moroccovehicles.com/louer-voiture-maroc-sans-frais-livraison'
+    }
+  };
+
+  const jsonLdFaq = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a
+      }
+    }))
+  };
 
   return (
-    <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#1e293b', fontFamily: 'Inter, sans-serif' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 40px', maxWidth: '1200px', margin: '0 auto', borderBottom: '1px solid #e2e8f0', background: '#fff', borderRadius: '12px', marginTop: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <span style={{ width: '38px', height: '38px', borderRadius: '10px', background: '#16a34a', color: '#fff', fontWeight: '800', fontSize: '16px', display: 'grid', placeItems: 'center' }}>M.</span>
-          <span style={{ color: '#0f172a', fontWeight: '700', fontSize: '18px' }}>MoroccoVehicles</span>
-        </Link>
-        <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-          <Link href="/" style={{ color: '#64748b', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}>Accueil</Link>
-          <Link href="/tarifs" style={{ color: '#64748b', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}>Tarifs</Link>
-          <Link href="/booking" style={{ color: '#64748b', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}>Reservation</Link>
-          <a href="https://wa.me/212622283559" style={{ background: '#16a34a', color: '#fff', textDecoration: 'none', padding: '10px 20px', borderRadius: '8px', fontSize: '14px', fontWeight: '700' }}>Contact WhatsApp</a>
-        </nav>
-      </header>
+    <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#1e293b', fontFamily: 'Inter, system-ui, sans-serif' }}>
+      
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBlog) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+      />
 
-      <section style={{ padding: '70px 20px', textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-        <span style={{ background: '#dcfce7', color: '#166534', padding: '6px 14px', borderRadius: '999px', fontSize: '12px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '16px', display: 'inline-block' }}>Transparence Tarifaire Garantie</span>
-        <h1 style={{ fontSize: 'clamp(28px,5vw,50px)', fontWeight: '900', lineHeight: 1.15, marginBottom: '20px' }}>
-          Louer une Voiture au <span style={{ color: '#16a34a' }}>Maroc</span><br />
-          <span style={{ color: '#0f172a' }}>Sans Frais de Livraison - Des 7 EUR par jour</span>
+      {/* Hero Section */}
+      <section style={{ padding: '60px 20px 40px', textAlign: 'center', maxWidth: '1050px', margin: '0 auto' }}>
+        <div style={{ display: 'inline-block', background: '#dcfce7', color: '#166534', padding: '6px 16px', borderRadius: '999px', fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '20px', letterSpacing: '0.5px' }}>
+          Livraison Gratuite 2026
+        </div>
+        
+        <h1 style={{ fontSize: 'clamp(28px, 4.5vw, 48px)', fontWeight: '900', lineHeight: 1.2, color: '#0f172a', marginBottom: '22px' }}>
+          Louer Voiture Maroc Sans Frais Livraison : Zero Frais Aeroport et Transparence Totale
         </h1>
-        <p style={{ fontSize: '18px', color: '#475569', lineHeight: 1.7, marginBottom: '32px' }}>
-          Alors que les centrales de reservation intermediaires facturent generalement 200 a 400 MAD de frais de livraison en dehors des comptoirs d agence, chez MoroccoVehicles la mise a disposition est 100% gratuite.
+        
+        <p style={{ fontSize: '19px', color: '#475569', lineHeight: 1.7, maxWidth: '850px', margin: '0 auto 32px', fontWeight: '500' }}>
+          Guide et reservation pour louer voiture maroc sans frais livraison a Casablanca, Marrakech, Tanger et Fes. Zero surtaxe aeroport, contrat net et assistance 24/7. Profitez d une reservation transparente pour votre <strong>louer voiture maroc sans frais livraison</strong> avec assistance 24/7 et remise de cles sans attente.
         </p>
+        
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/booking" style={{ background: '#16a34a', color: '#fff', textDecoration: 'none', padding: '16px 36px', borderRadius: '12px', fontSize: '16px', fontWeight: '700', boxShadow: '0 8px 24px rgba(22,163,74,.25)' }}>
-            Reserver Sans Frais de Livraison
+          <Link
+            href="/booking"
+            style={{
+              background: '#16a34a',
+              color: '#ffffff',
+              textDecoration: 'none',
+              padding: '16px 36px',
+              borderRadius: '12px',
+              fontSize: '16px',
+              fontWeight: '700',
+              boxShadow: '0 10px 25px rgba(22, 163, 74, 0.25)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Lancer ma Reservation
           </Link>
-          <a href="https://wa.me/212622283559" style={{ background: '#fff', border: '2px solid #16a34a', color: '#16a34a', textDecoration: 'none', padding: '16px 36px', borderRadius: '12px', fontSize: '16px', fontWeight: '700' }}>
-            Assistance WhatsApp
+          <a
+            href="https://wa.me/212622283559"
+            style={{
+              background: '#ffffff',
+              border: '2px solid #cbd5e1',
+              color: '#0f172a',
+              textDecoration: 'none',
+              padding: '16px 32px',
+              borderRadius: '12px',
+              fontSize: '16px',
+              fontWeight: '700',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Assistance WhatsApp Directe
           </a>
         </div>
       </section>
 
-      <section style={{ padding: '0 20px 80px', maxWidth: '1100px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '40px' }}>Livraison Gratuite dans Toutes les Grandes Villes du Maroc</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))', gap: '20px' }}>
-          {cities.map((c) => (
-            <div key={c.name} style={{ background: '#fff', borderRadius: '14px', padding: '24px', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', border: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <span style={{ fontSize: '11px', fontWeight: '700', color: '#16a34a', textTransform: 'uppercase' }}>{c.tag}</span>
-                <div style={{ fontWeight: '800', fontSize: '18px', color: '#0f172a', marginTop: '4px' }}>{c.name}</div>
-                <div style={{ fontSize: '12px', color: '#64748b' }}>{c.airport}</div>
-                <div style={{ fontSize: '12px', color: '#16a34a', fontWeight: '700', marginTop: '6px' }}>Livraison Gratuite 7j/7</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '24px', fontWeight: '900', color: '#16a34a' }}>des {c.price}</div>
-                <div style={{ fontSize: '11px', color: '#94a3b8' }}>par jour</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section style={{ background: '#fff', padding: '80px 20px', borderTop: '1px solid #e2e8f0' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '48px' }}>Les Engagements de Service MoroccoVehicles</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '32px' }}>
-            {advantages.map(({ title, desc }) => (
-              <div key={title} style={{ padding: '20px', borderRadius: '12px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
-                <h3 style={{ fontSize: '17px', fontWeight: '700', marginBottom: '8px', color: '#0f172a' }}>{title}</h3>
-                <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.6, margin: 0 }}>{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '80px 20px', maxWidth: '750px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '26px', fontWeight: '800', textAlign: 'center', marginBottom: '32px' }}>Tableau Comparatif des Pratiques Locatives</h2>
-        <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', border: '1px solid #e2e8f0' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', background: '#0f172a', color: '#fff', padding: '16px 24px', fontWeight: '700', fontSize: '14px' }}>
-            <span>Prestation</span><span style={{ textAlign: 'center' }}>Agences Ordinaires</span><span style={{ textAlign: 'center', color: '#4ade80' }}>MoroccoVehicles</span>
-          </div>
+      {/* Trust Highlights Bar */}
+      <section style={{ background: '#0f172a', padding: '36px 20px', margin: '40px 0 60px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px', textAlign: 'center' }}>
           {[
-            ['Livraison Aeroport & Gare', '200 a 450 MAD', 'Gratuit'],
-            ['Calcul des Litres Carburant', 'Estimation arbitraire', 'Jauge numerique precise'],
-            ['Caution & Depot', 'Debit physique 5000+ MAD', 'Empreinte non debitee'],
-            ['Kilometrage Journalier', 'Souvent plafonne', 'Kilometrage illimite'],
-            ['Assistance Routiere', 'Option payante', 'Incluse 24/7'],
-            ['Support Client', 'Horaires de bureau', 'Coordination continue 24/7'],
-          ].map(([service, other, us], i) => (
-            <div key={service} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', padding: '14px 24px', background: i % 2 === 0 ? '#f8fafc' : '#fff', fontSize: '14px', borderBottom: '1px solid #e2e8f0' }}>
-              <span style={{ fontWeight: '600' }}>{service}</span>
-              <span style={{ textAlign: 'center', color: '#dc2626' }}>{other}</span>
-              <span style={{ textAlign: 'center', color: '#16a34a', fontWeight: '700' }}>{us}</span>
+            ['Des 7 EUR / jour', 'Tarif web transparent'],
+            ['0 MAD Livraison', 'Aeroport et gare inclus'],
+            ['Kilometrage Illimite', 'Explorez tout le Maroc'],
+            ['Assistance 24/7', 'Equipe terrain reactive']
+          ].map(([title, subtitle]) => (
+            <div key={title}>
+              <div style={{ fontSize: '26px', fontWeight: '900', color: '#4ade80' }}>{title}</div>
+              <div style={{ fontSize: '14px', color: '#94a3b8', marginTop: '4px' }}>{subtitle}</div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* Fleet Showcase Grid */}
+      <section style={{ padding: '0 20px 70px', maxWidth: '1150px', margin: '0 auto' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '12px', color: '#0f172a' }}>
+          Vehicules Disponibles pour Votre louer voiture maroc sans frais livraison
+        </h2>
+        <p style={{ textAlign: 'center', color: '#64748b', fontSize: '16px', marginBottom: '40px' }}>
+          Tous nos vehicules sont rigoureusement controles, climatises et garantis sans mauvaise surprise.
+        </p>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
+          {vehicles.map((v) => (
+            <div
+              key={v.name}
+              style={{
+                background: '#ffffff',
+                borderRadius: '16px',
+                padding: '24px',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+                border: '1px solid #e2e8f0',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+            >
+              <div>
+                <span style={{ fontSize: '12px', fontWeight: '700', color: '#16a34a', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+                  {v.type}
+                </span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '14px' }}>
+                  <h3 style={{ fontSize: '19px', fontWeight: '800', margin: 0, color: '#0f172a' }}>{v.name}</h3>
+                  <div style={{ textAlign: 'right' }}>
+                    <span style={{ fontSize: '22px', fontWeight: '900', color: '#16a34a' }}>{v.price}</span>
+                    <span style={{ fontSize: '12px', color: '#94a3b8' }}> /j</span>
+                  </div>
+                </div>
+                <div style={{ fontSize: '13px', color: '#64748b', marginBottom: '16px', lineHeight: 1.6 }}>
+                  <div>Autonomie : {v.autonomy}</div>
+                  <div>Specification : {v.charge}</div>
+                  <div>Places : {v.seats} personnes</div>
+                  <div>Assurance : Incluse au tiers</div>
+                </div>
+              </div>
+              <Link
+                href="/booking"
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  background: '#0f172a',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  padding: '12px',
+                  borderRadius: '10px',
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  transition: 'background 0.2s ease'
+                }}
+              >
+                Choisir ce vehicule
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Main Expert Blog / Guide Article */}
+      <section style={{ background: '#ffffff', padding: '80px 20px', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+        <article style={{ maxWidth: '900px', margin: '0 auto', lineHeight: '1.8', color: '#334155', fontSize: '17px' }}>
+          
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'center', marginBottom: '32px', borderBottom: '1px solid #f1f5f9', paddingBottom: '20px', fontSize: '14px', color: '#64748b' }}>
+            <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: '#16a34a', color: '#fff', fontWeight: '800', display: 'grid', placeItems: 'center', fontSize: '16px' }}>
+              MV
+            </div>
+            <div>
+              <div style={{ fontWeight: '700', color: '#0f172a' }}>Equipe Technique & Terrain MoroccoVehicles</div>
+              <div style={{ fontSize: '13px' }}>Guide et retour d experience terrain 2026 - Temps de lecture : 11 minutes</div>
+            </div>
+          </div>
+
+          <h2 style={{ fontSize: '30px', fontWeight: '900', color: '#0f172a', marginBottom: '24px', lineHeight: 1.3 }}>
+            Les avantages de louer voiture maroc sans frais livraison a l aeroport ou a l hotel
+          </h2>
+
+          <p style={{ marginBottom: '22px' }}>
+            La premiere heure passee dans un pays etranger donne le ton de tout le sejour. Devoir negocier au comptoir ou decouvrir des lignes tarifaires occultes genere une frustration bien comprehensible que nous eliminons categoriquement.
+          </p>
+
+          <p style={{ marginBottom: '22px' }}>
+            Pour reussir vos vacances en toute serenite, louer voiture maroc sans frais livraison vous assure une depose personnalisee des la sortie du terminal ou devant le perron de votre hotel sans surcout d acheminement.
+          </p>
+
+          <p style={{ marginBottom: '22px' }}>
+            Nos equipes interviennent dans tous les hubs nationaux : Casablanca Mohammed V, Marrakech Menara, Tanger Ibn Battouta, Rabat-Sale, Fes-Saiss et Agadir Al Massira, ainsi que les gares ferroviaires ONCF.
+          </p>
+
+          <p style={{ marginBottom: '26px' }}>
+            Ce protocole sans taxe de convoyage s applique egalement pour les restitutions de vehicule : vous deposez votre auto au meme endroit sans surtaxe d enregistrement.
+          </p>
+
+          {/* Section Retour d Experience Reel */}
+          <div style={{ background: '#f8fafc', borderLeft: '4px solid #16a34a', padding: '28px', borderRadius: '0 12px 12px 0', margin: '36px 0' }}>
+            <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#0f172a', marginTop: 0, marginBottom: '14px' }}>
+              1. Retour d experience vecu : La mauvaise surprise des 400 MAD de livraison factures en pleine nuit a l aeroport
+            </h3>
+            <p style={{ marginBottom: '16px', color: '#334155' }}>
+              A l automne 2024, deux collegues atterrissaient a Marrakech Menara a 23h30 pour un sejour professionnel. Ils avaient reserve chez un loueur low-cost attirant sur internet avec un prix d appel de dix euros. A la remise des cles, l employe sur place leur a impose 250 MAD pour horaire nocturne et 150 MAD de parking, soit 400 MAD de surtaxe immediate a regler sans recours.
+            </p>
+            <p style={{ marginBottom: '16px', color: '#334155' }}>
+              Cette mesaventure illustre les abus trop frequents qui gachent l arrivee des touristes et hommes d affaires au Royaume. Notre engagement est formel : notre politique de prise en main signifie precisement zero centime en sus, de jour comme au beau milieu de la nuit dans tous les grands terminaux.
+            </p>
+            <p style={{ margin: 0, color: '#334155' }}>
+              Nos coordinateurs locaux surveillent les horaires des vols en temps reel grace aux numeros de suivi. Des l atterrissage de votre appareil, votre vehicule est deja stationne sur le parking de courtoisie et les cles vous sont remises sans attente ni frais annexes.
+            </p>
+          </div>
+
+          <p style={{ marginBottom: '22px' }}>
+            Cette histoire vecue resume exactement pourquoi nous avons concu notre offre de <strong>louer voiture maroc sans frais livraison</strong> autour de principes stricts de transparence. Trop d agences traditionnelles attirent les locataires avec un montant d appel factice pour ensuite facturer des frais annexes arbitraires. En reservant directement aupres de notre portail, vous avez l assurance d un contrat net, sans frais caches et sans surprise.
+          </p>
+
+          <h3 style={{ fontSize: '24px', fontWeight: '800', color: '#0f172a', marginTop: '40px', marginBottom: '16px' }}>
+            Organisation logistique pour louer voiture maroc sans frais livraison
+          </h3>
+
+          <p style={{ marginBottom: '22px' }}>
+            Pour garantir la viabilite de notre service de distribution sans frais, nous avons automatise la gestion contractuelle sur smartphone et tablette, ce qui supprime les charges de structures fixes superflues.
+          </p>
+
+          <p style={{ marginBottom: '22px' }}>
+            Lorsque vous confirmez votre reservation aupres de MoroccoVehicles, un inspecteur qualifie vous remet un etat descriptif contradictoire detaille avec photos horodatees de chaque coin de carrosserie.
+          </p>
+
+          <p style={{ marginBottom: '22px' }}>
+            Dans la gestion continue de notre parc de <strong>louer voiture maroc sans frais livraison</strong>, nous constatons que la clarte administrative est la premiere attente des voyageurs. Un contrat clair, une inspection de carrosserie certifiee sur tablette avec photos horodatees et la remise immediate d un double numerique permettent de demarrer son periple l esprit totalement serein.
+          </p>
+
+          <h3 style={{ fontSize: '24px', fontWeight: '800', color: '#0f172a', marginTop: '40px', marginBottom: '16px' }}>
+            Comparatif tarifaire : Pourquoi louer voiture maroc sans frais livraison chez nous
+          </h3>
+
+          <p style={{ marginBottom: '22px' }}>
+            Tandis que la concurrence ajoute regulierement entre 250 et 450 MAD selon les creneaux horaires ou les dimanches, notre devis initial demeure absolument ferme du premier au dernier jour de votre voyage.
+          </p>
+
+          <p style={{ marginBottom: '22px' }}>
+            Chaque reservation direct chez MoroccoVehicles comprend en outre l assurance au tiers, l assistance 24/7 et le kilometrage illimite pour decouvrir le Maroc sans bride.
+          </p>
+
+          <p style={{ marginBottom: '26px' }}>
+            La maitrise des couts operationnels est la cle de notre positionnement. En eliminant les commissions des centrales de reservation etrangeres, nous pouvons reinvestir directement dans l entretien rigoureux de notre parc tout en garantissant des tarifs hautement competitifs sur le marche marocain.
+          </p>
+
+          {/* Strategic Checklist Box */}
+          <div style={{ background: '#f1f5f9', padding: '28px', borderRadius: '12px', margin: '40px 0', border: '1px solid #e2e8f0' }}>
+            <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#0f172a', marginTop: 0, marginBottom: '12px' }}>
+              Checklist Conseils Terrain MoroccoVehicles pour Votre Sejour
+            </h4>
+            <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8 }}>
+              <li>Verifiez toujours la validite de votre permis de conduire (au moins 12 mois d anciennete requis).</li>
+              <li>Exigez un etat des lieux contradictoire numerise au depart pour votre contrat de <strong>louer voiture maroc sans frais livraison</strong>.</li>
+              <li>Privilegiez le pass Jawaz pour franchir les peages des autoroutes ADM sans file d attente.</li>
+              <li>Enregistrez le numero de notre assistance continue 24/7 dans votre telephone portable des la remise des cles.</li>
+              <li>Restituez le vehicule avec le meme niveau d energie ou de carburant stipule sur le contrat initial.</li>
+            </ul>
+          </div>
+
+          <p style={{ marginBottom: '0' }}>
+            En conclusion, que vous veniez pour des vacances en famille, un road trip cotier ou des reunions d affaires, opter pour notre formule de <strong>louer voiture maroc sans frais livraison</strong> vous assure une mobilite fluide, economique et fiable sur toutes les routes du Royaume.
+          </p>
+
+        </article>
+      </section>
+
+      {/* FAQ Section */}
+      <section style={{ padding: '80px 20px', maxWidth: '850px', margin: '0 auto' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '800', textAlign: 'center', marginBottom: '12px', color: '#0f172a' }}>
+          Questions Frequentes Pratiques
+        </h2>
+        <p style={{ textAlign: 'center', color: '#64748b', fontSize: '16px', marginBottom: '40px' }}>
+          Toutes les reponses claires a vos questions pratiques avant de reserver votre vehicule.
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {faqs.map(({ q, a }) => (
+            <div
+              key={q}
+              style={{
+                background: '#ffffff',
+                padding: '24px',
+                borderRadius: '12px',
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)',
+                border: '1px solid #e2e8f0'
+              }}
+            >
+              <h3 style={{ fontSize: '17px', fontWeight: '700', marginBottom: '8px', color: '#0f172a' }}>{q}</h3>
+              <p style={{ fontSize: '15px', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Internal Linking Mesh across Moroccan Destinations */}
       <section style={{ background: '#f1f5f9', padding: '60px 20px', borderTop: '1px solid #e2e8f0' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '22px', fontWeight: '800', textAlign: 'center', marginBottom: '24px', color: '#0f172a' }}>
-            Consultez les Guides et Offres par Destination
+            Consultez Nos Autres Guides & Destinations au Maroc
           </h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
             {neighborLinks.map((item) => (
@@ -155,14 +468,15 @@ export default function SansLivraisonPage() {
                 key={item.href}
                 href={item.href}
                 style={{
-                  background: '#fff',
+                  background: '#ffffff',
                   border: '1px solid #cbd5e1',
                   color: '#334155',
                   padding: '10px 16px',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   fontSize: '13px',
-                  fontWeight: '600'
+                  fontWeight: '600',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 {item.name}
@@ -172,9 +486,6 @@ export default function SansLivraisonPage() {
         </div>
       </section>
 
-      <footer style={{ background: '#0f172a', color: '#94a3b8', textAlign: 'center', padding: '28px 20px', fontSize: '13px' }}>
-        2026 MoroccoVehicles - Service de location automobile transparent au Maroc. <Link href="/privacy" style={{ color: '#94a3b8', textDecoration: 'underline' }}>Confidentialite</Link> - <Link href="/terms" style={{ color: '#94a3b8', textDecoration: 'underline' }}>Conditions Generales</Link>
-      </footer>
     </div>
   );
 }
