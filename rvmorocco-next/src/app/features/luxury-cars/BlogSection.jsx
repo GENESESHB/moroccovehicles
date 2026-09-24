@@ -1,9 +1,28 @@
-import React from 'react';
+'use client';
 
-export default function BlogSection() {
+import React, { useRef, useEffect } from 'react';
+
+export default function BlogSectionLuxuryCars() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Force la lecture automatique silencieuse côté client
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((error) => {
+        console.log("Autoplay bloqué par le navigateur :", error);
+      });
+    }
+  }, []);
+
   return (
     <article className="blog-section" style={{ padding: '60px 20px', maxWidth: '1000px', margin: '0 auto', fontFamily: 'Inter, system-ui, sans-serif', color: '#1e293b', lineHeight: '1.8' }}>
       
+      <a href="/blogs" style={{ color: '#0284c7', textDecoration: 'none', fontSize: '14px', fontWeight: '600', display: 'inline-block', marginBottom: '24px' }}>
+        ← Retour à tous les articles
+      </a>
+
       <span style={{ color: '#0284c7', fontWeight: '700', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '1px', display: 'block', marginBottom: '16px' }}>
         Dossier Technique & Retour d Experience
       </span>
@@ -31,6 +50,7 @@ export default function BlogSection() {
         <img 
           src="/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png" 
           alt="Gerer une flotte de prestige et voitures de luxe sur un gestionair flotte automobile moins chere" 
+          loading="lazy"
           style={{ width: '100%', display: 'block', maxHeight: '550px', objectFit: 'cover' }} 
         />
       </div>
@@ -48,7 +68,7 @@ export default function BlogSection() {
         Quand on dirige une agence au quotidien, qu il s agisse d une petite flotte de cinq citadines ou d un parc de plus de soixante voitures, la difference entre la reussite et l echec ne reside pas dans la chance. Elle repose sur la rigueur des outils digitaux. Trouver un <strong>gestionair flotte automobile moins chere</strong> capable de repondre a ces situations sans imposer des abonnements mensuels exorbitants est le premier levier de rentabilite durable pour un loueur independant.
       </p>
 
-      {/* Strategic Zoom Callout without Emojis */}
+      {/* Strategic Zoom Callout */}
       <div style={{ backgroundColor: '#f8fafc', padding: '26px', borderRadius: '12px', margin: '36px 0', border: '1px solid #e2e8f0', borderLeft: '4px solid #0f172a' }}>
         <h3 style={{ fontSize: '20px', marginBottom: '12px', color: '#0f172a', fontWeight: '800' }}>
           Analyse Operationnelle : L Enjeu du Module LUXURY-CARS
@@ -81,7 +101,7 @@ export default function BlogSection() {
         La confiance est la cle de voute de la fidelisation. Lorsqu un client constate que son contrat est digitalise, signe sur tablette et accompagne d un releve photographique certifie, les contestations a la restitution disparaissent quasi integralement. Les loueurs utilisant ce gestionair flotte automobile moins chere constatent en moyenne une baisse de 90% des avis negatifs lies a la restitution des cautions.
       </p>
 
-      {/* Video Demonstration Section with Preserved Assets */}
+      {/* Video Demonstration Section */}
       <div style={{ margin: '50px 0', borderRadius: '20px', overflow: 'hidden', background: '#0f172a', position: 'relative', boxShadow: '0 25px 50px -15px rgba(0,0,0,0.25)', border: '1px solid #334155' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 22px', borderBottom: '1px solid #334155', background: 'rgba(255,255,255,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -103,18 +123,30 @@ export default function BlogSection() {
               thumbnailUrl: ['https://www.moroccovehicles.com/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png'],
               uploadDate: '2026-03-15T08:00:00+01:00',
               duration: 'PT3M30S',
-              contentUrl: 'https://www.moroccovehicles.com/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-smart-car-luxury-manager-all-feature-for-smart-car.mp4',
+              contentUrl: 'https://www.moroccovehicles.com/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-vehicles-components-add-delet-update-vehicles-and-active-or-desactive.mp4',
               embedUrl: 'https://www.moroccovehicles.com/blogs/luxury-cars-power-gestionair-flotte-automobile-moins-chere'
             })
           }}
         />
 
-        <div dangerouslySetInnerHTML={{
-          __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png" title="Demonstration du gestionair flotte automobile moins chere - Module LUXURY-CARS" style="display: block; width: 100%;">
-            <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-smart-car-luxury-manager-all-feature-for-smart-car.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la balise video.
-          </video>`
-        }} />
+        <video 
+          ref={videoRef}
+          width="100%" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          controls
+          poster="/compressed_videos/gere-les-voiture-add-remove-and-update-and-active-or-desactive.png" 
+          title="Demonstration du gestionair flotte automobile moins chere - Module LUXURY-CARS" 
+          style={{ display: 'block', width: '100%' }}
+        >
+          <source 
+            src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-vehicles-components-add-delet-update-vehicles-and-active-or-desactive.mp4" 
+            type="video/mp4" 
+          />
+          Votre navigateur ne supporte pas la balise video.
+        </video>
       </div>
 
       {/* Section 3: Return on Investment */}
@@ -133,7 +165,7 @@ export default function BlogSection() {
         Contrairement aux solutions logicielles fermees et onereuses concues pour des multinationales et inadaptees au tissu des loueurs au Maroc, notre plateforme a ete concue sur le terrain. Elle integre les specificites des matricules marocains, la conformite CNDP pour les CIN et passeports, ainsi que le mode multi-agences pour mutualiser vos opportunites de croissance avec notre gestionair flotte automobile moins chere.
       </p>
 
-      {/* Customer Review Block without Emojis */}
+      {/* Customer Review Block */}
       <div style={{ marginTop: '50px', borderTop: '1px solid #e2e8f0', paddingTop: '36px' }}>
         <h3 style={{ fontSize: '22px', marginBottom: '20px', color: '#0f172a', fontWeight: '800' }}>
           Temoignage Verifie de Gestionnaire

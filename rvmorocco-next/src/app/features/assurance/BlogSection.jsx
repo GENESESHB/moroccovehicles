@@ -35,7 +35,7 @@ export default function BlogSection() {
         />
       </div>
 
-      {/* Section 1: The True Story */}
+      {/* Section 1 */}
       <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#0f172a', borderLeft: '4px solid #0284c7', paddingLeft: '16px' }}>
         1. Retour d experience vecu : Le jour ou un defaut d assurance a failli couter 65 000 MAD a notre agence de Marrakech
       </h2>
@@ -48,7 +48,7 @@ export default function BlogSection() {
         Quand on dirige une agence au quotidien, qu il s agisse d une petite flotte de cinq citadines ou d un parc de plus de soixante voitures, la difference entre la reussite et l echec ne reside pas dans la chance. Elle repose sur la rigueur des outils digitaux. Trouver un <strong>gestionair flotte automobile moins chere</strong> capable de repondre a ces situations sans imposer des abonnements mensuels exorbitants est le premier levier de rentabilite durable pour un loueur independant.
       </p>
 
-      {/* Strategic Zoom Callout without Emojis */}
+      {/* Strategic Zoom Callout */}
       <div style={{ backgroundColor: '#f8fafc', padding: '26px', borderRadius: '12px', margin: '36px 0', border: '1px solid #e2e8f0', borderLeft: '4px solid #0f172a' }}>
         <h3 style={{ fontSize: '20px', marginBottom: '12px', color: '#0f172a', fontWeight: '800' }}>
           Analyse Operationnelle : L Enjeu du Module ASSURANCE
@@ -58,7 +58,7 @@ export default function BlogSection() {
         </p>
       </div>
 
-      {/* Section 2: Operational Reality */}
+      {/* Section 2 */}
       <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#0f172a', borderLeft: '4px solid #0284c7', paddingLeft: '16px' }}>
         2. Pourquoi l adoption d un gestionair flotte automobile moins chere transforme la gestion quotidienne
       </h2>
@@ -81,7 +81,7 @@ export default function BlogSection() {
         La confiance est la cle de voute de la fidelisation. Lorsqu un client constate que son contrat est digitalise, signe sur tablette et accompagne d un releve photographique certifie, les contestations a la restitution disparaissent quasi integralement. Les loueurs utilisant ce gestionair flotte automobile moins chere constatent en moyenne une baisse de 90% des avis negatifs lies a la restitution des cautions.
       </p>
 
-      {/* Video Demonstration Section with Preserved Assets */}
+      {/* Video Demonstration Section */}
       <div style={{ margin: '50px 0', borderRadius: '20px', overflow: 'hidden', background: '#0f172a', position: 'relative', boxShadow: '0 25px 50px -15px rgba(0,0,0,0.25)', border: '1px solid #334155' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 22px', borderBottom: '1px solid #334155', background: 'rgba(255,255,255,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -109,15 +109,26 @@ export default function BlogSection() {
           }}
         />
 
-        <div dangerouslySetInnerHTML={{
-          __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/insurance.png" title="Demonstration du gestionair flotte automobile moins chere - Module ASSURANCE" style="display: block; width: 100%;">
-            <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-assurance-setup-and-view-for-each-vehicles.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la balise video.
-          </video>`
-        }} />
+        {/* BALISE VIDEO CORRIGÉE */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+          poster="/compressed_videos/insurance.png"
+          title="Demonstration du gestionair flotte automobile moins chere - Module ASSURANCE"
+          style={{ display: 'block', width: '100%', borderRadius: '0 0 20px 20px' }}
+        >
+          <source 
+            src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-assurance-setup-and-view-for-each-vehicles.mp4" 
+            type="video/mp4" 
+          />
+          Votre navigateur ne supporte pas la balise video.
+        </video>
       </div>
 
-      {/* Section 3: Return on Investment */}
+      {/* Section 3 */}
       <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#0f172a', borderLeft: '4px solid #0284c7', paddingLeft: '16px' }}>
         3. Cas pratique et retour sur investissement mesure sur douze mois
       </h2>
@@ -133,7 +144,7 @@ export default function BlogSection() {
         Contrairement aux solutions logicielles fermees et onereuses concues pour des multinationales et inadaptees au tissu des loueurs au Maroc, notre plateforme a ete concue sur le terrain. Elle integre les specificites des matricules marocains, la conformite CNDP pour les CIN et passeports, ainsi que le mode multi-agences pour mutualiser vos opportunites de croissance avec notre gestionair flotte automobile moins chere.
       </p>
 
-      {/* Customer Review Block without Emojis */}
+      {/* Customer Review Block */}
       <div style={{ marginTop: '50px', borderTop: '1px solid #e2e8f0', paddingTop: '36px' }}>
         <h3 style={{ fontSize: '22px', marginBottom: '20px', color: '#0f172a', fontWeight: '800' }}>
           Temoignage Verifie de Gestionnaire

@@ -81,7 +81,7 @@ export default function BlogSection() {
         La confiance est la cle de voute de la fidelisation. Lorsqu un client constate que son contrat est digitalise, signe sur tablette et accompagne d un releve photographique certifie, les contestations a la restitution disparaissent quasi integralement. Les loueurs utilisant ce gestionair flotte automobile moins chere constatent en moyenne une baisse de 90% des avis negatifs lies a la restitution des cautions.
       </p>
 
-      {/* Video Demonstration Section with Preserved Assets */}
+      {/* Video Demonstration Section with Native JSX */}
       <div style={{ margin: '50px 0', borderRadius: '20px', overflow: 'hidden', background: '#0f172a', position: 'relative', boxShadow: '0 25px 50px -15px rgba(0,0,0,0.25)', border: '1px solid #334155' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 22px', borderBottom: '1px solid #334155', background: 'rgba(255,255,255,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -103,18 +103,29 @@ export default function BlogSection() {
               thumbnailUrl: ['https://www.moroccovehicles.com/compressed_videos/lists-noir.png'],
               uploadDate: '2026-03-15T08:00:00+01:00',
               duration: 'PT3M30S',
-              contentUrl: 'https://www.moroccovehicles.com/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-blacklist-search-client-cin-passport-add-client-and-remove-black-list.mp4',
+              contentUrl: 'https://www.moroccovehicles.com/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-black-list-components-checker.mp4',
               embedUrl: 'https://www.moroccovehicles.com/blogs/black-list-power-gestionair-flotte-automobile-moins-chere'
             })
           }}
         />
 
-        <div dangerouslySetInnerHTML={{
-          __html: `<video width="100%" autoplay loop muted playsinline poster="/compressed_videos/lists-noir.png" title="Demonstration du gestionair flotte automobile moins chere - Module BLACK-LIST" style="display: block; width: 100%;">
-            <source src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-blacklist-search-client-cin-passport-add-client-and-remove-black-list.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la balise video.
-          </video>`
-        }} />
+        {/* Fixed Video Player Component */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+          poster="/compressed_videos/lists-noir.png"
+          title="Demonstration du gestionair flotte automobile moins chere - Module BLACK-LIST"
+          style={{ display: 'block', width: '100%', borderRadius: '0 0 20px 20px' }}
+        >
+          <source 
+            src="/compressed_videos/moroccovehicles-location-sans-frais-de-livraison-gestion-de-parc-gratuite-black-list-components-checker.mp4" 
+            type="video/mp4" 
+          />
+          Votre navigateur ne supporte pas la balise video.
+        </video>
       </div>
 
       {/* Section 3: Return on Investment */}
